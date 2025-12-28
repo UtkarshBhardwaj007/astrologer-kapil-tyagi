@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Star, Quote, Phone, ExternalLink } from "lucide-react";
 import { testimonials, averageRating, totalReviews } from "@/data/testimonials";
-import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
+import { SITE_CONFIG, CONTACT_INFO, getImagePath } from "@/lib/constants";
 
 export default function ReviewsPage() {
   return (
@@ -149,7 +149,7 @@ export default function ReviewsPage() {
                 {/* QR Code */}
                 <div className="w-64 h-64 mx-auto bg-white rounded-lg flex items-center justify-center p-4">
                   <Image
-                    src="/images/qrcode.png"
+                    src={getImagePath("/images/qrcode.png")}
                     alt="QR Code to leave a review on Google Maps"
                     width={240}
                     height={240}
