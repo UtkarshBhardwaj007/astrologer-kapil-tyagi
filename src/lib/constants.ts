@@ -1,3 +1,9 @@
+// Helper function to get correct image path with basePath
+export const getImagePath = (path: string): string => {
+  const basePath = process.env.NODE_ENV === "production" ? "/astrologer-kapil-tyagi" : "";
+  return `${basePath}${path}`;
+};
+
 // Statistics Constants (centralized for easy updates)
 export const STATS = {
   yearsOfExperience: 25,

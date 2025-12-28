@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Award, BookOpen, Users, Star, Calendar } from "lucide-react";
-import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
+import { SITE_CONFIG, CONTACT_INFO, getImagePath } from "@/lib/constants";
 import { averageRating, yearsOfExperience, totalConsultations } from "@/data/testimonials";
 
 export default function AboutPage() {
@@ -64,7 +64,7 @@ export default function AboutPage() {
                 {/* Image */}
                 <div className="relative w-full h-full bg-[var(--background)] rounded-lg overflow-hidden border border-[var(--gold-muted)]">
                   <Image
-                    src="/images/about-me.jpeg"
+                    src={getImagePath("/images/about-me.jpeg")}
                     alt={`${SITE_CONFIG.name} - Vedic Astrologer`}
                     fill
                     className="object-cover object-top"

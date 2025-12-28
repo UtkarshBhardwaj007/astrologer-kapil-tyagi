@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Phone, Star, Calendar } from "lucide-react";
-import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
+import { SITE_CONFIG, CONTACT_INFO, getImagePath } from "@/lib/constants";
 import { serviceHighlights } from "@/data/services";
 import { averageRating, yearsOfExperience } from "@/data/testimonials";
 
@@ -116,7 +116,7 @@ export default function HeroSection() {
               {/* Image */}
               <div className="relative w-full h-full bg-[var(--background-secondary)] rounded-lg overflow-hidden border border-[var(--gold-muted)]">
                 <Image
-                  src="/images/homepage2.jpg"
+                  src={getImagePath("/images/homepage2.jpg")}
                   alt={`${SITE_CONFIG.name} - Vedic Astrologer`}
                   fill
                   className="object-cover object-top"
