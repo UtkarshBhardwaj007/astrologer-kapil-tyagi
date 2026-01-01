@@ -112,7 +112,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="text-[var(--primary)] group-hover:text-[var(--gold)] transition-colors">
+            <div className="text-[var(--gold)] group-hover:brightness-125 group-hover:scale-105 transition-all duration-300">
               <Logo size={48} />
             </div>
             <div className="hidden sm:block">
@@ -217,14 +217,17 @@ export default function Header() {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden text-[var(--gold)] p-2"
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile Menu Button and Language Selector */}
+          <div className="lg:hidden flex items-center gap-2">
+            <LanguageSelector variant="compact" />
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-[var(--gold)] p-2"
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -238,11 +241,6 @@ export default function Header() {
             className="lg:hidden bg-[var(--background-secondary)] border-t border-[var(--gold-muted)]"
           >
             <div className="container py-4 space-y-4">
-              {/* Language Selector for Mobile */}
-              <div className="pb-4 border-b border-[var(--gold-muted)]">
-                <LanguageSelector />
-              </div>
-              
               {NAV_LINKS.map((link) =>
                 link.hasDropdown && link.dropdownType === "services" ? (
                   <div key={link.href}>

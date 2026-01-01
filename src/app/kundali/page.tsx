@@ -8,52 +8,16 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function KundaliPage() {
   const { t } = useLanguage();
-  const houses = [
-    { number: "1st", name: "Lagna (Ascendant)", governs: "Self, personality, physical appearance" },
-    { number: "2nd", name: "Dhana Bhava", governs: "Wealth, family, speech" },
-    { number: "3rd", name: "Sahaja Bhava", governs: "Siblings, courage, short travels" },
-    { number: "4th", name: "Sukha Bhava", governs: "Mother, home, happiness" },
-    { number: "5th", name: "Putra Bhava", governs: "Children, creativity, education" },
-    { number: "6th", name: "Ari Bhava", governs: "Enemies, health issues, debts" },
-    { number: "7th", name: "Kalatra Bhava", governs: "Marriage, partnerships, spouse" },
-    { number: "8th", name: "Mrityu Bhava", governs: "Longevity, transformation, inheritance" },
-    { number: "9th", name: "Dharma Bhava", governs: "Fortune, religion, father" },
-    { number: "10th", name: "Karma Bhava", governs: "Career, status, public image" },
-    { number: "11th", name: "Labha Bhava", governs: "Gains, income, elder siblings" },
-    { number: "12th", name: "Vyaya Bhava", governs: "Losses, spirituality, foreign lands" },
-  ];
-
+  
+  const houseKeys = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+  
   const analysisAreas = [
-    {
-      icon: Star,
-      title: "Personality Analysis",
-      description: "Understanding your core traits, strengths, and areas of improvement based on planetary positions.",
-    },
-    {
-      icon: Briefcase,
-      title: "Career Guidance",
-      description: "Identifying suitable career paths, favorable periods for job changes, and business prospects.",
-    },
-    {
-      icon: Heart,
-      title: "Marriage Compatibility",
-      description: "Gun Milan, Manglik Dosha check, and timing predictions for marriage.",
-    },
-    {
-      icon: Sun,
-      title: "Dasha Analysis",
-      description: "Understanding current and upcoming planetary periods and their effects on your life.",
-    },
-    {
-      icon: Shield,
-      title: "Dosha Analysis",
-      description: "Identification of doshas like Manglik, Kaal Sarp, Pitra Dosha with effective remedies.",
-    },
-    {
-      icon: Moon,
-      title: "Transit Effects",
-      description: "How current planetary transits are affecting your chart and what to expect.",
-    },
+    { icon: Star, key: "personality" },
+    { icon: Briefcase, key: "career" },
+    { icon: Heart, key: "marriage" },
+    { icon: Sun, key: "dasha" },
+    { icon: Shield, key: "dosha" },
+    { icon: Moon, key: "transit" },
   ];
 
   return (
@@ -71,13 +35,12 @@ export default function KundaliPage() {
               <ScrollText size={40} className="text-[var(--gold)]" />
             </div>
             <h1 className="text-4xl md:text-5xl font-[var(--font-heading)] mb-6">
-              <span className="text-[var(--foreground)]">Kundali </span>
-              <span className="text-gradient-gold">Analysis</span>
+              <span className="text-[var(--foreground)]">{t("kundaliPage.heroTitle1")} </span>
+              <span className="text-gradient-gold">{t("kundaliPage.heroTitle2")}</span>
             </h1>
             <div className="gold-line w-24 mx-auto mb-6" />
             <p className="text-lg text-[var(--foreground-muted)] leading-relaxed">
-              Your birth chart is a cosmic snapshot of the sky at the moment of your birth. 
-              Decode its secrets to understand your life path, karma, and destiny.
+              {t("kundaliPage.heroDescription")}
             </p>
           </motion.div>
         </div>
@@ -94,26 +57,16 @@ export default function KundaliPage() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl font-[var(--font-heading)] mb-4">
-                <span className="text-[var(--foreground)]">What is a </span>
-                <span className="text-gradient-gold">Kundali?</span>
+                <span className="text-[var(--foreground)]">{t("kundaliPage.whatIsKundali")} </span>
+                <span className="text-gradient-gold">{t("kundaliPage.whatIsKundaliHighlight")}</span>
               </h2>
               <div className="gold-line-left w-16 mb-6" />
               
               <div className="space-y-4 text-[var(--foreground-muted)] leading-relaxed">
+                <p>{t("kundaliPage.whatIsKundaliDesc1")}</p>
+                <p>{t("kundaliPage.whatIsKundaliDesc2")}</p>
                 <p>
-                  A Kundali (also known as Janam Kundali, birth chart, or horoscope) is a 
-                  celestial map that captures the positions of all nine planets at the exact 
-                  time and place of your birth. This map is divided into 12 houses, each 
-                  governing different aspects of life.
-                </p>
-                <p>
-                  The positions of planets in these houses, their aspects (drishti), and 
-                  their conjunctions create a unique pattern that influences your personality, 
-                  relationships, career, health, and overall life journey.
-                </p>
-                <p>
-                  {t("common.siteName")} provides detailed Kundali analysis, examining all aspects 
-                  of your birth chart to provide insights and guidance for various life situations.
+                  {t("common.siteName")} {t("kundaliPage.whatIsKundaliDesc3")}
                 </p>
               </div>
             </motion.div>
@@ -126,16 +79,16 @@ export default function KundaliPage() {
               className="card p-8"
             >
               <h3 className="text-2xl font-[var(--font-heading)] text-[var(--gold)] mb-6 text-center">
-                Required Information
+                {t("kundaliPage.requiredInfo")}
               </h3>
               <p className="text-[var(--foreground-muted)] text-center mb-6">
-                To create an accurate Kundali, we need:
+                {t("kundaliPage.requiredInfoDesc")}
               </p>
               <div className="space-y-4">
                 {[
-                  { label: "Date of Birth", value: "Exact date (DD/MM/YYYY)" },
-                  { label: "Time of Birth", value: "As accurate as possible (HH:MM AM/PM)" },
-                  { label: "Place of Birth", value: "City, State, Country" },
+                  { label: t("kundaliPage.dateOfBirth"), value: t("kundaliPage.dateOfBirthValue") },
+                  { label: t("kundaliPage.timeOfBirth"), value: t("kundaliPage.timeOfBirthValue") },
+                  { label: t("kundaliPage.placeOfBirth"), value: t("kundaliPage.placeOfBirthValue") },
                 ].map((item, index) => (
                   <div key={index} className="flex justify-between items-center py-3 border-b border-[var(--gold-muted)]">
                     <span className="text-[var(--foreground)]">{item.label}</span>
@@ -144,7 +97,7 @@ export default function KundaliPage() {
                 ))}
               </div>
               <p className="text-xs text-[var(--foreground-muted)] mt-4 text-center">
-                * Accurate birth time is crucial for precise predictions
+                {t("kundaliPage.accurateNote")}
               </p>
             </motion.div>
           </div>
@@ -162,17 +115,17 @@ export default function KundaliPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">The 12 </span>
-              <span className="text-gradient-gold">Houses</span>
+              <span className="text-[var(--foreground)]">{t("kundaliPage.the12")} </span>
+              <span className="text-gradient-gold">{t("kundaliPage.houses")}</span>
             </h2>
             <div className="gold-line w-24 mx-auto mb-6" />
             <p className="text-[var(--foreground-muted)] max-w-2xl mx-auto">
-              Each house in your Kundali governs specific areas of life
+              {t("kundaliPage.housesDesc")}
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {houses.map((house, index) => (
+            {houseKeys.map((num, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -182,13 +135,13 @@ export default function KundaliPage() {
                 className="card p-4"
               >
                 <div className="text-2xl font-[var(--font-heading)] text-[var(--gold)] mb-2">
-                  {house.number} House
+                  {t(`kundaliPage.houses${num}.number`)} {t("kundaliPage.house")}
                 </div>
                 <div className="text-sm font-[var(--font-heading)] text-[var(--foreground)] mb-2">
-                  {house.name}
+                  {t(`kundaliPage.houses${num}.name`)}
                 </div>
                 <p className="text-xs text-[var(--foreground-muted)]">
-                  {house.governs}
+                  {t(`kundaliPage.houses${num}.governs`)}
                 </p>
               </motion.div>
             ))}
@@ -207,8 +160,8 @@ export default function KundaliPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">What We </span>
-              <span className="text-gradient-gold">Analyze</span>
+              <span className="text-[var(--foreground)]">{t("kundaliPage.whatWe")} </span>
+              <span className="text-gradient-gold">{t("kundaliPage.analyze")}</span>
             </h2>
             <div className="gold-line w-24 mx-auto mb-6" />
           </motion.div>
@@ -227,10 +180,10 @@ export default function KundaliPage() {
                   <area.icon size={28} className="text-[var(--gold)]" />
                 </div>
                 <h3 className="font-[var(--font-heading)] text-xl text-[var(--foreground)] mb-3">
-                  {area.title}
+                  {t(`kundaliPage.analysis.${area.key}.title`)}
                 </h3>
                 <p className="text-[var(--foreground-muted)] text-sm">
-                  {area.description}
+                  {t(`kundaliPage.analysis.${area.key}.description`)}
                 </p>
               </motion.div>
             ))}
@@ -249,13 +202,11 @@ export default function KundaliPage() {
             className="card p-12 text-center max-w-3xl mx-auto"
           >
             <h2 className="text-3xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">Get Your Kundali </span>
-              <span className="text-gradient-gold">Analyzed</span>
+              <span className="text-[var(--foreground)]">{t("kundaliPage.getYourKundali")} </span>
+              <span className="text-gradient-gold">{t("kundaliPage.analyzed")}</span>
             </h2>
             <p className="text-[var(--foreground-muted)] mb-8">
-              Receive a comprehensive analysis of your birth chart from {t("common.siteName")}. 
-              Understand your planetary positions, doshas, favorable periods, and get 
-              personalized guidance for life decisions.
+              {t("kundaliPage.ctaDesc", { name: t("common.siteName") })}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact/" className="btn-gold flex items-center gap-2">
@@ -276,4 +227,3 @@ export default function KundaliPage() {
     </>
   );
 }
-

@@ -42,9 +42,11 @@ export default function HeroSection() {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="text-4xl md:text-5xl lg:text-6xl font-[var(--font-heading)] mb-6 leading-tight"
             >
-              <span className="text-gradient-gold">{t("home.hero.title")}</span>
+              <span className="text-[var(--foreground)]">{t("home.hero.discoverYour")} </span>
+              <span className="text-gradient-gold">{t("home.hero.destiny")}</span>
               <br />
-              <span className="text-gradient-gold">{t("common.siteName")}</span>
+              <span className="text-[var(--foreground)]">Astrologer </span>
+              <span className="text-gradient-gold">Kapil Tyagi</span>
             </motion.h1>
 
             <motion.p

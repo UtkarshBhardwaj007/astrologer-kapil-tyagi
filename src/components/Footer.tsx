@@ -54,7 +54,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="text-[var(--primary)]">
+              <div className="text-[var(--gold)]">
                 <Logo size={56} />
               </div>
               <div>

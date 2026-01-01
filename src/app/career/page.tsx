@@ -8,47 +8,23 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function CareerPage() {
   const { t } = useLanguage();
+  
   const careerAspects = [
-    {
-      icon: TrendingUp,
-      title: "Career Growth",
-      description: "Identify the best periods for promotions, salary hikes, and career advancement based on your planetary transits.",
-    },
-    {
-      icon: Building,
-      title: "Business Success",
-      description: "Get insights on starting a new business, expanding operations, or making strategic investments.",
-    },
-    {
-      icon: Users,
-      title: "Partnership Analysis",
-      description: "Evaluate business partnership compatibility and identify potential challenges or synergies.",
-    },
-    {
-      icon: Target,
-      title: "Job Changes",
-      description: "Find the most auspicious timing for job interviews, resignations, and new beginnings.",
-    },
-    {
-      icon: Award,
-      title: "Professional Recognition",
-      description: "Understand when you're likely to receive awards, recognition, or important opportunities.",
-    },
-    {
-      icon: Briefcase,
-      title: "Career Path Selection",
-      description: "Discover which career fields align best with your birth chart and natural talents.",
-    },
+    { icon: TrendingUp, key: "growth" },
+    { icon: Building, key: "business" },
+    { icon: Users, key: "partnership" },
+    { icon: Target, key: "jobChange" },
+    { icon: Award, key: "recognition" },
+    { icon: Briefcase, key: "path" },
   ];
 
-  const benefits = [
-    "Identify your ideal career path based on planetary positions",
-    "Know the best time for job changes or starting a business",
-    "Understand financial cycles and wealth accumulation periods",
-    "Remedies for career obstacles and delays",
-    "Partnership compatibility for business ventures",
-    "Guidance on investment and financial decisions",
-  ];
+  const planetKeys = ["sun", "saturn", "mercury", "jupiter"];
+  const planetColors: Record<string, string> = {
+    sun: "#ff6b2c",
+    saturn: "#6b7280",
+    mercury: "#10b981",
+    jupiter: "#ffc107",
+  };
 
   return (
     <>
@@ -65,14 +41,12 @@ export default function CareerPage() {
               <Briefcase size={40} className="text-[var(--gold)]" />
             </div>
             <h1 className="text-4xl md:text-5xl font-[var(--font-heading)] mb-6">
-              <span className="text-[var(--foreground)]">Career & </span>
-              <span className="text-gradient-gold">Business Advice</span>
+              <span className="text-[var(--foreground)]">{t("careerPage.heroTitle1")} </span>
+              <span className="text-gradient-gold">{t("careerPage.heroTitle2")}</span>
             </h1>
             <div className="gold-line w-24 mx-auto mb-6" />
             <p className="text-lg text-[var(--foreground-muted)] leading-relaxed">
-              Make informed career and business decisions with expert astrological guidance. 
-              Understand the cosmic influences on your professional life and time your 
-              important moves for maximum success.
+              {t("careerPage.heroDescription")}
             </p>
           </motion.div>
         </div>
@@ -89,28 +63,17 @@ export default function CareerPage() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl font-[var(--font-heading)] mb-4">
-                <span className="text-[var(--foreground)]">Astrological </span>
-                <span className="text-gradient-gold">Career Guidance</span>
+                <span className="text-[var(--foreground)]">{t("careerPage.astrological")} </span>
+                <span className="text-gradient-gold">{t("careerPage.careerGuidance")}</span>
               </h2>
               <div className="gold-line-left w-16 mb-6" />
               
               <div className="space-y-4 text-[var(--foreground-muted)] leading-relaxed">
+                <p>{t("careerPage.careerGuidanceDesc1")}</p>
                 <p>
-                  Your birth chart holds the key to understanding your professional potential 
-                  and the best paths to success. The 10th house (Karma Bhava) and its lord, 
-                  along with planets like Saturn, Sun, and Mercury, reveal important insights 
-                  about your career trajectory.
+                  {t("common.siteName")} {t("careerPage.careerGuidanceDesc2")}
                 </p>
-                <p>
-                  {t("common.siteName")} analyzes your complete horoscope to provide actionable 
-                  advice on career choices, business ventures, timing of important decisions, 
-                  and remedies for any obstacles you may face in your professional life.
-                </p>
-                <p>
-                  Whether you&apos;re a job seeker, entrepreneur, or established professional, 
-                  our career astrology consultation helps you align your actions with 
-                  favorable planetary periods for optimal results.
-                </p>
+                <p>{t("careerPage.careerGuidanceDesc3")}</p>
               </div>
             </motion.div>
 
@@ -122,10 +85,10 @@ export default function CareerPage() {
               className="card p-8"
             >
               <h3 className="text-2xl font-[var(--font-heading)] text-[var(--gold)] mb-6">
-                What You&apos;ll Gain
+                {t("careerPage.whatYoullGain")}
               </h3>
               <ul className="space-y-4">
-                {benefits.map((benefit, index) => (
+                {(t("careerPage.benefits") as unknown as string[]).map((benefit: string, index: number) => (
                   <motion.li
                     key={index}
                     initial={{ opacity: 0, x: 20 }}
@@ -155,12 +118,12 @@ export default function CareerPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">Areas of </span>
-              <span className="text-gradient-gold">Consultation</span>
+              <span className="text-[var(--foreground)]">{t("careerPage.areasOf")} </span>
+              <span className="text-gradient-gold">{t("careerPage.consultation")}</span>
             </h2>
             <div className="gold-line w-24 mx-auto mb-6" />
             <p className="text-[var(--foreground-muted)] max-w-2xl mx-auto">
-              Comprehensive career and business guidance covering all aspects of your professional life
+              {t("careerPage.consultationDesc")}
             </p>
           </motion.div>
 
@@ -178,10 +141,10 @@ export default function CareerPage() {
                   <aspect.icon size={24} className="text-[var(--gold)]" />
                 </div>
                 <h3 className="font-[var(--font-heading)] text-xl text-[var(--foreground)] mb-3">
-                  {aspect.title}
+                  {t(`careerPage.aspects.${aspect.key}.title`)}
                 </h3>
                 <p className="text-[var(--foreground-muted)] text-sm leading-relaxed">
-                  {aspect.description}
+                  {t(`careerPage.aspects.${aspect.key}.description`)}
                 </p>
               </motion.div>
             ))}
@@ -200,44 +163,45 @@ export default function CareerPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">Key Planetary </span>
-              <span className="text-gradient-gold">Influences</span>
+              <span className="text-[var(--foreground)]">{t("careerPage.keyPlanetary")} </span>
+              <span className="text-gradient-gold">{t("careerPage.influences")}</span>
             </h2>
             <div className="gold-line w-24 mx-auto mb-6" />
             <p className="text-[var(--foreground-muted)] max-w-2xl mx-auto">
-              Understanding which planets influence different aspects of your career
+              {t("careerPage.influencesDesc")}
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { planet: "Sun", influence: "Authority, Leadership, Government Jobs", color: "#ff6b2c" },
-              { planet: "Saturn", influence: "Hard Work, Discipline, Long-term Success", color: "#6b7280" },
-              { planet: "Mercury", influence: "Business, Communication, Trading", color: "#10b981" },
-              { planet: "Jupiter", influence: "Teaching, Finance, Expansion", color: "#ffc107" },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="card p-6 text-center"
-              >
-                <div 
-                  className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: `${item.color}20`, border: `2px solid ${item.color}` }}
+            {planetKeys.map((key, index) => {
+              const color = planetColors[key];
+              const name = t(`careerPage.planets.${key}.name`);
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="card p-6 text-center"
                 >
-                  <span className="text-2xl font-[var(--font-heading)]" style={{ color: item.color }}>
-                    {item.planet[0]}
-                  </span>
-                </div>
-                <h3 className="font-[var(--font-heading)] text-[var(--foreground)] mb-2">
-                  {item.planet}
-                </h3>
-                <p className="text-sm text-[var(--foreground-muted)]">{item.influence}</p>
-              </motion.div>
-            ))}
+                  <div 
+                    className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center"
+                    style={{ backgroundColor: `${color}20`, border: `2px solid ${color}` }}
+                  >
+                    <span className="text-2xl font-[var(--font-heading)]" style={{ color }}>
+                      {name[0]}
+                    </span>
+                  </div>
+                  <h3 className="font-[var(--font-heading)] text-[var(--foreground)] mb-2">
+                    {name}
+                  </h3>
+                  <p className="text-sm text-[var(--foreground-muted)]">
+                    {t(`careerPage.planets.${key}.influence`)}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -253,12 +217,11 @@ export default function CareerPage() {
             className="card p-12 text-center max-w-3xl mx-auto"
           >
             <h2 className="text-3xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">Get Expert </span>
-              <span className="text-gradient-gold">Career Guidance</span>
+              <span className="text-[var(--foreground)]">{t("careerPage.getExpert")} </span>
+              <span className="text-gradient-gold">{t("careerPage.careerGuidance")}</span>
             </h2>
             <p className="text-[var(--foreground-muted)] mb-8">
-              {t("common.siteName")} provides personalized career and business consultation 
-              based on your unique birth chart. Take the right decisions at the right time.
+              {t("common.siteName")} {t("careerPage.ctaDesc")}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact/" className="btn-gold flex items-center gap-2">
@@ -279,4 +242,3 @@ export default function CareerPage() {
     </>
   );
 }
-

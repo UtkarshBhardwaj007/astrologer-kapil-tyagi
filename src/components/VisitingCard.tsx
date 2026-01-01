@@ -11,14 +11,25 @@ interface VisitingCardProps {
   interactive?: boolean;
 }
 
-// New color palette: red, orange, brown, yellow, black
+// Premium warm color palette: cream, off-white, red, orange, brown, yellow
 const colors = {
-  primary: "#E85A00", // Deep orange
-  primaryLight: "#FF8C00", // Bright orange
-  secondary: "#8B4513", // Saddle brown
-  highlight: "#FFB347", // Warm yellow/orange
-  accent: "#CD5C00", // Burnt orange
-  brown: "#5D3A1A", // Rich brown
+  // Background tones
+  cream: "#FDF6E3",
+  offWhite: "#FAF3E0",
+  warmWhite: "#FFFBF0",
+  
+  // Accent colors
+  deepRed: "#8B0000",
+  burgundy: "#722F37",
+  rust: "#A0522D",
+  orange: "#CD5C00",
+  amber: "#D4A017",
+  gold: "#B8860B",
+  brown: "#5D3A1A",
+  
+  // Text colors
+  darkBrown: "#3D2314",
+  richBrown: "#4A2C17",
 };
 
 export default function VisitingCard({ interactive = true }: VisitingCardProps) {
@@ -27,39 +38,8 @@ export default function VisitingCard({ interactive = true }: VisitingCardProps) 
 
   return (
     <div className="w-full max-w-md mx-auto">
-      {/* Premium Aura Container */}
-      <div className="relative p-6">
-        {/* Outer glow layers - Premium warm tone */}
-        <div 
-          className="absolute inset-0 rounded-2xl opacity-40 blur-2xl"
-          style={{
-            background: `radial-gradient(ellipse at center, rgba(232, 90, 0, 0.4) 0%, transparent 70%)`,
-          }}
-        />
-        <div 
-          className="absolute inset-2 rounded-xl opacity-30 blur-xl"
-          style={{
-            background: `radial-gradient(ellipse at center, rgba(255, 140, 0, 0.3) 0%, transparent 60%)`,
-          }}
-        />
-        
-        {/* Animated shimmer effect */}
-        <motion.div 
-          className="absolute inset-4 rounded-lg opacity-20"
-          style={{
-            background: `linear-gradient(45deg, transparent 30%, rgba(255, 179, 71, 0.3) 50%, transparent 70%)`,
-            backgroundSize: "200% 200%",
-          }}
-          animate={{
-            backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
-
+      {/* Clean container without aura effects */}
+      <div className="relative p-4">
         {/* Card Container - maintains 3.5:2 aspect ratio */}
         <div
           className={`relative w-full aspect-[3.5/2] ${interactive ? "cursor-pointer" : ""}`}
@@ -84,133 +64,93 @@ export default function VisitingCard({ interactive = true }: VisitingCardProps) 
           >
             {/* ===== FRONT SIDE ===== */}
             <div
-              className="absolute inset-0 rounded-xl overflow-hidden"
+              className="absolute inset-0 rounded-xl overflow-hidden shadow-lg"
               style={{ backfaceVisibility: "hidden" }}
             >
               <div 
                 className="w-full h-full relative"
                 style={{
-                  background: "linear-gradient(145deg, #0f0f0f 0%, #0a0a0a 30%, #080808 70%, #050505 100%)",
+                  background: `linear-gradient(145deg, ${colors.warmWhite} 0%, ${colors.cream} 50%, ${colors.offWhite} 100%)`,
                 }}
               >
-                {/* Subtle metallic sheen */}
-                <div 
-                  className="absolute inset-0 opacity-30"
-                  style={{
-                    background: `linear-gradient(135deg, transparent 0%, rgba(232, 90, 0, 0.08) 50%, transparent 100%)`,
-                  }}
-                />
-                
-                {/* Radial glow behind logo */}
-                <div 
-                  className="absolute inset-0"
-                  style={{
-                    background: `radial-gradient(ellipse at center 40%, rgba(255, 140, 0, 0.15) 0%, transparent 50%)`,
-                  }}
-                />
-                
-                {/* Premium double border with gradient */}
+                {/* Premium double border */}
                 <div 
                   className="absolute inset-0 rounded-xl"
                   style={{
-                    border: `1.5px solid ${colors.primary}`,
-                    opacity: 0.7,
+                    border: `2px solid ${colors.burgundy}`,
                   }}
                 />
                 <div 
-                  className="absolute inset-[3px] rounded-lg"
+                  className="absolute inset-[4px] rounded-lg"
                   style={{
-                    border: `0.5px solid ${colors.secondary}`,
-                    opacity: 0.4,
+                    border: `1px solid ${colors.amber}`,
+                    opacity: 0.6,
                   }}
                 />
                 
-                {/* Corner flourishes */}
-                <div className="absolute top-2 left-2 w-4 h-4">
-                  <div className="absolute top-0 left-0 w-full h-[1.5px] opacity-50" style={{ background: colors.primary }} />
-                  <div className="absolute top-0 left-0 h-full w-[1.5px] opacity-50" style={{ background: colors.primary }} />
-                  <div className="absolute top-0 left-0 w-1 h-1 rounded-full opacity-60" style={{ background: colors.highlight }} />
+                {/* Corner flourishes - lines only, no dots */}
+                <div className="absolute top-3 left-3 w-6 h-6">
+                  <div className="absolute top-0 left-0 w-full h-[2px]" style={{ background: `linear-gradient(90deg, ${colors.burgundy}, transparent)` }} />
+                  <div className="absolute top-0 left-0 h-full w-[2px]" style={{ background: `linear-gradient(180deg, ${colors.burgundy}, transparent)` }} />
                 </div>
-                <div className="absolute top-2 right-2 w-4 h-4">
-                  <div className="absolute top-0 right-0 w-full h-[1.5px] opacity-50" style={{ background: colors.primary }} />
-                  <div className="absolute top-0 right-0 h-full w-[1.5px] opacity-50" style={{ background: colors.primary }} />
-                  <div className="absolute top-0 right-0 w-1 h-1 rounded-full opacity-60" style={{ background: colors.highlight }} />
+                <div className="absolute top-3 right-3 w-6 h-6">
+                  <div className="absolute top-0 right-0 w-full h-[2px]" style={{ background: `linear-gradient(270deg, ${colors.burgundy}, transparent)` }} />
+                  <div className="absolute top-0 right-0 h-full w-[2px]" style={{ background: `linear-gradient(180deg, ${colors.burgundy}, transparent)` }} />
                 </div>
-                <div className="absolute bottom-2 left-2 w-4 h-4">
-                  <div className="absolute bottom-0 left-0 w-full h-[1.5px] opacity-50" style={{ background: colors.primary }} />
-                  <div className="absolute bottom-0 left-0 h-full w-[1.5px] opacity-50" style={{ background: colors.primary }} />
-                  <div className="absolute bottom-0 left-0 w-1 h-1 rounded-full opacity-60" style={{ background: colors.highlight }} />
+                <div className="absolute bottom-3 left-3 w-6 h-6">
+                  <div className="absolute bottom-0 left-0 w-full h-[2px]" style={{ background: `linear-gradient(90deg, ${colors.burgundy}, transparent)` }} />
+                  <div className="absolute bottom-0 left-0 h-full w-[2px]" style={{ background: `linear-gradient(0deg, ${colors.burgundy}, transparent)` }} />
                 </div>
-                <div className="absolute bottom-2 right-2 w-4 h-4">
-                  <div className="absolute bottom-0 right-0 w-full h-[1.5px] opacity-50" style={{ background: colors.primary }} />
-                  <div className="absolute bottom-0 right-0 h-full w-[1.5px] opacity-50" style={{ background: colors.primary }} />
-                  <div className="absolute bottom-0 right-0 w-1 h-1 rounded-full opacity-60" style={{ background: colors.highlight }} />
+                <div className="absolute bottom-3 right-3 w-6 h-6">
+                  <div className="absolute bottom-0 right-0 w-full h-[2px]" style={{ background: `linear-gradient(270deg, ${colors.burgundy}, transparent)` }} />
+                  <div className="absolute bottom-0 right-0 h-full w-[2px]" style={{ background: `linear-gradient(0deg, ${colors.burgundy}, transparent)` }} />
                 </div>
                 
                 {/* Content */}
                 <div className="relative w-full h-full flex flex-col items-center justify-center py-4 px-4">
                   {/* Center content */}
                   <div className="flex flex-col items-center">
-                    {/* Logo with glow ring */}
-                    <div className="relative mb-3">
-                      {/* Outer glow ring */}
-                      <div 
-                        className="absolute inset-[-12px] rounded-full"
-                        style={{
-                          background: `radial-gradient(circle, rgba(232, 90, 0, 0.15) 0%, transparent 70%)`,
-                        }}
-                      />
-                      <div 
-                        style={{
-                          color: colors.primary,
-                          filter: `drop-shadow(0 0 10px rgba(232, 90, 0, 0.4))`,
-                        }}
-                      >
-                        <Logo size={52} />
-                      </div>
+                    {/* Logo */}
+                    <div className="mb-3" style={{ color: colors.deepRed }}>
+                      <Logo size={52} />
                     </div>
                     
                     {/* Name */}
                     <h2 
-                      className="font-[var(--font-heading)] text-sm md:text-base tracking-[0.12em] text-center"
-                      style={{
-                        background: `linear-gradient(90deg, ${colors.secondary}, ${colors.primary}, ${colors.highlight})`,
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                        backgroundClip: "text",
-                      }}
+                      className="font-[var(--font-heading)] text-sm md:text-base tracking-[0.15em] text-center font-semibold"
+                      style={{ color: colors.darkBrown }}
                     >
                       {t("common.siteName").toUpperCase()}
                     </h2>
                     
                     {/* Primary Tagline */}
                     <p 
-                      className="text-[9px] md:text-[10px] mt-1.5 tracking-[0.15em] italic"
-                      style={{ color: `rgba(255, 140, 0, 0.85)` }}
+                      className="text-[9px] md:text-[10px] mt-1.5 tracking-[0.12em] italic font-medium"
+                      style={{ color: colors.burgundy }}
                     >
                       {t("visitingCard.tagline")}
                     </p>
                     
-                    {/* Divider with diamond */}
-                    <div className="flex items-center gap-2 mt-4">
+                    {/* Elegant divider */}
+                    <div className="flex items-center gap-3 mt-4">
                       <div 
-                        className="w-14 h-px"
-                        style={{ background: `linear-gradient(90deg, transparent, ${colors.primary}80)` }}
+                        className="w-12 h-[1.5px]"
+                        style={{ background: `linear-gradient(90deg, transparent, ${colors.amber})` }}
                       />
                       <div 
-                        className="w-1.5 h-1.5 rotate-45"
-                        style={{ background: colors.highlight, opacity: 0.8 }}
+                        className="w-2 h-2 rotate-45"
+                        style={{ background: colors.amber }}
                       />
                       <div 
-                        className="w-14 h-px"
-                        style={{ background: `linear-gradient(90deg, ${colors.primary}80, transparent)` }}
+                        className="w-12 h-[1.5px]"
+                        style={{ background: `linear-gradient(90deg, ${colors.amber}, transparent)` }}
                       />
                     </div>
                     
                     {/* Secondary Tagline */}
                     <p 
-                      className="text-[7px] md:text-[8px] tracking-[0.2em] mt-4"
-                      style={{ color: `rgba(255, 179, 71, 0.65)` }}
+                      className="text-[7px] md:text-[8px] tracking-[0.2em] mt-4 font-medium"
+                      style={{ color: colors.rust }}
                     >
                       {t("visitingCard.secondaryTagline")}
                     </p>
@@ -220,7 +160,7 @@ export default function VisitingCard({ interactive = true }: VisitingCardProps) 
                   {interactive && (
                     <p 
                       className="text-[6px] tracking-wider uppercase mt-3 absolute bottom-3"
-                      style={{ color: "rgba(160, 160, 160, 0.35)" }}
+                      style={{ color: colors.brown, opacity: 0.5 }}
                     >
                       {t("common.hoverToViewDetails")}
                     </p>
@@ -231,7 +171,7 @@ export default function VisitingCard({ interactive = true }: VisitingCardProps) 
 
             {/* ===== BACK SIDE ===== */}
             <div
-              className="absolute inset-0 rounded-xl overflow-hidden"
+              className="absolute inset-0 rounded-xl overflow-hidden shadow-lg"
               style={{ 
                 backfaceVisibility: "hidden",
                 transform: "rotateY(180deg)"
@@ -240,86 +180,79 @@ export default function VisitingCard({ interactive = true }: VisitingCardProps) 
               <div 
                 className="w-full h-full relative"
                 style={{
-                  background: "linear-gradient(145deg, #0d0d0d 0%, #0a0a0a 50%, #080808 100%)",
+                  background: `linear-gradient(145deg, ${colors.cream} 0%, ${colors.offWhite} 50%, ${colors.warmWhite} 100%)`,
                 }}
               >
-                {/* Subtle metallic sheen */}
-                <div 
-                  className="absolute inset-0 opacity-30"
-                  style={{
-                    background: `linear-gradient(225deg, transparent 0%, rgba(232, 90, 0, 0.08) 50%, transparent 100%)`,
-                  }}
-                />
-                
                 {/* Premium border */}
                 <div 
                   className="absolute inset-0 rounded-xl"
                   style={{
-                    border: `1.5px solid rgba(232, 90, 0, 0.6)`,
+                    border: `2px solid ${colors.burgundy}`,
                   }}
                 />
                 <div 
-                  className="absolute inset-[3px] rounded-lg"
+                  className="absolute inset-[4px] rounded-lg"
                   style={{
-                    border: `0.5px solid rgba(139, 69, 19, 0.3)`,
+                    border: `1px solid ${colors.amber}`,
+                    opacity: 0.6,
                   }}
                 />
                 
-                {/* Corner flourishes */}
-                <div className="absolute top-2 left-2 w-3 h-3">
-                  <div className="absolute top-0 left-0 w-full h-px opacity-30" style={{ background: colors.primary }} />
-                  <div className="absolute top-0 left-0 h-full w-px opacity-30" style={{ background: colors.primary }} />
+                {/* Corner flourishes - lines only */}
+                <div className="absolute top-3 left-3 w-4 h-4">
+                  <div className="absolute top-0 left-0 w-full h-[1.5px]" style={{ background: `linear-gradient(90deg, ${colors.burgundy}, transparent)` }} />
+                  <div className="absolute top-0 left-0 h-full w-[1.5px]" style={{ background: `linear-gradient(180deg, ${colors.burgundy}, transparent)` }} />
                 </div>
-                <div className="absolute top-2 right-2 w-3 h-3">
-                  <div className="absolute top-0 right-0 w-full h-px opacity-30" style={{ background: colors.primary }} />
-                  <div className="absolute top-0 right-0 h-full w-px opacity-30" style={{ background: colors.primary }} />
+                <div className="absolute top-3 right-3 w-4 h-4">
+                  <div className="absolute top-0 right-0 w-full h-[1.5px]" style={{ background: `linear-gradient(270deg, ${colors.burgundy}, transparent)` }} />
+                  <div className="absolute top-0 right-0 h-full w-[1.5px]" style={{ background: `linear-gradient(180deg, ${colors.burgundy}, transparent)` }} />
                 </div>
-                <div className="absolute bottom-2 left-2 w-3 h-3">
-                  <div className="absolute bottom-0 left-0 w-full h-px opacity-30" style={{ background: colors.primary }} />
-                  <div className="absolute bottom-0 left-0 h-full w-px opacity-30" style={{ background: colors.primary }} />
+                <div className="absolute bottom-3 left-3 w-4 h-4">
+                  <div className="absolute bottom-0 left-0 w-full h-[1.5px]" style={{ background: `linear-gradient(90deg, ${colors.burgundy}, transparent)` }} />
+                  <div className="absolute bottom-0 left-0 h-full w-[1.5px]" style={{ background: `linear-gradient(0deg, ${colors.burgundy}, transparent)` }} />
                 </div>
-                <div className="absolute bottom-2 right-2 w-3 h-3">
-                  <div className="absolute bottom-0 right-0 w-full h-px opacity-30" style={{ background: colors.primary }} />
-                  <div className="absolute bottom-0 right-0 h-full w-px opacity-30" style={{ background: colors.primary }} />
+                <div className="absolute bottom-3 right-3 w-4 h-4">
+                  <div className="absolute bottom-0 right-0 w-full h-[1.5px]" style={{ background: `linear-gradient(270deg, ${colors.burgundy}, transparent)` }} />
+                  <div className="absolute bottom-0 right-0 h-full w-[1.5px]" style={{ background: `linear-gradient(0deg, ${colors.burgundy}, transparent)` }} />
                 </div>
                 
                 {/* Content */}
-                <div className="relative w-full h-full p-4 flex flex-col justify-center">
+                <div className="relative w-full h-full p-5 flex flex-col justify-center">
                   {/* Contact Details */}
-                  <div className="space-y-2 text-sm">
+                  <div className="space-y-2.5">
                     {/* Phone */}
-                    <div className="flex items-center gap-2.5">
-                      <Phone size={12} style={{ color: colors.primary }} />
-                      <span className="text-xs" style={{ color: "#e8e8e8" }}>{CONTACT_INFO.phone}</span>
+                    <div className="flex items-center gap-3">
+                      <Phone size={14} style={{ color: colors.burgundy }} />
+                      <span className="text-xs font-medium" style={{ color: colors.darkBrown }}>{CONTACT_INFO.phone}</span>
                     </div>
                     
                     {/* Email */}
-                    <div className="flex items-center gap-2.5">
-                      <Mail size={12} style={{ color: colors.primary }} />
-                      <span className="text-xs" style={{ color: "#e8e8e8" }}>{CONTACT_INFO.email}</span>
+                    <div className="flex items-center gap-3">
+                      <Mail size={14} style={{ color: colors.burgundy }} />
+                      <span className="text-xs font-medium" style={{ color: colors.darkBrown }}>{CONTACT_INFO.email}</span>
                     </div>
                     
                     {/* Address */}
-                    <div className="flex items-start gap-2.5">
-                      <MapPin size={12} style={{ color: colors.primary }} className="mt-0.5 flex-shrink-0" />
-                      <span className="text-[10px] leading-relaxed" style={{ color: "#e8e8e8" }}>
+                    <div className="flex items-start gap-3">
+                      <MapPin size={14} style={{ color: colors.burgundy }} className="mt-0.5 flex-shrink-0" />
+                      <span className="text-[11px] leading-relaxed" style={{ color: colors.darkBrown }}>
                         {t("address.line1")}, {t("address.line2")}<br />
                         {t("address.city")} - {t("address.pincode")}
                       </span>
                     </div>
                     
-                    {/* Divider */}
+                    {/* Elegant divider */}
                     <div 
-                      className="w-full h-px"
-                      style={{ background: `rgba(232, 90, 0, 0.25)` }}
+                      className="w-full h-[1px] my-1"
+                      style={{ background: `linear-gradient(90deg, transparent, ${colors.amber}, transparent)` }}
                     />
                     
                     {/* Hours */}
-                    <div className="flex items-start gap-2.5">
-                      <Clock size={12} style={{ color: colors.primary }} className="mt-0.5 flex-shrink-0" />
-                      <div className="text-[10px] leading-relaxed" style={{ color: "#e8e8e8" }}>
-                        <div><span style={{ color: colors.primaryLight }}>{t("visitingCard.consultation")}:</span> 10AM - 9PM IST</div>
-                        <div><span style={{ color: colors.primaryLight }}>{t("visitingCard.calling")}:</span> 10AM - 6PM IST</div>
+                    <div className="flex items-start gap-3">
+                      <Clock size={14} style={{ color: colors.burgundy }} className="mt-0.5 flex-shrink-0" />
+                      <div className="text-[11px] leading-relaxed" style={{ color: colors.darkBrown }}>
+                        <div><span style={{ color: colors.rust }} className="font-medium">{t("visitingCard.consultation")}:</span> 10AM - 9PM IST</div>
+                        <div><span style={{ color: colors.rust }} className="font-medium">{t("visitingCard.calling")}:</span> 10AM - 6PM IST</div>
                       </div>
                     </div>
                   </div>
