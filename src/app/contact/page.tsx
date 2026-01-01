@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { Phone, Mail, MapPin, Clock, MessageCircle, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { SITE_CONFIG, CONTACT_INFO, SOCIAL_LINKS } from "@/lib/constants";
+import VisitingCard from "@/components/VisitingCard";
 
 export default function ContactPage() {
   return (
@@ -145,7 +145,7 @@ export default function ContactPage() {
               </div>
             </motion.div>
 
-            {/* Right Column - Map & QR */}
+            {/* Right Column - Card, Map & CTA */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -153,6 +153,15 @@ export default function ContactPage() {
               transition={{ duration: 0.6 }}
               className="space-y-8"
             >
+              {/* Visiting Card */}
+              <div className="card p-6 bg-gradient-to-br from-[var(--background-secondary)] to-[var(--background)]">
+                <h3 className="text-xl font-[var(--font-heading)] text-center mb-4">
+                  <span className="text-[var(--foreground)]">Business </span>
+                  <span className="text-gradient-gold">Card</span>
+                </h3>
+                <VisitingCard />
+              </div>
+
               {/* Map Embed */}
               <div className="card overflow-hidden">
                 <div className="aspect-video bg-[var(--background)] relative">

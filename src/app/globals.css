@@ -2,28 +2,28 @@
 @import "tailwindcss";
 
 :root {
-  /* Backgrounds - Warm dark tones */
-  --background: #1a0a0a;
-  --background-secondary: #241212;
-  --background-tertiary: #2e1818;
-  --foreground: #fff8f0;
-  --foreground-muted: #c4b8aa;
+  /* Backgrounds - Premium blacks */
+  --background: #0a0a0a;
+  --background-secondary: #111111;
+  --background-tertiary: #1a1a1a;
+  --foreground: #f5f5f5;
+  --foreground-muted: #a0a0a0;
   
-  /* Primary Accent - Deep Crimson Red */
-  --primary: #c41e3a;
-  --primary-light: #e63950;
-  --primary-dark: #9a1830;
-  --primary-muted: rgba(196, 30, 58, 0.2);
+  /* Primary Accent - Rich Gold */
+  --gold: #d4af37;
+  --gold-light: #e5c158;
+  --gold-dark: #b8972e;
+  --gold-muted: rgba(212, 175, 55, 0.2);
   
-  /* Secondary Accent - Saffron Orange (using gold variable names for compatibility) */
-  --gold: #ff6b2c;
-  --gold-light: #ff8c5a;
-  --gold-dark: #e55a1f;
-  --gold-muted: rgba(255, 107, 44, 0.2);
+  /* Secondary - Deep Red (minimal use) */
+  --primary: #8b0000;
+  --primary-light: #a52a2a;
+  --primary-dark: #6b0000;
+  --primary-muted: rgba(139, 0, 0, 0.15);
   
-  /* Tertiary - Golden Yellow */
-  --yellow: #ffc107;
-  --yellow-light: #ffd54f;
+  /* Tertiary - Light Gold tones */
+  --yellow: #f0d78c;
+  --yellow-light: #f5e4b3;
   
   /* Fonts */
   --font-heading: 'Cinzel', serif;
@@ -74,9 +74,9 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.3;
 }
 
-/* Gradient text utility - warm gradient from red to orange to yellow */
+/* Gradient text utility - premium gold gradient */
 .text-gradient-gold {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--gold) 50%, var(--yellow) 100%);
+  background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Border gradient utility */
 .border-gold-gradient {
-  border-image: linear-gradient(135deg, var(--primary), var(--gold), var(--yellow)) 1;
+  border-image: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light)) 1;
 }
 
 /* Decorative accent line */
@@ -111,11 +111,11 @@ h1, h2, h3, h4, h5, h6 {
 .shimmer-gold {
   background: linear-gradient(
     90deg,
-    var(--primary-dark) 0%,
-    var(--gold-light) 25%,
-    var(--yellow) 50%,
-    var(--gold-light) 75%,
-    var(--primary-dark) 100%
+    var(--gold-dark) 0%,
+    var(--gold) 25%,
+    var(--gold-light) 50%,
+    var(--gold) 75%,
+    var(--gold-dark) 100%
   );
   background-size: 200% auto;
   animation: shimmer 3s linear infinite;
@@ -130,20 +130,20 @@ h1, h2, h3, h4, h5, h6 {
 /* Card styles */
 .card {
   background: var(--background-secondary);
-  border: 1px solid rgba(255, 107, 44, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.2);
   border-radius: 8px;
   transition: all 0.3s ease;
 }
 
 .card:hover {
-  border-color: rgba(255, 107, 44, 0.5);
-  box-shadow: 0 0 30px rgba(255, 107, 44, 0.15);
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
 }
 
-/* Button styles - Primary gradient */
+/* Button styles - Primary gold */
 .btn-gold {
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary), var(--gold));
-  color: var(--foreground);
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+  color: var(--background);
   font-family: var(--font-heading);
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -158,7 +158,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-gold:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(196, 30, 58, 0.4);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
 }
 
 .btn-outline-gold {
@@ -211,7 +211,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .zodiac-icon:hover {
   border-color: var(--gold);
-  box-shadow: 0 0 20px rgba(255, 107, 44, 0.3);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
 }
 
 /* Scrollbar styling */
@@ -224,18 +224,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary-dark);
+  background: var(--gold-dark);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
+  background: var(--gold);
 }
 
 /* Selection styling */
 ::selection {
-  background: var(--primary-muted);
-  color: var(--gold-light);
+  background: var(--gold-muted);
+  color: var(--foreground);
 }
 
 /* Link styling */
