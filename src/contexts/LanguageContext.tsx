@@ -8,14 +8,19 @@ import hi from "@/locales/hi.json";
 
 export type Locale = "en" | "hi";
 
-interface Translations {
-  [key: string]: string | Translations;
+interface TranslationObject {
+  [key: string]: TranslationValue;
 }
+
+type TranslationValue = string | number | string[] | TranslationObject | TranslationObject[];
+
+type Translations = TranslationObject;
 
 interface LanguageContextType {
   locale: Locale;
   setLocale: (locale: Locale) => void;
   t: (key: string, params?: Record<string, string | number>) => string;
+  tRaw: <T = TranslationValue>(key: string) => T;
   translations: Translations;
 }
 
@@ -57,28 +62,32 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
     setLocaleState(newLocale);
   }, []);
 
+  // Helper function to get raw translation value by key
+  const getTranslationValue = useCallback(
+    (key: string, targetLocale: Locale): TranslationValue | undefined => {
+      const keys = key.split(".");
+      let value: TranslationValue = translations[targetLocale];
+
+      for (const k of keys) {
+        if (value && typeof value === "object" && !Array.isArray(value) && k in value) {
+          value = value[k];
+        } else {
+          return undefined;
+        }
+      }
+      return value;
+    },
+    []
+  );
+
   // Translation function with nested key support (e.g., "nav.home")
   const t = useCallback(
     (key: string, params?: Record<string, string | number>): string => {
-      const keys = key.split(".");
-      let value: string | Translations = translations[locale];
+      let value = getTranslationValue(key, locale);
 
-      for (const k of keys) {
-        if (value && typeof value === "object" && k in value) {
-          value = value[k];
-        } else {
-          // Fallback to English if key not found
-          let fallback: string | Translations = translations.en;
-          for (const fk of keys) {
-            if (fallback && typeof fallback === "object" && fk in fallback) {
-              fallback = fallback[fk];
-            } else {
-              return key; // Return key if not found in fallback either
-            }
-          }
-          value = fallback;
-          break;
-        }
+      // Fallback to English if not found
+      if (value === undefined) {
+        value = getTranslationValue(key, "en");
       }
 
       if (typeof value !== "string") {
@@ -96,8 +105,37 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
 
       return value;
     },
-    [locale]
+    [locale, getTranslationValue]
   );
+
+  // Raw translation function that returns any value type (arrays, objects, etc.)
+  const tRaw = useCallback(
+    <T = TranslationValue,>(key: string): T => {
+      let value = getTranslationValue(key, locale);
+
+      // Fallback to English if not found
+      if (value === undefined) {
+        value = getTranslationValue(key, "en");
+      }
+
+      return value as T;
+    },
+    [locale, getTranslationValue]
+  );
+
+  // Helper for non-hydrated state
+  const getValueForKey = (key: string): TranslationValue | undefined => {
+    const keys = key.split(".");
+    let value: TranslationValue = translations.en;
+    for (const k of keys) {
+      if (value && typeof value === "object" && !Array.isArray(value) && k in value) {
+        value = value[k];
+      } else {
+        return undefined;
+      }
+    }
+    return value;
+  };
 
   // Prevent hydration mismatch by rendering children only after hydration
   if (!isHydrated) {
@@ -107,16 +145,11 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
           locale: "en",
           setLocale,
           t: (key: string) => {
-            const keys = key.split(".");
-            let value: string | Translations = translations.en;
-            for (const k of keys) {
-              if (value && typeof value === "object" && k in value) {
-                value = value[k];
-              } else {
-                return key;
-              }
-            }
+            const value = getValueForKey(key);
             return typeof value === "string" ? value : key;
+          },
+          tRaw: <T = TranslationValue,>(key: string): T => {
+            return getValueForKey(key) as T;
           },
           translations: translations.en,
         }}
@@ -132,6 +165,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
         locale,
         setLocale,
         t,
+        tRaw,
         translations: translations[locale],
       }}
     >

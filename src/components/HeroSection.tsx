@@ -45,8 +45,8 @@ export default function HeroSection() {
               <span className="text-[var(--foreground)]">{t("home.hero.discoverYour")} </span>
               <span className="text-gradient-gold">{t("home.hero.destiny")}</span>
               <br />
-              <span className="text-[var(--foreground)]">Astrologer </span>
-              <span className="text-gradient-gold">Kapil Tyagi</span>
+              <span className="text-[var(--foreground)]">{t("home.hero.with")} </span>
+              <span className="text-gradient-gold">{t("common.siteName")}</span>
             </motion.h1>
 
             <motion.p

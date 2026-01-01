@@ -3,53 +3,22 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Calendar, Home, Compass, Sun, Wind, Droplets, Building, CheckCircle } from "lucide-react";
+import { Phone, Calendar, Home, CheckCircle, Compass } from "lucide-react";
 import { CONTACT_INFO, getImagePath } from "@/lib/constants";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function VastuPage() {
-  const { t } = useLanguage();
-  const vastuTips = [
-    {
-      icon: Compass,
-      title: "Main Entrance",
-      description: "The main entrance should ideally face North, East, or Northeast for maximum positive energy flow. Avoid South-West entrances.",
-    },
-    {
-      icon: Sun,
-      title: "Living Room",
-      description: "Place the living room in the North or East direction. Ensure good natural light and ventilation for positive vibrations.",
-    },
-    {
-      icon: Home,
-      title: "Master Bedroom",
-      description: "The master bedroom should be in the South-West corner. Place the bed so you sleep with your head towards South.",
-    },
-    {
-      icon: Droplets,
-      title: "Kitchen",
-      description: "The kitchen should be in the South-East corner (Agni corner). The cook should face East while cooking.",
-    },
-    {
-      icon: Wind,
-      title: "Bathroom",
-      description: "Bathrooms should be in the West or North-West direction. Avoid placing them in the North-East corner.",
-    },
-    {
-      icon: Building,
-      title: "Office/Study",
-      description: "Home office or study room should be in the West or South-West. Face North or East while working for better concentration.",
-    },
-  ];
-
-  const benefits = [
-    "Improved health and well-being",
-    "Enhanced prosperity and wealth",
-    "Better relationships and harmony",
-    "Career growth and success",
-    "Mental peace and positivity",
-    "Protection from negative energies",
-  ];
+  const { t, tRaw } = useLanguage();
+  
+  const vastuTipKeys = ["entrance", "livingRoom", "masterBedroom", "kitchen", "bathroom", "office"];
+  const fiveElementKeys = ["earth", "water", "fire", "air", "space"];
+  const elementColors: Record<string, string> = {
+    earth: "#8B4513",
+    water: "#1E90FF",
+    fire: "#FF4500",
+    air: "#87CEEB",
+    space: "#9932CC",
+  };
 
   return (
     <>
@@ -62,78 +31,22 @@ export default function VastuPage() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            {/* Aesthetic Vastu Image Container */}
-            <div className="relative w-48 h-48 md:w-56 md:h-56 mx-auto mb-10">
-              {/* Outer rotating ring */}
-              <motion.div
-                className="absolute inset-0 rounded-full"
-                style={{
-                  background: "conic-gradient(from 0deg, var(--primary), var(--gold), var(--yellow), var(--gold), var(--primary))",
-                  padding: "3px",
-                }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              >
-                <div className="w-full h-full rounded-full bg-[var(--background-secondary)]" />
-              </motion.div>
-              
-              {/* Middle pulsing glow */}
-              <motion.div
-                className="absolute inset-2 rounded-full"
-                style={{
-                  background: "radial-gradient(circle, rgba(255,107,44,0.3) 0%, transparent 70%)",
-                }}
-                animate={{ 
-                  scale: [1, 1.1, 1],
-                  opacity: [0.5, 0.8, 0.5]
-                }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              />
-              
-              {/* Inner static ring */}
-              <div 
-                className="absolute inset-4 rounded-full"
-                style={{
-                  border: "2px solid var(--gold-muted)",
-                  boxShadow: "0 0 30px rgba(255,107,44,0.2), inset 0 0 30px rgba(255,107,44,0.1)",
-                }}
-              />
-              
-              {/* Image container - circular crop */}
-              <motion.div 
-                className="absolute inset-6 rounded-full overflow-hidden"
-                style={{
-                  boxShadow: "0 0 30px rgba(255,107,44,0.3), inset 0 0 20px rgba(0,0,0,0.3)",
-                }}
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
-              >
-                <Image
-                  src={getImagePath("/images/vastu.png")}
-                  alt="Vastu Shastra - Sri Yantra"
-                  fill
-                  className="object-cover scale-150"
-                  priority
-                />
-              </motion.div>
+            <div className="w-20 h-20 mx-auto mb-6 rounded-full border-2 border-[var(--gold)] flex items-center justify-center">
+              <Home size={40} className="text-[var(--gold)]" />
             </div>
-            
             <h1 className="text-4xl md:text-5xl font-[var(--font-heading)] mb-6">
-              <span className="text-[var(--foreground)]">Vastu </span>
-              <span className="text-gradient-gold">Shastra</span>
+              <span className="text-[var(--foreground)]">{t("vastuPage.heroTitle1")} </span>
+              <span className="text-gradient-gold">{t("vastuPage.heroTitle2")}</span>
             </h1>
             <div className="gold-line w-24 mx-auto mb-6" />
             <p className="text-lg text-[var(--foreground-muted)] leading-relaxed">
-              The ancient Indian science of architecture and spatial arrangement. 
-              Create harmony between your living space and the cosmic forces for 
-              prosperity, health, and peace.
+              {t("vastuPage.heroDescription")}
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* What is Vastu */}
+      {/* Introduction */}
       <section className="section">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -144,27 +57,16 @@ export default function VastuPage() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl font-[var(--font-heading)] mb-4">
-                <span className="text-[var(--foreground)]">What is </span>
-                <span className="text-gradient-gold">Vastu Shastra?</span>
+                <span className="text-[var(--foreground)]">{t("vastuPage.whatIs")} </span>
+                <span className="text-gradient-gold">{t("vastuPage.vastuShastra")}</span>
               </h2>
               <div className="gold-line-left w-16 mb-6" />
               
               <div className="space-y-4 text-[var(--foreground-muted)] leading-relaxed">
+                <p>{t("vastuPage.whatIsDesc1")}</p>
+                <p>{t("vastuPage.whatIsDesc2")}</p>
                 <p>
-                  Vastu Shastra is an ancient Indian science that harmonizes architecture 
-                  with nature&apos;s five elements—Earth, Water, Fire, Air, and Space. 
-                  Dating back over 5,000 years, it provides guidelines for designing 
-                  spaces that promote positive energy flow.
-                </p>
-                <p>
-                  The fundamental principle of Vastu is that the directions and placement 
-                  of rooms, furniture, and objects affect the energy of a space, which in 
-                  turn influences the health, prosperity, and happiness of its occupants.
-                </p>
-                <p>
-                  {t("common.siteName")} provides expert Vastu consultation for homes, offices, 
-                  and commercial spaces. Our practical remedies work without requiring 
-                  major structural changes, making Vastu accessible to everyone.
+                  {t("common.siteName")} {t("vastuPage.whatIsDesc3")}
                 </p>
               </div>
             </motion.div>
@@ -174,32 +76,22 @@ export default function VastuPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="card p-8"
+              className="relative"
             >
-              <h3 className="text-2xl font-[var(--font-heading)] text-[var(--gold)] mb-6">
-                Benefits of Vastu
-              </h3>
-              <ul className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="flex items-center gap-3"
-                  >
-                    <CheckCircle size={20} className="text-[var(--gold)] flex-shrink-0" />
-                    <span className="text-[var(--foreground)]">{benefit}</span>
-                  </motion.li>
-                ))}
-              </ul>
+              <div className="aspect-square relative max-w-md mx-auto">
+                <Image
+                  src={getImagePath("/images/vastu.png")}
+                  alt={t("vastuPage.heroTitle1")}
+                  fill
+                  className="object-contain"
+                />
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Vastu Tips */}
+      {/* Benefits Section */}
       <section className="section bg-[var(--background-secondary)]">
         <div className="container">
           <motion.div
@@ -210,41 +102,30 @@ export default function VastuPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">Essential Vastu </span>
-              <span className="text-gradient-gold">Tips</span>
+              <span className="text-gradient-gold">{t("vastuPage.benefitsOf")}</span>
             </h2>
             <div className="gold-line w-24 mx-auto mb-6" />
-            <p className="text-[var(--foreground-muted)] max-w-2xl mx-auto">
-              Simple guidelines to bring positive energy into your home
-            </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {vastuTips.map((tip, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {tRaw<string[]>("vastuPage.benefits")?.map((benefit: string, index: number) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="card p-6"
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="card p-4 flex items-center gap-3"
               >
-                <div className="w-12 h-12 rounded-full border border-[var(--gold-muted)] flex items-center justify-center mb-4">
-                  <tip.icon size={24} className="text-[var(--gold)]" />
-                </div>
-                <h3 className="font-[var(--font-heading)] text-xl text-[var(--foreground)] mb-3">
-                  {tip.title}
-                </h3>
-                <p className="text-[var(--foreground-muted)] text-sm leading-relaxed">
-                  {tip.description}
-                </p>
+                <CheckCircle size={20} className="text-[var(--gold)] flex-shrink-0" />
+                <p className="text-sm text-[var(--foreground)]">{benefit}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Five Elements */}
+      {/* Vastu Tips Section */}
       <section className="section">
         <div className="container">
           <motion.div
@@ -255,52 +136,94 @@ export default function VastuPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">The Five </span>
-              <span className="text-gradient-gold">Elements</span>
+              <span className="text-[var(--foreground)]">{t("vastuPage.essentialVastu")} </span>
+              <span className="text-gradient-gold">{t("vastuPage.tips")}</span>
             </h2>
             <div className="gold-line w-24 mx-auto mb-6" />
             <p className="text-[var(--foreground-muted)] max-w-2xl mx-auto">
-              Vastu is based on the balance of Pancha Mahabhuta (Five Great Elements)
+              {t("vastuPage.tipsDesc")}
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {[
-              { name: "Earth", hindi: "Prithvi", direction: "SW", color: "#8B4513" },
-              { name: "Water", hindi: "Jal", direction: "NE", color: "#4169E1" },
-              { name: "Fire", hindi: "Agni", direction: "SE", color: "#FF4500" },
-              { name: "Air", hindi: "Vayu", direction: "NW", color: "#87CEEB" },
-              { name: "Space", hindi: "Akash", direction: "Center", color: "#9370DB" },
-            ].map((element, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {vastuTipKeys.map((key, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="card p-6 text-center"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="card p-6"
               >
-                <div 
-                  className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: `${element.color}20`, border: `2px solid ${element.color}` }}
-                >
-                  <span className="text-2xl font-[var(--font-heading)]" style={{ color: element.color }}>
-                    {element.name[0]}
-                  </span>
+                <div className="w-12 h-12 rounded-full bg-[var(--gold-muted)] flex items-center justify-center mb-4">
+                  <Home size={24} className="text-[var(--gold)]" />
                 </div>
-                <h3 className="font-[var(--font-heading)] text-[var(--foreground)] mb-1">
-                  {element.name}
+                <h3 className="font-[var(--font-heading)] text-lg text-[var(--foreground)] mb-2">
+                  {t(`vastuPage.vastuTips.${key}.title`)}
                 </h3>
-                <p className="text-sm text-[var(--foreground-muted)]">{element.hindi}</p>
-                <p className="text-xs text-[var(--gold)] mt-2">Direction: {element.direction}</p>
+                <p className="text-sm text-[var(--foreground-muted)]">
+                  {t(`vastuPage.vastuTips.${key}.description`)}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Five Elements Section */}
       <section className="section bg-[var(--background-secondary)]">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-[var(--font-heading)] mb-4">
+              <span className="text-[var(--foreground)]">{t("vastuPage.theFive")} </span>
+              <span className="text-gradient-gold">{t("vastuPage.elements")}</span>
+            </h2>
+            <div className="gold-line w-24 mx-auto mb-6" />
+            <p className="text-[var(--foreground-muted)] max-w-2xl mx-auto">
+              {t("vastuPage.elementsDesc")}
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-4xl mx-auto">
+            {fiveElementKeys.map((key, index) => {
+              const color = elementColors[key];
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="card p-6 text-center"
+                >
+                  <div
+                    className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                    style={{ backgroundColor: `${color}20`, border: `2px solid ${color}` }}
+                  >
+                    <Compass size={28} style={{ color: color }} />
+                  </div>
+                  <h3 className="font-[var(--font-heading)] text-lg text-[var(--foreground)] mb-1">
+                    {t(`vastuPage.fiveElements.${key}.name`)}
+                  </h3>
+                  <p className="text-sm text-[var(--gold)] mb-2">{t(`vastuPage.fiveElements.${key}.hindi`)}</p>
+                  <p className="text-xs text-[var(--foreground-muted)]">
+                    {t("vastuPage.direction")}: {t(`vastuPage.fiveElements.${key}.direction`)}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="section">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -310,12 +233,11 @@ export default function VastuPage() {
             className="card p-12 text-center max-w-3xl mx-auto"
           >
             <h2 className="text-3xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">Get Expert </span>
-              <span className="text-gradient-gold">Vastu Consultation</span>
+              <span className="text-[var(--foreground)]">{t("vastuPage.getExpert")} </span>
+              <span className="text-gradient-gold">{t("vastuPage.vastuConsultation")}</span>
             </h2>
             <p className="text-[var(--foreground-muted)] mb-8">
-              {t("common.siteName")} provides personalized Vastu consultation for your home, 
-              office, or business. Get practical remedies without major structural changes.
+              {t("common.siteName")} {t("vastuPage.ctaDesc")}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact/" className="btn-gold flex items-center gap-2">
@@ -336,4 +258,3 @@ export default function VastuPage() {
     </>
   );
 }
-

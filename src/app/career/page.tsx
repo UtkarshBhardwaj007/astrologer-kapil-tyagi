@@ -7,7 +7,7 @@ import { CONTACT_INFO } from "@/lib/constants";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function CareerPage() {
-  const { t } = useLanguage();
+  const { t, tRaw } = useLanguage();
   
   const careerAspects = [
     { icon: TrendingUp, key: "growth" },
@@ -88,7 +88,7 @@ export default function CareerPage() {
                 {t("careerPage.whatYoullGain")}
               </h3>
               <ul className="space-y-4">
-                {(t("careerPage.benefits") as unknown as string[]).map((benefit: string, index: number) => (
+                {tRaw<string[]>("careerPage.benefits")?.map((benefit: string, index: number) => (
                   <motion.li
                     key={index}
                     initial={{ opacity: 0, x: 20 }}
