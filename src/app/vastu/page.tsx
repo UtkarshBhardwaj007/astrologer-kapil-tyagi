@@ -60,15 +60,63 @@ export default function VastuPage() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <div className="w-32 h-32 mx-auto mb-8 relative">
-              <Image
-                src={getImagePath("/images/vastu.png")}
-                alt="Vastu Shastra - Sri Yantra"
-                fill
-                className="object-contain"
-                priority
+            {/* Aesthetic Vastu Image Container */}
+            <div className="relative w-48 h-48 md:w-56 md:h-56 mx-auto mb-10">
+              {/* Outer rotating ring */}
+              <motion.div
+                className="absolute inset-0 rounded-full"
+                style={{
+                  background: "conic-gradient(from 0deg, var(--primary), var(--gold), var(--yellow), var(--gold), var(--primary))",
+                  padding: "3px",
+                }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              >
+                <div className="w-full h-full rounded-full bg-[var(--background-secondary)]" />
+              </motion.div>
+              
+              {/* Middle pulsing glow */}
+              <motion.div
+                className="absolute inset-2 rounded-full"
+                style={{
+                  background: "radial-gradient(circle, rgba(255,107,44,0.3) 0%, transparent 70%)",
+                }}
+                animate={{ 
+                  scale: [1, 1.1, 1],
+                  opacity: [0.5, 0.8, 0.5]
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
+              
+              {/* Inner static ring */}
+              <div 
+                className="absolute inset-4 rounded-full"
+                style={{
+                  border: "2px solid var(--gold-muted)",
+                  boxShadow: "0 0 30px rgba(255,107,44,0.2), inset 0 0 30px rgba(255,107,44,0.1)",
+                }}
+              />
+              
+              {/* Image container - circular crop */}
+              <motion.div 
+                className="absolute inset-6 rounded-full overflow-hidden"
+                style={{
+                  boxShadow: "0 0 30px rgba(255,107,44,0.3), inset 0 0 20px rgba(0,0,0,0.3)",
+                }}
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
+              >
+                <Image
+                  src={getImagePath("/images/vastu.png")}
+                  alt="Vastu Shastra - Sri Yantra"
+                  fill
+                  className="object-cover scale-150"
+                  priority
+                />
+              </motion.div>
             </div>
+            
             <h1 className="text-4xl md:text-5xl font-[var(--font-heading)] mb-6">
               <span className="text-[var(--foreground)]">Vastu </span>
               <span className="text-gradient-gold">Shastra</span>

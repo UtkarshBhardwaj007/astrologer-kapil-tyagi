@@ -14,9 +14,6 @@ export default function HeroSection() {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[var(--background)] via-[var(--background-secondary)] to-[var(--background)]" />
       
-      {/* Decorative elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 border border-[var(--gold-muted)] rounded-full opacity-20" />
-      <div className="absolute bottom-20 right-20 w-48 h-48 border border-[var(--gold-muted)] rounded-full opacity-10" />
 
       <div className="container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">

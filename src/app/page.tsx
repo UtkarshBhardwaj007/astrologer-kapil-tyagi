@@ -223,9 +223,6 @@ export default function HomePage() {
 
       {/* CTA Section */}
       <section className="section-lg bg-gradient-to-br from-[var(--background-secondary)] to-[var(--background)] relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-64 h-64 border border-[var(--gold-muted)] rounded-full -translate-x-1/2 -translate-y-1/2 opacity-20" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 border border-[var(--gold-muted)] rounded-full translate-x-1/2 translate-y-1/2 opacity-10" />
 
         <div className="container relative z-10">
           <motion.div
