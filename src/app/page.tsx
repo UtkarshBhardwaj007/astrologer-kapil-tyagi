@@ -107,7 +107,7 @@ export default function HomePage() {
               
               <div className="space-y-4 text-[var(--foreground-muted)] leading-relaxed">
                 <p>
-                  With over {yearsOfExperience} years of dedicated practice in Vedic astrology, {SITE_CONFIG.name} 
+                  With over {yearsOfExperience} years of dedicated practice in Vedic astrology, {SITE_CONFIG.name}{" "}
                   has guided thousands of individuals on their life paths. His expertise spans 
                   across horoscope reading, kundali analysis, numerology, vastu shastra, and 
                   gemstone consultation.

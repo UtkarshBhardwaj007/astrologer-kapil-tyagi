@@ -23,7 +23,7 @@ export default function ContactPage() {
             </h1>
             <div className="gold-line w-24 mx-auto mb-6" />
             <p className="text-lg text-[var(--foreground-muted)] leading-relaxed">
-              Ready to explore your destiny? Get in touch with {SITE_CONFIG.name} 
+              Ready to explore your destiny? Get in touch with {SITE_CONFIG.name}{" "}
               for a personalized consultation. We&apos;re here to guide you on your life journey.
             </p>
           </motion.div>
