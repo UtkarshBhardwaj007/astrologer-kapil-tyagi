@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Phone, Calendar, Heart, CheckCircle, AlertTriangle, Star, Shield, Users } from "lucide-react";
-import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function MarriagePage() {
+  const { t } = useLanguage();
   const gunMilan = [
     { name: "Varna", points: 1, description: "Spiritual compatibility and ego levels" },
     { name: "Vashya", points: 2, description: "Mutual attraction and control in relationship" },
@@ -114,7 +116,7 @@ export default function MarriagePage() {
                   favorable for marriage.
                 </p>
                 <p>
-                  {SITE_CONFIG.name} provides detailed Kundali matching analysis that goes 
+                  {t("common.siteName")} provides detailed Kundali matching analysis that goes 
                   beyond just the point score, examining planetary positions, doshas, and 
                   providing practical remedies when needed.
                 </p>
@@ -325,13 +327,13 @@ export default function MarriagePage() {
               <span className="text-gradient-gold">Compatibility Analysis</span>
             </h2>
             <p className="text-[var(--foreground-muted)] mb-8">
-              Take the first step towards a harmonious married life. Consult {SITE_CONFIG.name} for 
+              Take the first step towards a harmonious married life. Consult {t("common.siteName")} for 
               comprehensive Kundali matching and expert guidance on marriage compatibility.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact/" className="btn-gold flex items-center gap-2">
                 <Calendar size={18} />
-                Book Consultation
+                {t("home.hero.cta")}
               </Link>
               <a
                 href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}

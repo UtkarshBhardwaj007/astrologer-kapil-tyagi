@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Phone, Calendar, Briefcase, TrendingUp, Building, Users, Target, Award, CheckCircle } from "lucide-react";
-import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function CareerPage() {
+  const { t } = useLanguage();
   const careerAspects = [
     {
       icon: TrendingUp,
@@ -100,7 +102,7 @@ export default function CareerPage() {
                   about your career trajectory.
                 </p>
                 <p>
-                  {SITE_CONFIG.name} analyzes your complete horoscope to provide actionable 
+                  {t("common.siteName")} analyzes your complete horoscope to provide actionable 
                   advice on career choices, business ventures, timing of important decisions, 
                   and remedies for any obstacles you may face in your professional life.
                 </p>
@@ -255,13 +257,13 @@ export default function CareerPage() {
               <span className="text-gradient-gold">Career Guidance</span>
             </h2>
             <p className="text-[var(--foreground-muted)] mb-8">
-              {SITE_CONFIG.name} provides personalized career and business consultation 
+              {t("common.siteName")} provides personalized career and business consultation 
               based on your unique birth chart. Take the right decisions at the right time.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact/" className="btn-gold flex items-center gap-2">
                 <Calendar size={18} />
-                Book Consultation
+                {t("home.hero.cta")}
               </Link>
               <a
                 href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}

@@ -5,9 +5,8 @@ import React, { createContext, useContext, useState, useEffect, useCallback, Rea
 // Import translation files
 import en from "@/locales/en.json";
 import hi from "@/locales/hi.json";
-import de from "@/locales/de.json";
 
-export type Locale = "en" | "hi" | "de";
+export type Locale = "en" | "hi";
 
 interface Translations {
   [key: string]: string | Translations;
@@ -23,7 +22,6 @@ interface LanguageContextType {
 const translations: Record<Locale, Translations> = {
   en: en as Translations,
   hi: hi as Translations,
-  de: de as Translations,
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -41,7 +39,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
   // Load saved language preference on mount
   useEffect(() => {
     const savedLocale = localStorage.getItem(STORAGE_KEY) as Locale | null;
-    if (savedLocale && ["en", "hi", "de"].includes(savedLocale)) {
+    if (savedLocale && ["en", "hi"].includes(savedLocale)) {
       setLocaleState(savedLocale);
     }
     setIsHydrated(true);
@@ -154,6 +152,4 @@ export function useLanguage() {
 export const LOCALE_OPTIONS: { value: Locale; label: string; nativeLabel: string }[] = [
   { value: "en", label: "English", nativeLabel: "English" },
   { value: "hi", label: "Hindi", nativeLabel: "हिन्दी" },
-  { value: "de", label: "German", nativeLabel: "Deutsch" },
 ];
-

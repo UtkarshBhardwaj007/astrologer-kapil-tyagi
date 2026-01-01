@@ -5,9 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { Star, Quote, Phone, ExternalLink } from "lucide-react";
 import { testimonials, averageRating, totalReviews } from "@/data/testimonials";
-import { SITE_CONFIG, CONTACT_INFO, getImagePath } from "@/lib/constants";
+import { CONTACT_INFO, getImagePath } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function ReviewsPage() {
+  const { t } = useLanguage();
+
   return (
     <>
       {/* Hero Section */}
@@ -20,8 +23,8 @@ export default function ReviewsPage() {
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-4xl md:text-5xl font-[var(--font-heading)] mb-6">
-              <span className="text-[var(--foreground)]">Client </span>
-              <span className="text-gradient-gold">Reviews</span>
+              <span className="text-[var(--foreground)]">{t("reviewsPage.heroTitle1")} </span>
+              <span className="text-gradient-gold">{t("reviewsPage.heroTitle2")}</span>
             </h1>
             <div className="gold-line w-24 mx-auto mb-6" />
             
@@ -41,7 +44,7 @@ export default function ReviewsPage() {
               </span>
             </div>
             <p className="text-[var(--foreground-muted)]">
-              Based on {totalReviews}+ reviews from Google, Justdial, and other platforms
+              {t("reviewsPage.basedOn", { count: totalReviews })}
             </p>
           </motion.div>
         </div>
@@ -110,18 +113,15 @@ export default function ReviewsPage() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl font-[var(--font-heading)] mb-4">
-                <span className="text-[var(--foreground)]">Share Your </span>
-                <span className="text-gradient-gold">Experience</span>
+                <span className="text-[var(--foreground)]">{t("reviewsPage.shareTitle1")} </span>
+                <span className="text-gradient-gold">{t("reviewsPage.shareTitle2")}</span>
               </h2>
               <div className="gold-line-left w-16 mb-6" />
               <p className="text-[var(--foreground-muted)] mb-6 leading-relaxed">
-                Had a consultation with {SITE_CONFIG.name}? We&apos;d love to hear about 
-                your experience! Your feedback helps others make informed decisions 
-                and helps us serve you better.
+                {t("reviewsPage.shareDesc1", { name: t("common.siteName") })}
               </p>
               <p className="text-[var(--foreground-muted)] mb-8 leading-relaxed">
-                Scan the QR code or click the button below to leave a review on 
-                Google Maps.
+                {t("reviewsPage.shareDesc2")}
               </p>
               <a
                 href={CONTACT_INFO.googleReviewUrl}
@@ -130,7 +130,7 @@ export default function ReviewsPage() {
                 className="btn-gold inline-flex items-center gap-2"
               >
                 <ExternalLink size={18} />
-                Leave a Review on Google
+                {t("reviewsPage.leaveReview")}
               </a>
             </motion.div>
 
@@ -143,7 +143,7 @@ export default function ReviewsPage() {
             >
               <div className="card p-8 inline-block">
                 <h3 className="font-[var(--font-heading)] text-lg text-[var(--foreground)] mb-4">
-                  Scan to Review
+                  {t("reviewsPage.scanToReview")}
                 </h3>
                 
                 {/* QR Code */}
@@ -158,7 +158,7 @@ export default function ReviewsPage() {
                 </div>
                 
                 <p className="text-sm text-[var(--foreground-muted)] mt-4">
-                  Point your camera to scan
+                  {t("reviewsPage.pointCamera")}
                 </p>
               </div>
             </motion.div>
@@ -177,16 +177,15 @@ export default function ReviewsPage() {
             className="card p-12 text-center max-w-3xl mx-auto"
           >
             <h2 className="text-3xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">Experience It </span>
-              <span className="text-gradient-gold">Yourself</span>
+              <span className="text-[var(--foreground)]">{t("reviewsPage.ctaTitle1")} </span>
+              <span className="text-gradient-gold">{t("reviewsPage.ctaTitle2")}</span>
             </h2>
             <p className="text-[var(--foreground-muted)] mb-8">
-              Join thousands of satisfied clients who have found guidance and clarity 
-              through {SITE_CONFIG.name}&apos;s expert astrological consultations.
+              {t("reviewsPage.ctaSubtitle", { name: t("common.siteName") })}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact/" className="btn-gold">
-                Book Consultation
+                {t("home.hero.cta")}
               </Link>
               <a
                 href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
@@ -202,4 +201,3 @@ export default function ReviewsPage() {
     </>
   );
 }
-

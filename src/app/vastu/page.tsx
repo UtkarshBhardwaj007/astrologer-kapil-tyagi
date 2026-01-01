@@ -4,9 +4,11 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, Calendar, Home, Compass, Sun, Wind, Droplets, Building, CheckCircle } from "lucide-react";
-import { SITE_CONFIG, CONTACT_INFO, getImagePath } from "@/lib/constants";
+import { CONTACT_INFO, getImagePath } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function VastuPage() {
+  const { t } = useLanguage();
   const vastuTips = [
     {
       icon: Compass,
@@ -160,7 +162,7 @@ export default function VastuPage() {
                   turn influences the health, prosperity, and happiness of its occupants.
                 </p>
                 <p>
-                  {SITE_CONFIG.name} provides expert Vastu consultation for homes, offices, 
+                  {t("common.siteName")} provides expert Vastu consultation for homes, offices, 
                   and commercial spaces. Our practical remedies work without requiring 
                   major structural changes, making Vastu accessible to everyone.
                 </p>
@@ -312,13 +314,13 @@ export default function VastuPage() {
               <span className="text-gradient-gold">Vastu Consultation</span>
             </h2>
             <p className="text-[var(--foreground-muted)] mb-8">
-              {SITE_CONFIG.name} provides personalized Vastu consultation for your home, 
+              {t("common.siteName")} provides personalized Vastu consultation for your home, 
               office, or business. Get practical remedies without major structural changes.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact/" className="btn-gold flex items-center gap-2">
                 <Calendar size={18} />
-                Book Consultation
+                {t("home.hero.cta")}
               </Link>
               <a
                 href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}

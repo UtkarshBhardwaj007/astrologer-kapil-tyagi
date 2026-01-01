@@ -9,33 +9,33 @@
       <stop offset="100%" style="stop-color:#050505"/>
     </linearGradient>
     
-    <!-- Gold gradient for text -->
-    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#b8972e"/>
-      <stop offset="50%" style="stop-color:#d4af37"/>
-      <stop offset="100%" style="stop-color:#e5c158"/>
+    <!-- Orange/Brown gradient for text -->
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B4513"/>
+      <stop offset="50%" style="stop-color:#E85A00"/>
+      <stop offset="100%" style="stop-color:#FFB347"/>
     </linearGradient>
     
     <!-- Premium metallic sheen -->
     <linearGradient id="sheenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:transparent"/>
-      <stop offset="40%" style="stop-color:rgba(212,175,55,0.03)"/>
-      <stop offset="50%" style="stop-color:rgba(212,175,55,0.08)"/>
-      <stop offset="60%" style="stop-color:rgba(212,175,55,0.03)"/>
+      <stop offset="40%" style="stop-color:rgba(232,90,0,0.03)"/>
+      <stop offset="50%" style="stop-color:rgba(232,90,0,0.08)"/>
+      <stop offset="60%" style="stop-color:rgba(232,90,0,0.03)"/>
       <stop offset="100%" style="stop-color:transparent"/>
     </linearGradient>
     
     <!-- Radial glow for logo -->
-    <radialGradient id="logoGlow" cx="50%" cy="35%" r="40%">
-      <stop offset="0%" style="stop-color:rgba(212,175,55,0.15)"/>
+    <radialGradient id="logoGlow" cx="50%" cy="40%" r="40%">
+      <stop offset="0%" style="stop-color:rgba(255,140,0,0.18)"/>
       <stop offset="100%" style="stop-color:transparent"/>
     </radialGradient>
     
-    <!-- Vertical gold gradient for border -->
+    <!-- Vertical orange gradient for border -->
     <linearGradient id="borderGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#e5c158"/>
-      <stop offset="50%" style="stop-color:#d4af37"/>
-      <stop offset="100%" style="stop-color:#b8972e"/>
+      <stop offset="0%" style="stop-color:#FFB347"/>
+      <stop offset="50%" style="stop-color:#E85A00"/>
+      <stop offset="100%" style="stop-color:#8B4513"/>
     </linearGradient>
   </defs>
   
@@ -50,73 +50,63 @@
   
   <!-- Premium double border -->
   <rect x="2" y="2" width="1046" height="596" fill="none" stroke="url(#borderGradient)" stroke-width="1.5" rx="19" opacity="0.7"/>
-  <rect x="6" y="6" width="1038" height="588" fill="none" stroke="#d4af37" stroke-width="0.5" rx="17" opacity="0.3"/>
+  <rect x="6" y="6" width="1038" height="588" fill="none" stroke="#8B4513" stroke-width="0.5" rx="17" opacity="0.4"/>
   
   <!-- Decorative corner flourishes -->
-  <path d="M30 30 L30 70 M30 30 L70 30" stroke="#d4af37" stroke-width="1.5" opacity="0.5" fill="none"/>
-  <path d="M1020 30 L1020 70 M1020 30 L980 30" stroke="#d4af37" stroke-width="1.5" opacity="0.5" fill="none"/>
-  <path d="M30 570 L30 530 M30 570 L70 570" stroke="#d4af37" stroke-width="1.5" opacity="0.5" fill="none"/>
-  <path d="M1020 570 L1020 530 M1020 570 L980 570" stroke="#d4af37" stroke-width="1.5" opacity="0.5" fill="none"/>
+  <path d="M30 30 L30 70 M30 30 L70 30" stroke="#E85A00" stroke-width="1.5" opacity="0.5" fill="none"/>
+  <path d="M1020 30 L1020 70 M1020 30 L980 30" stroke="#E85A00" stroke-width="1.5" opacity="0.5" fill="none"/>
+  <path d="M30 570 L30 530 M30 570 L70 570" stroke="#E85A00" stroke-width="1.5" opacity="0.5" fill="none"/>
+  <path d="M1020 570 L1020 530 M1020 570 L980 570" stroke="#E85A00" stroke-width="1.5" opacity="0.5" fill="none"/>
   
   <!-- Small decorative dots at corners -->
-  <circle cx="30" cy="30" r="2" fill="#d4af37" opacity="0.6"/>
-  <circle cx="1020" cy="30" r="2" fill="#d4af37" opacity="0.6"/>
-  <circle cx="30" cy="570" r="2" fill="#d4af37" opacity="0.6"/>
-  <circle cx="1020" cy="570" r="2" fill="#d4af37" opacity="0.6"/>
+  <circle cx="30" cy="30" r="2" fill="#FFB347" opacity="0.6"/>
+  <circle cx="1020" cy="30" r="2" fill="#FFB347" opacity="0.6"/>
+  <circle cx="30" cy="570" r="2" fill="#FFB347" opacity="0.6"/>
+  <circle cx="1020" cy="570" r="2" fill="#FFB347" opacity="0.6"/>
   
-  <!-- Services bar at top -->
-  <g transform="translate(525, 55)">
-    <text text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="13" letter-spacing="4" fill="rgba(212,175,55,0.6)">
-      KUNDALI  •  CAREER  •  MUHURAT  •  MARRIAGE  •  VASTU  •  NUMEROLOGY  •  GEMSTONES
-    </text>
-  </g>
-  
-  <!-- Thin divider line below services -->
-  <line x1="150" y1="80" x2="900" y2="80" stroke="#d4af37" stroke-width="0.5" opacity="0.2"/>
-  
-  <!-- Shatkon Logo (Hexagon with interlocking triangles) - larger and more prominent -->
-  <g transform="translate(525, 210)" fill="none" stroke="#d4af37" stroke-width="3">
+  <!-- Shatkon Logo (Hexagon with interlocking triangles) - centered -->
+  <g transform="translate(525, 190)" fill="none" stroke="#E85A00" stroke-width="3">
     <!-- Outer glow ring -->
-    <circle cx="0" cy="0" r="85" stroke="rgba(212,175,55,0.1)" stroke-width="20" fill="none"/>
+    <circle cx="0" cy="0" r="85" stroke="rgba(232,90,0,0.12)" stroke-width="20" fill="none"/>
     
     <!-- Outer Hexagon -->
     <path d="M0 -70 L60.6 -35 L60.6 35 L0 70 L-60.6 35 L-60.6 -35 Z" stroke-width="2.5"/>
     
     <!-- Upward Triangle -->
-    <path d="M0 -50 L43.3 25 L-43.3 25 Z" stroke-width="2" fill="rgba(212,175,55,0.08)"/>
+    <path d="M0 -50 L43.3 25 L-43.3 25 Z" stroke-width="2" fill="rgba(232,90,0,0.1)"/>
     
     <!-- Downward Triangle -->
-    <path d="M0 50 L-43.3 -25 L43.3 -25 Z" stroke-width="2" fill="rgba(212,175,55,0.08)"/>
+    <path d="M0 50 L-43.3 -25 L43.3 -25 Z" stroke-width="2" fill="rgba(232,90,0,0.1)"/>
     
     <!-- Central Bindu (dot) with glow -->
-    <circle cx="0" cy="0" r="8" fill="#d4af37"/>
-    <circle cx="0" cy="0" r="12" fill="none" stroke="rgba(212,175,55,0.3)" stroke-width="2"/>
+    <circle cx="0" cy="0" r="8" fill="#E85A00"/>
+    <circle cx="0" cy="0" r="12" fill="none" stroke="rgba(255,140,0,0.4)" stroke-width="2"/>
   </g>
   
   <!-- Name with embossed effect -->
-  <text x="525" y="355" text-anchor="middle" font-family="Cinzel, Georgia, serif" font-size="44" font-weight="600" letter-spacing="6" fill="url(#goldGradient)">
+  <text x="525" y="345" text-anchor="middle" font-family="Cinzel, Georgia, serif" font-size="44" font-weight="600" letter-spacing="6" fill="url(#orangeGradient)">
     ASTROLOGER KAPIL TYAGI
   </text>
   
-  <!-- Updated Tagline -->
-  <text x="525" y="400" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="20" letter-spacing="8" fill="rgba(212,175,55,0.75)" font-style="italic">
+  <!-- Primary Tagline -->
+  <text x="525" y="395" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="20" letter-spacing="8" fill="rgba(255,140,0,0.85)" font-style="italic">
     Jyotish Aacharya  |  Silver Medalist
   </text>
   
   <!-- Elegant double divider -->
-  <g transform="translate(525, 445)">
-    <line x1="-200" y1="0" x2="-20" y2="0" stroke="url(#goldGradient)" stroke-width="1" opacity="0.4"/>
-    <line x1="20" y1="0" x2="200" y2="0" stroke="url(#goldGradient)" stroke-width="1" opacity="0.4"/>
+  <g transform="translate(525, 440)">
+    <line x1="-220" y1="0" x2="-20" y2="0" stroke="url(#orangeGradient)" stroke-width="1" opacity="0.4"/>
+    <line x1="20" y1="0" x2="220" y2="0" stroke="url(#orangeGradient)" stroke-width="1" opacity="0.4"/>
     <!-- Center diamond -->
-    <polygon points="0,-6 6,0 0,6 -6,0" fill="#d4af37" opacity="0.6"/>
+    <polygon points="0,-6 6,0 0,6 -6,0" fill="#FFB347" opacity="0.8"/>
   </g>
   
-  <!-- Tagline at bottom -->
-  <text x="525" y="490" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="15" letter-spacing="6" fill="rgba(212,175,55,0.5)">
-    VEDIC ASTROLOGY  •  SPIRITUAL GUIDANCE
+  <!-- Secondary Tagline at bottom -->
+  <text x="525" y="495" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="16" letter-spacing="6" fill="rgba(255,179,71,0.65)">
+    VEDIC ASTROLOGER  •  NUMEROLOGIST  •  VASTU EXPERT
   </text>
   
   <!-- Subtle pattern lines in background -->
-  <line x1="0" y1="300" x2="1050" y2="300" stroke="rgba(212,175,55,0.02)" stroke-width="1"/>
-  <line x1="525" y1="0" x2="525" y2="600" stroke="rgba(212,175,55,0.02)" stroke-width="1"/>
+  <line x1="0" y1="300" x2="1050" y2="300" stroke="rgba(232,90,0,0.02)" stroke-width="1"/>
+  <line x1="525" y1="0" x2="525" y2="600" stroke="rgba(232,90,0,0.02)" stroke-width="1"/>
 </svg>

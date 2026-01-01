@@ -8,42 +8,42 @@
       <stop offset="100%" style="stop-color:#080808"/>
     </linearGradient>
     
-    <!-- Gold gradient -->
-    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#b8972e"/>
-      <stop offset="50%" style="stop-color:#d4af37"/>
-      <stop offset="100%" style="stop-color:#e5c158"/>
+    <!-- Orange/Brown gradient -->
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B4513"/>
+      <stop offset="50%" style="stop-color:#E85A00"/>
+      <stop offset="100%" style="stop-color:#FFB347"/>
     </linearGradient>
     
     <!-- Metallic sheen overlay -->
     <linearGradient id="sheenGradient" x1="100%" y1="100%" x2="0%" y2="0%">
       <stop offset="0%" style="stop-color:transparent"/>
-      <stop offset="45%" style="stop-color:rgba(212,175,55,0.05)"/>
-      <stop offset="55%" style="stop-color:rgba(212,175,55,0.1)"/>
+      <stop offset="45%" style="stop-color:rgba(232,90,0,0.05)"/>
+      <stop offset="55%" style="stop-color:rgba(232,90,0,0.1)"/>
       <stop offset="100%" style="stop-color:transparent"/>
     </linearGradient>
     
     <!-- Phone icon -->
     <symbol id="phoneIcon" viewBox="0 0 24 24">
-      <path fill="#d4af37" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+      <path fill="#E85A00" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
     </symbol>
     
     <!-- Email icon -->
     <symbol id="emailIcon" viewBox="0 0 24 24">
-      <path fill="#d4af37" d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+      <path fill="#E85A00" d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
       <polyline stroke="#0a0a0a" stroke-width="2" fill="none" points="22,6 12,13 2,6"/>
     </symbol>
     
     <!-- Location icon -->
     <symbol id="locationIcon" viewBox="0 0 24 24">
-      <path fill="#d4af37" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+      <path fill="#E85A00" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
       <circle cx="12" cy="10" r="3" fill="#0a0a0a"/>
     </symbol>
     
     <!-- Clock icon -->
     <symbol id="clockIcon" viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="10" fill="none" stroke="#d4af37" stroke-width="2"/>
-      <polyline stroke="#d4af37" stroke-width="2" fill="none" points="12 6 12 12 16 14"/>
+      <circle cx="12" cy="12" r="10" fill="none" stroke="#E85A00" stroke-width="2"/>
+      <polyline stroke="#E85A00" stroke-width="2" fill="none" points="12 6 12 12 16 14"/>
     </symbol>
   </defs>
   
@@ -53,11 +53,11 @@
   <!-- Metallic sheen overlay -->
   <rect width="1050" height="600" fill="url(#sheenGradient)" rx="20"/>
   
-  <!-- Gold border -->
-  <rect x="3" y="3" width="1044" height="594" fill="none" stroke="#d4af37" stroke-width="2" rx="18" opacity="0.6"/>
+  <!-- Premium border -->
+  <rect x="3" y="3" width="1044" height="594" fill="none" stroke="#E85A00" stroke-width="2" rx="18" opacity="0.6"/>
   
   <!-- Inner shadow line -->
-  <rect x="8" y="8" width="1034" height="584" fill="none" stroke="#d4af37" stroke-width="0.5" rx="15" opacity="0.2"/>
+  <rect x="8" y="8" width="1034" height="584" fill="none" stroke="#8B4513" stroke-width="0.5" rx="15" opacity="0.3"/>
   
   <!-- Contact details -->
   <!-- Phone -->
@@ -80,23 +80,22 @@
   </g>
   
   <!-- Divider line -->
-  <line x1="180" y1="340" x2="870" y2="340" stroke="#d4af37" stroke-width="1" opacity="0.2"/>
+  <line x1="180" y1="340" x2="870" y2="340" stroke="#E85A00" stroke-width="1" opacity="0.25"/>
   
   <!-- Hours -->
   <g transform="translate(180, 370)">
     <use href="#clockIcon" width="26" height="26"/>
     <text x="42" y="14" font-family="Cormorant Garamond, Georgia, serif" font-size="22" fill="#e8e8e8">
-      <tspan fill="#d4af37">Consultation:</tspan> 10AM - 9PM IST
+      <tspan fill="#FF8C00">Consultation:</tspan> 10AM - 9PM IST
     </text>
     <text x="42" y="44" font-family="Cormorant Garamond, Georgia, serif" font-size="22" fill="#e8e8e8">
-      <tspan fill="#d4af37">Calling:</tspan> 10AM - 6PM IST
+      <tspan fill="#FF8C00">Calling:</tspan> 10AM - 6PM IST
     </text>
   </g>
   
   <!-- Decorative corner elements -->
-  <path d="M50 50 L50 100 M50 50 L100 50" stroke="#d4af37" stroke-width="1" opacity="0.3" fill="none"/>
-  <path d="M1000 50 L1000 100 M1000 50 L950 50" stroke="#d4af37" stroke-width="1" opacity="0.3" fill="none"/>
-  <path d="M50 550 L50 500 M50 550 L100 550" stroke="#d4af37" stroke-width="1" opacity="0.3" fill="none"/>
-  <path d="M1000 550 L1000 500 M1000 550 L950 550" stroke="#d4af37" stroke-width="1" opacity="0.3" fill="none"/>
+  <path d="M50 50 L50 100 M50 50 L100 50" stroke="#E85A00" stroke-width="1" opacity="0.3" fill="none"/>
+  <path d="M1000 50 L1000 100 M1000 50 L950 50" stroke="#E85A00" stroke-width="1" opacity="0.3" fill="none"/>
+  <path d="M50 550 L50 500 M50 550 L100 550" stroke="#E85A00" stroke-width="1" opacity="0.3" fill="none"/>
+  <path d="M1000 550 L1000 500 M1000 550 L950 550" stroke="#E85A00" stroke-width="1" opacity="0.3" fill="none"/>
 </svg>
-

@@ -170,17 +170,21 @@ export const serviceHighlights = [
   {
     number: `${yearsOfExperience}+`,
     label: "Years Experience",
+    labelKey: "yearsExperience",
   },
   {
     number: `${totalConsultations.toLocaleString()}+`,
     label: "Consultations",
+    labelKey: "consultations",
   },
   {
     number: `${countriesServed}+`,
     label: "Countries Served",
+    labelKey: "countriesServed",
   },
   {
     number: String(averageRating),
     label: "Average Rating",
+    labelKey: "averageRating",
   },
 ];

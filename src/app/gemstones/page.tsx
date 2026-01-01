@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Phone, Calendar, Gem, CheckCircle, AlertTriangle } from "lucide-react";
-import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function GemstonesPage() {
+  const { t } = useLanguage();
   const gemstones = [
     {
       name: "Ruby",
@@ -178,7 +180,7 @@ export default function GemstonesPage() {
                   bring balance to your life.
                 </p>
                 <p>
-                  {SITE_CONFIG.name} provides personalized gemstone recommendations based on 
+                  {t("common.siteName")} provides personalized gemstone recommendations based on 
                   detailed birth chart analysis, ensuring you wear the right stone that 
                   harmonizes with your planetary positions.
                 </p>
@@ -317,13 +319,13 @@ export default function GemstonesPage() {
               <span className="text-gradient-gold">Personalized Recommendation</span>
             </h2>
             <p className="text-[var(--foreground-muted)] mb-8">
-              Don&apos;t wear gemstones without expert guidance. Consult {SITE_CONFIG.name} for 
+              Don&apos;t wear gemstones without expert guidance. Consult {t("common.siteName")} for 
               personalized gemstone recommendations based on your birth chart analysis.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact/" className="btn-gold flex items-center gap-2">
                 <Calendar size={18} />
-                Book Consultation
+                {t("home.hero.cta")}
               </Link>
               <a
                 href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}

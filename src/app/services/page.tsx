@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Phone, Calendar, Check, ArrowRight, ScrollText, Star, Heart, Home, Hash, Gem, Circle, Flame } from "lucide-react";
 import { services, serviceHighlights } from "@/data/services";
-import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const iconMap: { [key: string]: React.ElementType } = {
   ScrollText,
@@ -18,6 +19,8 @@ const iconMap: { [key: string]: React.ElementType } = {
 };
 
 export default function ServicesPage() {
+  const { t } = useLanguage();
+
   return (
     <>
       {/* Hero Section */}
@@ -30,14 +33,12 @@ export default function ServicesPage() {
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-4xl md:text-5xl font-[var(--font-heading)] mb-6">
-              <span className="text-[var(--foreground)]">Our </span>
-              <span className="text-gradient-gold">Services</span>
+              <span className="text-[var(--foreground)]">{t("servicesPage.heroTitle1")} </span>
+              <span className="text-gradient-gold">{t("servicesPage.heroTitle2")}</span>
             </h1>
             <div className="gold-line w-24 mx-auto mb-6" />
             <p className="text-lg text-[var(--foreground-muted)] leading-relaxed">
-              Comprehensive astrological services to guide you through every aspect of life. 
-              From birth chart analysis to personalized remedies, {SITE_CONFIG.name} offers 
-              expert guidance rooted in Vedic wisdom.
+              {t("servicesPage.heroSubtitle", { name: t("common.siteName") })}
             </p>
           </motion.div>
 
@@ -53,7 +54,7 @@ export default function ServicesPage() {
                 <div className="text-3xl font-[var(--font-heading)] text-[var(--gold)] mb-1">
                   {stat.number}
                 </div>
-                <div className="text-sm text-[var(--foreground-muted)]">{stat.label}</div>
+                <div className="text-sm text-[var(--foreground-muted)]">{t(`servicesPage.stats.${stat.labelKey}`)}</div>
               </div>
             ))}
           </motion.div>
@@ -81,18 +82,18 @@ export default function ServicesPage() {
                     </div>
                     <div className="flex-1">
                       <h2 className="text-2xl font-[var(--font-heading)] text-[var(--foreground)] mb-3">
-                        {service.title}
+                        {t(`services.${service.id}.title`)}
                       </h2>
                       <p className="text-[var(--foreground-muted)] mb-4 leading-relaxed">
-                        {service.description}
+                        {t(`services.${service.id}.description`)}
                       </p>
                       
                       {/* Features */}
                       <div className="space-y-2 mb-6">
-                        {service.features.slice(0, 4).map((feature, idx) => (
+                        {service.features.slice(0, 4).map((_, idx) => (
                           <div key={idx} className="flex items-start gap-2 text-sm">
                             <Check size={16} className="text-[var(--gold)] mt-0.5 flex-shrink-0" />
-                            <span className="text-[var(--foreground-muted)]">{feature}</span>
+                            <span className="text-[var(--foreground-muted)]">{t(`services.${service.id}.features.${idx}`)}</span>
                           </div>
                         ))}
                       </div>
@@ -101,7 +102,7 @@ export default function ServicesPage() {
                         href={service.href}
                         className="inline-flex items-center gap-2 text-[var(--gold)] hover:gap-3 transition-all text-sm font-medium"
                       >
-                        Learn More
+                        {t("common.learnMore")}
                         <ArrowRight size={16} />
                       </Link>
                     </div>
@@ -124,34 +125,18 @@ export default function ServicesPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">How It </span>
-              <span className="text-gradient-gold">Works</span>
+              <span className="text-[var(--foreground)]">{t("servicesPage.processTitle1")} </span>
+              <span className="text-gradient-gold">{t("servicesPage.processTitle2")}</span>
             </h2>
             <div className="gold-line w-24 mx-auto" />
           </motion.div>
 
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              {
-                step: "01",
-                title: "Book Appointment",
-                description: "Call or message to schedule a consultation at your convenient time",
-              },
-              {
-                step: "02",
-                title: "Share Details",
-                description: "Provide birth details (date, time, place) for accurate analysis",
-              },
-              {
-                step: "03",
-                title: "Consultation",
-                description: "Receive detailed analysis and personalized guidance",
-              },
-              {
-                step: "04",
-                title: "Follow Remedies",
-                description: "Implement suggested remedies for positive transformation",
-              },
+              { step: "01", titleKey: "step1Title", descKey: "step1Desc" },
+              { step: "02", titleKey: "step2Title", descKey: "step2Desc" },
+              { step: "03", titleKey: "step3Title", descKey: "step3Desc" },
+              { step: "04", titleKey: "step4Title", descKey: "step4Desc" },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -165,10 +150,10 @@ export default function ServicesPage() {
                   {item.step}
                 </div>
                 <h3 className="text-xl font-[var(--font-heading)] text-[var(--foreground)] mb-2">
-                  {item.title}
+                  {t(`servicesPage.process.${item.titleKey}`)}
                 </h3>
                 <p className="text-[var(--foreground-muted)] text-sm">
-                  {item.description}
+                  {t(`servicesPage.process.${item.descKey}`)}
                 </p>
               </motion.div>
             ))}
@@ -187,17 +172,16 @@ export default function ServicesPage() {
             className="card p-12 text-center max-w-3xl mx-auto"
           >
             <h2 className="text-3xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">Ready to Get </span>
-              <span className="text-gradient-gold">Started?</span>
+              <span className="text-[var(--foreground)]">{t("servicesPage.ctaTitle1")} </span>
+              <span className="text-gradient-gold">{t("servicesPage.ctaTitle2")}</span>
             </h2>
             <p className="text-[var(--foreground-muted)] mb-8">
-              Book a consultation with {SITE_CONFIG.name} today and take the first step 
-              towards understanding your destiny and making empowered life decisions.
+              {t("servicesPage.ctaSubtitle", { name: t("common.siteName") })}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact/" className="btn-gold flex items-center gap-2">
                 <Calendar size={18} />
-                Book Consultation
+                {t("home.hero.cta")}
               </Link>
               <a
                 href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
@@ -213,4 +197,3 @@ export default function ServicesPage() {
     </>
   );
 }
-

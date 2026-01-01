@@ -10,7 +10,8 @@
     "viewAll": "View All",
     "readMore": "Read More",
     "hoverToViewDetails": "Hover to view details",
-    "mondayToSunday": "Monday - Sunday"
+    "mondayToSunday": "Monday - Sunday",
+    "bookConsultation": "Book Consultation"
   },
   "nav": {
     "home": "Home",
@@ -29,53 +30,153 @@
     "kundali": {
       "name": "Kundali",
       "title": "Kundali Making",
-      "shortDescription": "Comprehensive birth chart creation and life predictions"
+      "shortDescription": "Comprehensive birth chart creation and life predictions",
+      "description": "Get a detailed Kundali (birth chart) prepared by expert Vedic astrologers. Understand your life path, strengths, challenges, and opportunities through precise planetary analysis.",
+      "features": ["Complete birth chart preparation", "Planetary positions and their effects", "Dasha period calculations", "Divisional charts (D-9, D-10, etc.)"]
     },
     "career": {
       "name": "Career",
       "title": "Career & Business",
-      "shortDescription": "Professional guidance for career growth and business success"
+      "shortDescription": "Professional guidance for career growth and business success",
+      "description": "Receive expert astrological guidance for your career and business decisions. Understand the best times for job changes, business ventures, investments, and professional growth based on your birth chart.",
+      "features": ["Career path analysis based on birth chart", "Best timing for job changes", "Business venture compatibility", "Partnership compatibility analysis"]
     },
     "muhurat": {
       "name": "Muhurat",
       "title": "Muhurat Advice",
-      "shortDescription": "Auspicious timing for important life events"
+      "shortDescription": "Auspicious timing for important life events",
+      "description": "Find the most auspicious time (Muhurat) for important events like marriages, housewarming, business launches, and other significant occasions.",
+      "features": ["Marriage muhurat selection", "Griha Pravesh timing", "Business inauguration muhurat", "Vehicle purchase timing"]
     },
     "marriage": {
       "name": "Marriage",
       "title": "Marriage Compatibility",
-      "shortDescription": "Kundali matching for matrimonial purposes"
+      "shortDescription": "Kundali matching for matrimonial purposes",
+      "description": "Ensure a harmonious and prosperous married life with our comprehensive Kundali matching service. We analyze both horoscopes to determine compatibility across various life aspects.",
+      "features": ["Gun Milan (36 points matching)", "Manglik Dosha analysis", "Nadi Dosha check", "Overall compatibility score"]
     },
     "vastu": {
       "name": "Vastu",
       "title": "Vastu Shastra",
-      "shortDescription": "Home and office Vastu analysis and remedies"
+      "shortDescription": "Home and office Vastu analysis and remedies",
+      "description": "Create positive energy flow in your living and working spaces with expert Vastu Shastra consultation. We provide practical remedies to correct Vastu defects without major structural changes.",
+      "features": ["Complete property analysis", "Room-by-room recommendations", "Office Vastu for business success", "Practical remedies without demolition"]
     },
     "numerology": {
       "name": "Numerology",
       "title": "Numerology",
-      "shortDescription": "Name analysis and lucky number consultation"
+      "shortDescription": "Name analysis and lucky number consultation",
+      "description": "Discover the power of numbers in your life. Our numerology services help you understand your life path number, choose auspicious names, and identify lucky numbers for important decisions.",
+      "features": ["Life path number analysis", "Name numerology", "Business name consultation", "Lucky numbers identification"]
     },
     "gemstones": {
       "name": "Gemstones",
       "title": "Gemstone Recommendation",
-      "shortDescription": "Personalized gemstone suggestions based on your chart"
+      "shortDescription": "Personalized gemstone suggestions based on your chart",
+      "description": "Harness the power of precious and semi-precious gemstones to strengthen favorable planets and mitigate malefic effects. Get personalized recommendations based on your birth chart.",
+      "features": ["Birth chart based recommendations", "Gemstone quality guidance", "Wearing instructions and mantras", "Metal and finger selection"]
     },
     "puja": {
       "name": "Puja",
       "title": "Puja & Remedies",
-      "shortDescription": "Customized puja services and astrological remedies"
+      "shortDescription": "Customized puja services and astrological remedies",
+      "description": "Strengthen your planetary positions and overcome obstacles through powerful Vedic pujas and remedies. We provide guidance for various rituals based on your specific needs.",
+      "features": ["Planetary pujas", "Dosha remedies", "Festival-specific rituals", "Mantra recommendations"]
     },
     "horoscope": {
       "name": "Horoscope",
       "title": "Horoscope Reading",
-      "shortDescription": "Daily, weekly, monthly, and yearly predictions"
+      "shortDescription": "Daily, weekly, monthly, and yearly predictions",
+      "description": "Receive personalized horoscope readings tailored to your zodiac sign. Understand the cosmic influences affecting your life.",
+      "features": ["Personalized daily predictions", "Weekly and monthly forecasts", "Yearly overview", "Lucky days and numbers"]
     },
     "rudraksha": {
       "name": "Rudraksha",
       "title": "Rudraksha Consultation",
-      "shortDescription": "Sacred Rudraksha beads for spiritual growth"
+      "shortDescription": "Sacred Rudraksha beads for spiritual growth",
+      "description": "Experience the divine blessings of Rudraksha beads. We help you select the right Rudraksha based on your planetary positions and spiritual goals.",
+      "features": ["Mukhi selection guidance", "Authenticity verification", "Wearing and maintenance instructions", "Energization process"]
+    },
+    "matchmaking": {
+      "name": "Matchmaking",
+      "title": "Marriage Compatibility",
+      "shortDescription": "Kundali matching for matrimonial purposes",
+      "description": "Ensure a harmonious and prosperous married life with our comprehensive Kundali matching service.",
+      "features": ["Gun Milan (36 points matching)", "Manglik Dosha analysis", "Nadi Dosha check", "Overall compatibility score"]
+    },
+    "mahurat": {
+      "name": "Muhurat",
+      "title": "Muhurat Advice",
+      "shortDescription": "Auspicious timing for important life events",
+      "description": "Find the most auspicious time (Muhurat) for important events like marriages, housewarming, business launches, and other significant occasions.",
+      "features": ["Marriage muhurat selection", "Griha Pravesh timing", "Business inauguration muhurat", "Vehicle purchase timing"]
     }
+  },
+  "servicesPage": {
+    "heroTitle1": "Our",
+    "heroTitle2": "Services",
+    "heroSubtitle": "Comprehensive astrological services to guide you through every aspect of life. From birth chart analysis to personalized remedies, {name} offers expert guidance rooted in Vedic wisdom.",
+    "processTitle1": "How It",
+    "processTitle2": "Works",
+    "process": {
+      "step1Title": "Book Appointment",
+      "step1Desc": "Call or message to schedule a consultation at your convenient time",
+      "step2Title": "Share Details",
+      "step2Desc": "Provide birth details (date, time, place) for accurate analysis",
+      "step3Title": "Consultation",
+      "step3Desc": "Receive detailed analysis and personalized guidance",
+      "step4Title": "Follow Remedies",
+      "step4Desc": "Implement suggested remedies for positive transformation"
+    },
+    "ctaTitle1": "Ready to Get",
+    "ctaTitle2": "Started?",
+    "ctaSubtitle": "Book a consultation with {name} today and take the first step towards understanding your destiny and making empowered life decisions.",
+    "stats": {
+      "yearsExperience": "Years Experience",
+      "consultations": "Consultations",
+      "countriesServed": "Countries Served",
+      "averageRating": "Average Rating"
+    }
+  },
+  "reviewsPage": {
+    "heroTitle1": "Client",
+    "heroTitle2": "Reviews",
+    "basedOn": "Based on {count}+ reviews from Google, Justdial, and other platforms",
+    "shareTitle1": "Share Your",
+    "shareTitle2": "Experience",
+    "shareDesc1": "Had a consultation with {name}? We'd love to hear about your experience! Your feedback helps others make informed decisions and helps us serve you better.",
+    "shareDesc2": "Scan the QR code or click the button below to leave a review on Google Maps.",
+    "leaveReview": "Leave a Review on Google",
+    "scanToReview": "Scan to Review",
+    "pointCamera": "Point your camera to scan",
+    "ctaTitle1": "Experience It",
+    "ctaTitle2": "Yourself",
+    "ctaSubtitle": "Join thousands of satisfied clients who have found guidance and clarity through {name}'s expert astrological consultations."
+  },
+  "zodiacPage": {
+    "element": "Element",
+    "rulingPlanet": "Ruling Planet",
+    "quality": "Quality",
+    "luckyDay": "Lucky Day",
+    "about": "About",
+    "personalityTraits": "Personality Traits",
+    "strengths": "Strengths",
+    "challenges": "Challenges",
+    "careerFinance": "Career & Finance",
+    "loveRelationships": "Love & Relationships",
+    "bestCompatibility": "Best Compatibility",
+    "healthWellness": "Health & Wellness",
+    "proTip": "Pro Tip for",
+    "luckyElements": "Lucky Elements",
+    "color": "Color",
+    "number": "Number",
+    "day": "Day",
+    "gemstone": "Gemstone",
+    "getPersonalReading": "Get Personal Reading",
+    "previous": "Previous",
+    "next": "Next",
+    "exploreAll1": "Explore All",
+    "exploreAll2": "Zodiac Signs"
   },
   "zodiac": {
     "title": "Explore Your Zodiac Sign",
@@ -210,9 +311,8 @@
     "copyright": "All rights reserved."
   },
   "visitingCard": {
-    "servicesBar": "KUNDALI • CAREER • MUHURAT • VASTU • NUMEROLOGY • GEMSTONES",
     "tagline": "Jyotish Aacharya | Silver Medalist",
-    "secondaryTagline": "VEDIC ASTROLOGY • SPIRITUAL GUIDANCE",
+    "secondaryTagline": "VEDIC ASTROLOGER • NUMEROLOGIST • VASTU EXPERT",
     "consultation": "Consultation",
     "calling": "Calling"
   },
@@ -227,8 +327,6 @@
   "language": {
     "select": "Language",
     "en": "English",
-    "hi": "हिन्दी",
-    "de": "Deutsch"
+    "hi": "हिन्दी"
   }
 }
-

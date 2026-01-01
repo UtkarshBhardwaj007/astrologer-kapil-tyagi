@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Phone, Calendar, ScrollText, Sun, Moon, Star, Heart, Briefcase, Shield } from "lucide-react";
-import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function KundaliPage() {
+  const { t } = useLanguage();
   const houses = [
     { number: "1st", name: "Lagna (Ascendant)", governs: "Self, personality, physical appearance" },
     { number: "2nd", name: "Dhana Bhava", governs: "Wealth, family, speech" },
@@ -110,7 +112,7 @@ export default function KundaliPage() {
                   relationships, career, health, and overall life journey.
                 </p>
                 <p>
-                  {SITE_CONFIG.name} provides detailed Kundali analysis, examining all aspects 
+                  {t("common.siteName")} provides detailed Kundali analysis, examining all aspects 
                   of your birth chart to provide insights and guidance for various life situations.
                 </p>
               </div>
@@ -251,14 +253,14 @@ export default function KundaliPage() {
               <span className="text-gradient-gold">Analyzed</span>
             </h2>
             <p className="text-[var(--foreground-muted)] mb-8">
-              Receive a comprehensive analysis of your birth chart from {SITE_CONFIG.name}. 
+              Receive a comprehensive analysis of your birth chart from {t("common.siteName")}. 
               Understand your planetary positions, doshas, favorable periods, and get 
               personalized guidance for life decisions.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact/" className="btn-gold flex items-center gap-2">
                 <Calendar size={18} />
-                Book Consultation
+                {t("home.hero.cta")}
               </Link>
               <a
                 href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}

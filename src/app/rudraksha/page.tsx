@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Phone, Calendar, Circle, CheckCircle, AlertTriangle, Sparkles } from "lucide-react";
-import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function RudrakshaPage() {
+  const { t } = useLanguage();
   const rudrakshaTypes = [
     {
       mukhi: "1 Mukhi",
@@ -195,7 +197,7 @@ export default function RudrakshaPage() {
                   the bead can harness.
                 </p>
                 <p>
-                  {SITE_CONFIG.name} provides expert guidance on selecting the right Rudraksha 
+                  {t("common.siteName")} provides expert guidance on selecting the right Rudraksha 
                   based on your birth chart, ensuring you receive maximum spiritual and 
                   material benefits from these sacred beads.
                 </p>
@@ -399,13 +401,13 @@ export default function RudrakshaPage() {
               <span className="text-gradient-gold">Rudraksha Recommendation</span>
             </h2>
             <p className="text-[var(--foreground-muted)] mb-8">
-              Wearing the wrong Rudraksha can have adverse effects. Consult {SITE_CONFIG.name} for 
+              Wearing the wrong Rudraksha can have adverse effects. Consult {t("common.siteName")} for 
               personalized Rudraksha recommendations based on your birth chart analysis.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact/" className="btn-gold flex items-center gap-2">
                 <Calendar size={18} />
-                Book Consultation
+                {t("home.hero.cta")}
               </Link>
               <a
                 href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}

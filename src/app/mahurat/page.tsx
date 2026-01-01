@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Phone, Calendar, Heart, Home, Car, Plane, GraduationCap, Building, Sparkles, CheckCircle } from "lucide-react";
-import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function MahuratPage() {
+  const { t } = useLanguage();
   const mahuratTypes = [
     {
       icon: Heart,
@@ -114,7 +116,7 @@ export default function MahuratPage() {
                   for thousands of years across India.
                 </p>
                 <p>
-                  {SITE_CONFIG.name} calculates personalized Muhurats considering your 
+                  {t("common.siteName")} calculates personalized Muhurats considering your 
                   individual birth chart along with the general auspicious timings, 
                   ensuring the selected time is favorable specifically for you.
                 </p>
@@ -254,14 +256,14 @@ export default function MahuratPage() {
               <span className="text-gradient-gold">Personalized Muhurat</span>
             </h2>
             <p className="text-[var(--foreground-muted)] mb-8">
-              {SITE_CONFIG.name} provides personalized Muhurat selection considering 
+              {t("common.siteName")} provides personalized Muhurat selection considering 
               your birth chart for maximum auspiciousness. Start your important 
               events at the perfect cosmic moment.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact/" className="btn-gold flex items-center gap-2">
                 <Calendar size={18} />
-                Book Consultation
+                {t("home.hero.cta")}
               </Link>
               <a
                 href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}

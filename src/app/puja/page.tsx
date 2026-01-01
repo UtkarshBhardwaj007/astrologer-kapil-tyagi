@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Phone, Calendar, Flame, CheckCircle, Sun, Moon, Star, Shield, Heart, Sparkles } from "lucide-react";
-import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function PujaPage() {
+  const { t } = useLanguage();
   const planetaryPujas = [
     {
       planet: "Surya (Sun)",
@@ -196,7 +198,7 @@ export default function PujaPage() {
                   significant positive changes.
                 </p>
                 <p>
-                  {SITE_CONFIG.name} provides personalized remedy recommendations based on 
+                  {t("common.siteName")} provides personalized remedy recommendations based on 
                   your birth chart analysis, ensuring you receive the most effective 
                   solutions for your specific challenges.
                 </p>
@@ -425,13 +427,13 @@ export default function PujaPage() {
               <span className="text-gradient-gold">Personalized Remedies</span>
             </h2>
             <p className="text-[var(--foreground-muted)] mb-8">
-              Every individual&apos;s chart is unique, and so should be their remedies. Consult {SITE_CONFIG.name} for 
+              Every individual&apos;s chart is unique, and so should be their remedies. Consult {t("common.siteName")} for 
               personalized puja and remedy recommendations based on your birth chart analysis.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact/" className="btn-gold flex items-center gap-2">
                 <Calendar size={18} />
-                Book Consultation
+                {t("home.hero.cta")}
               </Link>
               <a
                 href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}

@@ -5,13 +5,15 @@ import Link from "next/link";
 import { Phone, Calendar, Heart, Briefcase, Activity, Lightbulb, ArrowLeft, ArrowRight } from "lucide-react";
 import type { ZodiacSign } from "@/data/zodiac-signs";
 import { zodiacSigns } from "@/data/zodiac-signs";
-import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ZodiacPageContentProps {
   sign: ZodiacSign;
 }
 
 export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
+  const { t } = useLanguage();
   const currentIndex = zodiacSigns.findIndex((s) => s.id === sign.id);
   const prevSign = zodiacSigns[(currentIndex - 1 + 12) % 12];
   const nextSign = zodiacSigns[(currentIndex + 1) % 12];
@@ -31,7 +33,7 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
             <div className="text-8xl mb-6">{sign.symbol}</div>
             
             <h1 className="text-4xl md:text-5xl font-[var(--font-heading)] mb-4">
-              <span className="text-gradient-gold">{sign.name}</span>
+              <span className="text-gradient-gold">{t(`zodiac.${sign.id}`)}</span>
             </h1>
             <p className="text-xl text-[var(--foreground-muted)] mb-6">
               {sign.dateRange}
@@ -41,10 +43,10 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
             {/* Quick Info */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
-                { label: "Element", value: sign.element },
-                { label: "Ruling Planet", value: sign.rulingPlanet },
-                { label: "Quality", value: sign.quality },
-                { label: "Lucky Day", value: sign.luckyDay },
+                { label: t("zodiacPage.element"), value: sign.element },
+                { label: t("zodiacPage.rulingPlanet"), value: sign.rulingPlanet },
+                { label: t("zodiacPage.quality"), value: sign.quality },
+                { label: t("zodiacPage.luckyDay"), value: sign.luckyDay },
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -80,8 +82,8 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
                 transition={{ duration: 0.6 }}
               >
                 <h2 className="text-2xl font-[var(--font-heading)] mb-4">
-                  <span className="text-[var(--foreground)]">About </span>
-                  <span className="text-gradient-gold">{sign.name}</span>
+                  <span className="text-[var(--foreground)]">{t("zodiacPage.about")} </span>
+                  <span className="text-gradient-gold">{t(`zodiac.${sign.id}`)}</span>
                 </h2>
                 <div className="gold-line-left w-16 mb-6" />
                 <p className="text-[var(--foreground-muted)] leading-relaxed">
@@ -97,8 +99,7 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
                 transition={{ duration: 0.6 }}
               >
                 <h2 className="text-2xl font-[var(--font-heading)] mb-4">
-                  <span className="text-[var(--foreground)]">Personality </span>
-                  <span className="text-gradient-gold">Traits</span>
+                  <span className="text-gradient-gold">{t("zodiacPage.personalityTraits")}</span>
                 </h2>
                 <div className="gold-line-left w-16 mb-6" />
                 <p className="text-[var(--foreground-muted)] leading-relaxed mb-6">
@@ -107,7 +108,7 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
                 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="card p-6">
-                    <h3 className="font-[var(--font-heading)] text-[var(--gold)] mb-4">Strengths</h3>
+                    <h3 className="font-[var(--font-heading)] text-[var(--gold)] mb-4">{t("zodiacPage.strengths")}</h3>
                     <ul className="space-y-2">
                       {sign.strengths.map((strength, index) => (
                         <li key={index} className="flex items-center gap-2 text-[var(--foreground-muted)]">
@@ -118,7 +119,7 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
                     </ul>
                   </div>
                   <div className="card p-6">
-                    <h3 className="font-[var(--font-heading)] text-[var(--gold)] mb-4">Challenges</h3>
+                    <h3 className="font-[var(--font-heading)] text-[var(--gold)] mb-4">{t("zodiacPage.challenges")}</h3>
                     <ul className="space-y-2">
                       {sign.weaknesses.map((weakness, index) => (
                         <li key={index} className="flex items-center gap-2 text-[var(--foreground-muted)]">
@@ -142,7 +143,7 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
                 <div className="flex items-center gap-3 mb-4">
                   <Briefcase className="text-[var(--gold)]" size={24} />
                   <h2 className="text-2xl font-[var(--font-heading)] text-[var(--foreground)]">
-                    Career & Finance
+                    {t("zodiacPage.careerFinance")}
                   </h2>
                 </div>
                 <p className="text-[var(--foreground-muted)] leading-relaxed">
@@ -161,14 +162,14 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
                 <div className="flex items-center gap-3 mb-4">
                   <Heart className="text-[var(--gold)]" size={24} />
                   <h2 className="text-2xl font-[var(--font-heading)] text-[var(--foreground)]">
-                    Love & Relationships
+                    {t("zodiacPage.loveRelationships")}
                   </h2>
                 </div>
                 <p className="text-[var(--foreground-muted)] leading-relaxed mb-4">
                   {sign.love}
                 </p>
                 <div>
-                  <span className="text-sm text-[var(--foreground-muted)]">Best Compatibility: </span>
+                  <span className="text-sm text-[var(--foreground-muted)]">{t("zodiacPage.bestCompatibility")}: </span>
                   <span className="text-[var(--gold)]">{sign.compatibility.join(", ")}</span>
                 </div>
               </motion.div>
@@ -184,7 +185,7 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
                 <div className="flex items-center gap-3 mb-4">
                   <Activity className="text-[var(--gold)]" size={24} />
                   <h2 className="text-2xl font-[var(--font-heading)] text-[var(--foreground)]">
-                    Health & Wellness
+                    {t("zodiacPage.healthWellness")}
                   </h2>
                 </div>
                 <p className="text-[var(--foreground-muted)] leading-relaxed">
@@ -204,7 +205,7 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
                   <Lightbulb className="text-[var(--gold)] flex-shrink-0 mt-1" size={24} />
                   <div>
                     <h3 className="font-[var(--font-heading)] text-[var(--gold)] mb-2">
-                      Pro Tip for {sign.name}
+                      {t("zodiacPage.proTip")} {t(`zodiac.${sign.id}`)}
                     </h3>
                     <p className="text-[var(--foreground)] leading-relaxed">
                       {sign.tip}
@@ -225,14 +226,14 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
                 className="card p-6 sticky top-32"
               >
                 <h3 className="font-[var(--font-heading)] text-xl text-[var(--foreground)] mb-6">
-                  Lucky Elements
+                  {t("zodiacPage.luckyElements")}
                 </h3>
                 <div className="space-y-4">
                   {[
-                    { label: "Color", value: sign.luckyColor },
-                    { label: "Number", value: sign.luckyNumber },
-                    { label: "Day", value: sign.luckyDay },
-                    { label: "Gemstone", value: sign.luckyGemstone },
+                    { label: t("zodiacPage.color"), value: sign.luckyColor },
+                    { label: t("zodiacPage.number"), value: sign.luckyNumber },
+                    { label: t("zodiacPage.day"), value: sign.luckyDay },
+                    { label: t("zodiacPage.gemstone"), value: sign.luckyGemstone },
                   ].map((item, index) => (
                     <div key={index} className="flex justify-between items-center py-2 border-b border-[var(--gold-muted)]">
                       <span className="text-[var(--foreground-muted)]">{item.label}</span>
@@ -244,14 +245,14 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
                 <div className="mt-8 space-y-3">
                   <Link href="/contact/" className="btn-gold w-full flex items-center justify-center gap-2">
                     <Calendar size={18} />
-                    Get Personal Reading
+                    {t("zodiacPage.getPersonalReading")}
                   </Link>
                   <a
                     href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
                     className="btn-outline-gold w-full flex items-center justify-center gap-2"
                   >
                     <Phone size={18} />
-                    Call Now
+                    {t("common.callNow")}
                   </a>
                 </div>
               </motion.div>
@@ -270,9 +271,9 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
             >
               <ArrowLeft size={20} className="text-[var(--gold)]" />
               <div>
-                <div className="text-xs text-[var(--foreground-muted)]">Previous</div>
+                <div className="text-xs text-[var(--foreground-muted)]">{t("zodiacPage.previous")}</div>
                 <div className="font-[var(--font-heading)] text-[var(--foreground)] group-hover:text-[var(--gold)] transition-colors">
-                  {prevSign.symbol} {prevSign.name}
+                  {prevSign.symbol} {t(`zodiac.${prevSign.id}`)}
                 </div>
               </div>
             </Link>
@@ -282,9 +283,9 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
               className="card p-4 flex items-center gap-3 hover:border-[var(--gold)] transition-colors group"
             >
               <div className="text-right">
-                <div className="text-xs text-[var(--foreground-muted)]">Next</div>
+                <div className="text-xs text-[var(--foreground-muted)]">{t("zodiacPage.next")}</div>
                 <div className="font-[var(--font-heading)] text-[var(--foreground)] group-hover:text-[var(--gold)] transition-colors">
-                  {nextSign.name} {nextSign.symbol}
+                  {t(`zodiac.${nextSign.id}`)} {nextSign.symbol}
                 </div>
               </div>
               <ArrowRight size={20} className="text-[var(--gold)]" />
@@ -304,8 +305,8 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
             className="text-center mb-8"
           >
             <h2 className="text-2xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">Explore All </span>
-              <span className="text-gradient-gold">Zodiac Signs</span>
+              <span className="text-[var(--foreground)]">{t("zodiacPage.exploreAll1")} </span>
+              <span className="text-gradient-gold">{t("zodiacPage.exploreAll2")}</span>
             </h2>
             <div className="gold-line w-24 mx-auto" />
           </motion.div>
@@ -320,7 +321,7 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
                 }`}
               >
                 <div className="text-2xl mb-1">{s.symbol}</div>
-                <div className="text-xs text-[var(--foreground-muted)]">{s.name}</div>
+                <div className="text-xs text-[var(--foreground-muted)]">{t(`zodiac.${s.id}`)}</div>
               </Link>
             ))}
           </div>
@@ -329,4 +330,3 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
     </>
   );
 }
-

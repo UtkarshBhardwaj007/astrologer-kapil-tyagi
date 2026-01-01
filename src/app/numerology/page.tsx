@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Phone, Calendar, Hash, Calculator, Sparkles } from "lucide-react";
-import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function NumerologyPage() {
+  const { t } = useLanguage();
   const numbers = [
     {
       number: "1",
@@ -146,7 +148,7 @@ export default function NumerologyPage() {
                   strengths, challenges, and destiny.
                 </p>
                 <p>
-                  {SITE_CONFIG.name} provides comprehensive numerology consultations, including 
+                  {t("common.siteName")} provides comprehensive numerology consultations, including 
                   life path analysis, name corrections, and lucky number identification to 
                   help you align with positive vibrations.
                 </p>
@@ -288,14 +290,14 @@ export default function NumerologyPage() {
               <span className="text-gradient-gold">Numbers</span>
             </h2>
             <p className="text-[var(--foreground-muted)] mb-8">
-              Get a comprehensive numerology analysis from {SITE_CONFIG.name}. 
+              Get a comprehensive numerology analysis from {t("common.siteName")}. 
               Understand your life path, lucky numbers, and how to align your 
               name with positive vibrations.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact/" className="btn-gold flex items-center gap-2">
                 <Calendar size={18} />
-                Book Consultation
+                {t("home.hero.cta")}
               </Link>
               <a
                 href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
