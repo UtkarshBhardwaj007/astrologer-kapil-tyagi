@@ -13,10 +13,31 @@ interface ZodiacPageContentProps {
 }
 
 export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
-  const { t } = useLanguage();
+  const { t, tRaw } = useLanguage();
   const currentIndex = zodiacSigns.findIndex((s) => s.id === sign.id);
   const prevSign = zodiacSigns[(currentIndex - 1 + 12) % 12];
   const nextSign = zodiacSigns[(currentIndex + 1) % 12];
+
+  // Get translated content for the sign
+  const signContent = {
+    dateRange: t(`zodiacSigns.${sign.id}.dateRange`),
+    element: t(`zodiacSigns.${sign.id}.element`),
+    rulingPlanet: t(`zodiacSigns.${sign.id}.rulingPlanet`),
+    quality: t(`zodiacSigns.${sign.id}.quality`),
+    luckyColor: t(`zodiacSigns.${sign.id}.luckyColor`),
+    luckyNumber: t(`zodiacSigns.${sign.id}.luckyNumber`),
+    luckyDay: t(`zodiacSigns.${sign.id}.luckyDay`),
+    luckyGemstone: t(`zodiacSigns.${sign.id}.luckyGemstone`),
+    compatibility: tRaw<string[]>(`zodiacSigns.${sign.id}.compatibility`) || sign.compatibility,
+    strengths: tRaw<string[]>(`zodiacSigns.${sign.id}.strengths`) || sign.strengths,
+    weaknesses: tRaw<string[]>(`zodiacSigns.${sign.id}.weaknesses`) || sign.weaknesses,
+    overview: t(`zodiacSigns.${sign.id}.overview`),
+    personality: t(`zodiacSigns.${sign.id}.personality`),
+    career: t(`zodiacSigns.${sign.id}.career`),
+    love: t(`zodiacSigns.${sign.id}.love`),
+    health: t(`zodiacSigns.${sign.id}.health`),
+    tip: t(`zodiacSigns.${sign.id}.tip`),
+  };
 
   return (
     <>
@@ -36,17 +57,17 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
               <span className="text-gradient-gold">{t(`zodiac.${sign.id}`)}</span>
             </h1>
             <p className="text-xl text-[var(--foreground-muted)] mb-6">
-              {sign.dateRange}
+              {signContent.dateRange}
             </p>
             <div className="gold-line w-24 mx-auto mb-8" />
 
             {/* Quick Info */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
-                { label: t("zodiacPage.element"), value: sign.element },
-                { label: t("zodiacPage.rulingPlanet"), value: sign.rulingPlanet },
-                { label: t("zodiacPage.quality"), value: sign.quality },
-                { label: t("zodiacPage.luckyDay"), value: sign.luckyDay },
+                { label: t("zodiacPage.element"), value: signContent.element },
+                { label: t("zodiacPage.rulingPlanet"), value: signContent.rulingPlanet },
+                { label: t("zodiacPage.quality"), value: signContent.quality },
+                { label: t("zodiacPage.luckyDay"), value: signContent.luckyDay },
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -87,7 +108,7 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
                 </h2>
                 <div className="gold-line-left w-16 mb-6" />
                 <p className="text-[var(--foreground-muted)] leading-relaxed">
-                  {sign.overview}
+                  {signContent.overview}
                 </p>
               </motion.div>
 
@@ -103,14 +124,14 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
                 </h2>
                 <div className="gold-line-left w-16 mb-6" />
                 <p className="text-[var(--foreground-muted)] leading-relaxed mb-6">
-                  {sign.personality}
+                  {signContent.personality}
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="card p-6">
                     <h3 className="font-[var(--font-heading)] text-[var(--gold)] mb-4">{t("zodiacPage.strengths")}</h3>
                     <ul className="space-y-2">
-                      {sign.strengths.map((strength, index) => (
+                      {signContent.strengths.map((strength, index) => (
                         <li key={index} className="flex items-center gap-2 text-[var(--foreground-muted)]">
                           <div className="w-1.5 h-1.5 bg-[var(--gold)] rounded-full" />
                           {strength}
@@ -121,7 +142,7 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
                   <div className="card p-6">
                     <h3 className="font-[var(--font-heading)] text-[var(--gold)] mb-4">{t("zodiacPage.challenges")}</h3>
                     <ul className="space-y-2">
-                      {sign.weaknesses.map((weakness, index) => (
+                      {signContent.weaknesses.map((weakness, index) => (
                         <li key={index} className="flex items-center gap-2 text-[var(--foreground-muted)]">
                           <div className="w-1.5 h-1.5 bg-[var(--gold-muted)] rounded-full" />
                           {weakness}
@@ -147,7 +168,7 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
                   </h2>
                 </div>
                 <p className="text-[var(--foreground-muted)] leading-relaxed">
-                  {sign.career}
+                  {signContent.career}
                 </p>
               </motion.div>
 
@@ -166,11 +187,11 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
                   </h2>
                 </div>
                 <p className="text-[var(--foreground-muted)] leading-relaxed mb-4">
-                  {sign.love}
+                  {signContent.love}
                 </p>
                 <div>
                   <span className="text-sm text-[var(--foreground-muted)]">{t("zodiacPage.bestCompatibility")}: </span>
-                  <span className="text-[var(--gold)]">{sign.compatibility.join(", ")}</span>
+                  <span className="text-[var(--gold)]">{signContent.compatibility.join(", ")}</span>
                 </div>
               </motion.div>
 
@@ -189,7 +210,7 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
                   </h2>
                 </div>
                 <p className="text-[var(--foreground-muted)] leading-relaxed">
-                  {sign.health}
+                  {signContent.health}
                 </p>
               </motion.div>
 
@@ -208,7 +229,7 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
                       {t("zodiacPage.proTip")} {t(`zodiac.${sign.id}`)}
                     </h3>
                     <p className="text-[var(--foreground)] leading-relaxed">
-                      {sign.tip}
+                      {signContent.tip}
                     </p>
                   </div>
                 </div>
@@ -230,10 +251,10 @@ export default function ZodiacPageContent({ sign }: ZodiacPageContentProps) {
                 </h3>
                 <div className="space-y-4">
                   {[
-                    { label: t("zodiacPage.color"), value: sign.luckyColor },
-                    { label: t("zodiacPage.number"), value: sign.luckyNumber },
-                    { label: t("zodiacPage.day"), value: sign.luckyDay },
-                    { label: t("zodiacPage.gemstone"), value: sign.luckyGemstone },
+                    { label: t("zodiacPage.color"), value: signContent.luckyColor },
+                    { label: t("zodiacPage.number"), value: signContent.luckyNumber },
+                    { label: t("zodiacPage.day"), value: signContent.luckyDay },
+                    { label: t("zodiacPage.gemstone"), value: signContent.luckyGemstone },
                   ].map((item, index) => (
                     <div key={index} className="flex justify-between items-center py-2 border-b border-[var(--gold-muted)]">
                       <span className="text-[var(--foreground-muted)]">{item.label}</span>
