@@ -2,51 +2,58 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
-import { Phone, Calendar, Home, Compass, Sun, Wind, Droplets, Building, CheckCircle } from "lucide-react";
-import { SITE_CONFIG, CONTACT_INFO, getImagePath } from "@/lib/constants";
+import { Phone, Calendar, Heart, Home, Car, Plane, GraduationCap, Building, Sparkles, CheckCircle } from "lucide-react";
+import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
 
-export default function VastuPage() {
-  const vastuTips = [
+export default function MahuratPage() {
+  const mahuratTypes = [
     {
-      icon: Compass,
-      title: "Main Entrance",
-      description: "The main entrance should ideally face North, East, or Northeast for maximum positive energy flow. Avoid South-West entrances.",
-    },
-    {
-      icon: Sun,
-      title: "Living Room",
-      description: "Place the living room in the North or East direction. Ensure good natural light and ventilation for positive vibrations.",
+      icon: Heart,
+      title: "Marriage Muhurat",
+      description: "Find the most auspicious date and time for wedding ceremonies to ensure a blessed and harmonious married life.",
     },
     {
       icon: Home,
-      title: "Master Bedroom",
-      description: "The master bedroom should be in the South-West corner. Place the bed so you sleep with your head towards South.",
-    },
-    {
-      icon: Droplets,
-      title: "Kitchen",
-      description: "The kitchen should be in the South-East corner (Agni corner). The cook should face East while cooking.",
-    },
-    {
-      icon: Wind,
-      title: "Bathroom",
-      description: "Bathrooms should be in the West or North-West direction. Avoid placing them in the North-East corner.",
+      title: "Griha Pravesh",
+      description: "Select the perfect time for entering your new home to invite positive energies and prosperity.",
     },
     {
       icon: Building,
-      title: "Office/Study",
-      description: "Home office or study room should be in the West or South-West. Face North or East while working for better concentration.",
+      title: "Business Inauguration",
+      description: "Launch your business venture at an auspicious time to attract success, growth, and prosperity.",
+    },
+    {
+      icon: Car,
+      title: "Vehicle Purchase",
+      description: "Choose the right muhurat for buying a new vehicle to ensure safety and avoid accidents.",
+    },
+    {
+      icon: Plane,
+      title: "Travel Muhurat",
+      description: "Plan important journeys during favorable planetary alignments for safe and successful travels.",
+    },
+    {
+      icon: GraduationCap,
+      title: "Education & Exams",
+      description: "Start new courses or appear for important exams during auspicious times for better results.",
     },
   ];
 
   const benefits = [
-    "Improved health and well-being",
-    "Enhanced prosperity and wealth",
-    "Better relationships and harmony",
-    "Career growth and success",
-    "Mental peace and positivity",
-    "Protection from negative energies",
+    "Aligns your actions with favorable cosmic energies",
+    "Increases chances of success and positive outcomes",
+    "Avoids inauspicious planetary combinations",
+    "Brings blessings and divine support for new beginnings",
+    "Reduces obstacles and ensures smoother proceedings",
+    "Creates lasting positive impressions for important events",
+  ];
+
+  const considerations = [
+    { title: "Tithi", description: "Lunar day that determines the nature of the event" },
+    { title: "Nakshatra", description: "Moon's constellation influencing the outcome" },
+    { title: "Yoga", description: "Combination of Sun and Moon positions" },
+    { title: "Karana", description: "Half of a Tithi with specific influences" },
+    { title: "Vara", description: "Day of the week and its ruling planet" },
   ];
 
   return (
@@ -60,30 +67,24 @@ export default function VastuPage() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <div className="w-32 h-32 mx-auto mb-8 relative">
-              <Image
-                src={getImagePath("/images/vastu.png")}
-                alt="Vastu Shastra - Sri Yantra"
-                fill
-                className="object-contain"
-                priority
-              />
+            <div className="w-20 h-20 mx-auto mb-6 rounded-full border-2 border-[var(--gold)] flex items-center justify-center">
+              <Calendar size={40} className="text-[var(--gold)]" />
             </div>
             <h1 className="text-4xl md:text-5xl font-[var(--font-heading)] mb-6">
-              <span className="text-[var(--foreground)]">Vastu </span>
-              <span className="text-gradient-gold">Shastra</span>
+              <span className="text-[var(--foreground)]">Muhurat </span>
+              <span className="text-gradient-gold">Advice</span>
             </h1>
             <div className="gold-line w-24 mx-auto mb-6" />
             <p className="text-lg text-[var(--foreground-muted)] leading-relaxed">
-              The ancient Indian science of architecture and spatial arrangement. 
-              Create harmony between your living space and the cosmic forces for 
-              prosperity, health, and peace.
+              Begin your important life events at the most auspicious moments. 
+              The ancient science of Muhurat helps you align your actions with 
+              favorable cosmic energies for success and prosperity.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* What is Vastu */}
+      {/* What is Muhurat */}
       <section className="section">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -95,26 +96,27 @@ export default function VastuPage() {
             >
               <h2 className="text-3xl font-[var(--font-heading)] mb-4">
                 <span className="text-[var(--foreground)]">What is </span>
-                <span className="text-gradient-gold">Vastu Shastra?</span>
+                <span className="text-gradient-gold">Muhurat?</span>
               </h2>
               <div className="gold-line-left w-16 mb-6" />
               
               <div className="space-y-4 text-[var(--foreground-muted)] leading-relaxed">
                 <p>
-                  Vastu Shastra is an ancient Indian science that harmonizes architecture 
-                  with nature&apos;s five elements—Earth, Water, Fire, Air, and Space. 
-                  Dating back over 5,000 years, it provides guidelines for designing 
-                  spaces that promote positive energy flow.
+                  Muhurat (also spelled Mahurat or Muhurta) is the auspicious time 
+                  calculated according to Vedic astrology for starting important 
+                  activities. It is based on the positions of planets, lunar day (Tithi), 
+                  constellation (Nakshatra), and other astrological factors.
                 </p>
                 <p>
-                  The fundamental principle of Vastu is that the directions and placement 
-                  of rooms, furniture, and objects affect the energy of a space, which in 
-                  turn influences the health, prosperity, and happiness of its occupants.
+                  In Vedic tradition, it is believed that beginning any significant 
+                  event during an auspicious Muhurat ensures success, removes obstacles, 
+                  and brings divine blessings. This ancient practice has been followed 
+                  for thousands of years across India.
                 </p>
                 <p>
-                  {SITE_CONFIG.name} provides expert Vastu consultation for homes, offices, 
-                  and commercial spaces. Our practical remedies work without requiring 
-                  major structural changes, making Vastu accessible to everyone.
+                  {SITE_CONFIG.name} calculates personalized Muhurats considering your 
+                  individual birth chart along with the general auspicious timings, 
+                  ensuring the selected time is favorable specifically for you.
                 </p>
               </div>
             </motion.div>
@@ -127,7 +129,7 @@ export default function VastuPage() {
               className="card p-8"
             >
               <h3 className="text-2xl font-[var(--font-heading)] text-[var(--gold)] mb-6">
-                Benefits of Vastu
+                Benefits of Muhurat
               </h3>
               <ul className="space-y-4">
                 {benefits.map((benefit, index) => (
@@ -149,7 +151,7 @@ export default function VastuPage() {
         </div>
       </section>
 
-      {/* Vastu Tips */}
+      {/* Types of Muhurat */}
       <section className="section bg-[var(--background-secondary)]">
         <div className="container">
           <motion.div
@@ -160,17 +162,17 @@ export default function VastuPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">Essential Vastu </span>
-              <span className="text-gradient-gold">Tips</span>
+              <span className="text-[var(--foreground)]">Types of </span>
+              <span className="text-gradient-gold">Muhurat</span>
             </h2>
             <div className="gold-line w-24 mx-auto mb-6" />
             <p className="text-[var(--foreground-muted)] max-w-2xl mx-auto">
-              Simple guidelines to bring positive energy into your home
+              We provide auspicious timing for all important life events
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {vastuTips.map((tip, index) => (
+            {mahuratTypes.map((muhurat, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -180,13 +182,13 @@ export default function VastuPage() {
                 className="card p-6"
               >
                 <div className="w-12 h-12 rounded-full border border-[var(--gold-muted)] flex items-center justify-center mb-4">
-                  <tip.icon size={24} className="text-[var(--gold)]" />
+                  <muhurat.icon size={24} className="text-[var(--gold)]" />
                 </div>
                 <h3 className="font-[var(--font-heading)] text-xl text-[var(--foreground)] mb-3">
-                  {tip.title}
+                  {muhurat.title}
                 </h3>
                 <p className="text-[var(--foreground-muted)] text-sm leading-relaxed">
-                  {tip.description}
+                  {muhurat.description}
                 </p>
               </motion.div>
             ))}
@@ -194,7 +196,7 @@ export default function VastuPage() {
         </div>
       </section>
 
-      {/* Five Elements */}
+      {/* Panchang Elements */}
       <section className="section">
         <div className="container">
           <motion.div
@@ -205,23 +207,17 @@ export default function VastuPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">The Five </span>
-              <span className="text-gradient-gold">Elements</span>
+              <span className="text-[var(--foreground)]">Five Elements of </span>
+              <span className="text-gradient-gold">Panchang</span>
             </h2>
             <div className="gold-line w-24 mx-auto mb-6" />
             <p className="text-[var(--foreground-muted)] max-w-2xl mx-auto">
-              Vastu is based on the balance of Pancha Mahabhuta (Five Great Elements)
+              Muhurat is calculated considering these five essential elements of the Hindu calendar
             </p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {[
-              { name: "Earth", hindi: "Prithvi", direction: "SW", color: "#8B4513" },
-              { name: "Water", hindi: "Jal", direction: "NE", color: "#4169E1" },
-              { name: "Fire", hindi: "Agni", direction: "SE", color: "#FF4500" },
-              { name: "Air", hindi: "Vayu", direction: "NW", color: "#87CEEB" },
-              { name: "Space", hindi: "Akash", direction: "Center", color: "#9370DB" },
-            ].map((element, index) => (
+            {considerations.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -230,19 +226,13 @@ export default function VastuPage() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="card p-6 text-center"
               >
-                <div 
-                  className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: `${element.color}20`, border: `2px solid ${element.color}` }}
-                >
-                  <span className="text-2xl font-[var(--font-heading)]" style={{ color: element.color }}>
-                    {element.name[0]}
-                  </span>
+                <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-[var(--gold-muted)] flex items-center justify-center">
+                  <Sparkles size={24} className="text-[var(--gold)]" />
                 </div>
-                <h3 className="font-[var(--font-heading)] text-[var(--foreground)] mb-1">
-                  {element.name}
+                <h3 className="font-[var(--font-heading)] text-[var(--foreground)] mb-2">
+                  {item.title}
                 </h3>
-                <p className="text-sm text-[var(--foreground-muted)]">{element.hindi}</p>
-                <p className="text-xs text-[var(--gold)] mt-2">Direction: {element.direction}</p>
+                <p className="text-xs text-[var(--foreground-muted)]">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -260,12 +250,13 @@ export default function VastuPage() {
             className="card p-12 text-center max-w-3xl mx-auto"
           >
             <h2 className="text-3xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">Get Expert </span>
-              <span className="text-gradient-gold">Vastu Consultation</span>
+              <span className="text-[var(--foreground)]">Get Your </span>
+              <span className="text-gradient-gold">Personalized Muhurat</span>
             </h2>
             <p className="text-[var(--foreground-muted)] mb-8">
-              {SITE_CONFIG.name} provides personalized Vastu consultation for your home, 
-              office, or business. Get practical remedies without major structural changes.
+              {SITE_CONFIG.name} provides personalized Muhurat selection considering 
+              your birth chart for maximum auspiciousness. Start your important 
+              events at the perfect cosmic moment.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact/" className="btn-gold flex items-center gap-2">

@@ -10,7 +10,7 @@ import ZodiacCard from "@/components/ZodiacCard";
 import { services } from "@/data/services";
 import { zodiacSigns } from "@/data/zodiac-signs";
 import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
-import { averageRating, totalReviews, yearsOfExperience, totalConsultations } from "@/data/testimonials";
+import { averageRating, totalReviews, yearsOfExperience, totalConsultations, countriesServed } from "@/data/testimonials";
 
 export default function HomePage() {
   return (
@@ -138,30 +138,46 @@ export default function HomePage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="grid grid-cols-2 gap-6"
             >
-              {[
-                { number: `${yearsOfExperience}+`, label: "Years of Experience" },
-                { number: `${(totalConsultations / 1000).toFixed(0)}K+`, label: "Consultations Done" },
-                { number: String(averageRating), label: "Average Rating" },
-                { number: "100%", label: "Client Satisfaction" },
-              ].map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="card p-6 text-center"
-                >
-                  <div className="text-3xl md:text-4xl font-[var(--font-heading)] text-[var(--gold)] mb-2">
-                    {stat.number}
-                  </div>
-                  <div className="text-sm text-[var(--foreground-muted)]">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { number: `${yearsOfExperience}+`, label: "Years of Experience" },
+                  { number: `${(totalConsultations / 1000).toFixed(0)}K+`, label: "Consultations Done" },
+                  { number: String(averageRating), label: "Average Rating" },
+                  { number: `${countriesServed}+`, label: "Countries Served" },
+                ].map((stat, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="card p-5 text-center"
+                  >
+                    <div className="text-2xl md:text-3xl font-[var(--font-heading)] text-[var(--gold)] mb-1">
+                      {stat.number}
+                    </div>
+                    <div className="text-xs text-[var(--foreground-muted)]">
+                      {stat.label}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+              {/* Global Reach Highlight */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.5 }}
+                className="mt-4 card p-4 bg-gradient-to-r from-[var(--primary-muted)] to-[var(--gold-muted)] border-[var(--gold)]"
+              >
+                <div className="flex items-center justify-center gap-3 text-center">
+                  <span className="text-2xl">🌍</span>
+                  <span className="text-[var(--foreground)] font-[var(--font-heading)] tracking-wide">
+                    Trusted by clients in <span className="text-[var(--gold)]">{countriesServed}+ countries</span> worldwide
+                  </span>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>

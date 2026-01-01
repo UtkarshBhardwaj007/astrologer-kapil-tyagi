@@ -48,21 +48,21 @@ astrologer-kapil-tyagi/
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/UtkarshBhardwaj007/astrologer-kapil-tyagi.git
    cd astrologer-kapil-tyagi
    ```
-
 2. Install dependencies:
+
    ```bash
    npm install
    ```
-
 3. Run the development server:
+
    ```bash
    npm run dev
    ```
-
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Build for Production
@@ -77,12 +77,12 @@ This generates a static export in the `out/` directory.
 
 Replace the following placeholder images with actual photos:
 
-| File | Location | Recommended Size | Description |
-|------|----------|------------------|-------------|
-| `astrologer-hero.png` | `/public/images/` | 600×800px | Main hero image of the astrologer (transparent BG recommended) |
-| `astrologer-about.png` | `/public/images/` | 400×500px | About page portrait |
-| `review-qr.png` | `/public/images/` | 300×300px | QR code for Google Reviews |
-| `logo.png` | `/public/images/` | 200×60px | Website logo (optional, currently uses text) |
+| File                     | Location            | Recommended Size | Description                                                    |
+| ------------------------ | ------------------- | ---------------- | -------------------------------------------------------------- |
+| `astrologer-hero.png`  | `/public/images/` | 600×800px       | Main hero image of the astrologer (transparent BG recommended) |
+| `astrologer-about.png` | `/public/images/` | 400×500px       | About page portrait                                            |
+| `review-qr.png`        | `/public/images/` | 300×300px       | QR code for Google Reviews                                     |
+| `logo.png`             | `/public/images/` | 200×60px        | Website logo (optional, currently uses text)                   |
 
 ### Image Tips
 
@@ -100,8 +100,8 @@ export const CONTACT_INFO = {
   phone: "+91 9811349874",
   email: "tykapil@gmail.com",
   address: {
-    line1: "B8-106, Pocket 8",
-    line2: "Sector 3B, Rohini",
+    line1: "B-8/106",
+    line2: "Sector 3, Rohini",
     city: "Delhi",
     pincode: "110085",
     country: "India",
@@ -126,20 +126,22 @@ The repository includes a GitHub Actions workflow that automatically deploys on 
 ### Setup Steps
 
 1. **Push your code to GitHub**:
+
    ```bash
    git add .
    git commit -m "Initial commit"
    git push origin main
    ```
-
 2. **Enable GitHub Pages**:
+
    - Go to repository Settings → Pages
    - Under "Source", select "GitHub Actions"
    - Save
-
 3. **Wait for deployment**:
+
    - Go to Actions tab to monitor the build
    - Once complete, your site will be live at:
+
    ```
    https://[username].github.io/astrologer-kapil-tyagi/
    ```
@@ -149,11 +151,12 @@ The repository includes a GitHub Actions workflow that automatically deploys on 
 To use a custom domain:
 
 1. Add a `CNAME` file in `/public/` with your domain:
+
    ```
    www.yourdomain.com
    ```
-
 2. Update `next.config.ts`:
+
    ```typescript
    const nextConfig: NextConfig = {
      output: "export",
@@ -163,23 +166,22 @@ To use a custom domain:
      trailingSlash: true,
    };
    ```
-
 3. Configure DNS at your domain registrar to point to GitHub Pages.
 
 ## 📱 Pages Overview
 
-| Page | Route | Description |
-|------|-------|-------------|
-| Home | `/` | Hero, services preview, testimonials |
-| About | `/about/` | Biography and credentials |
-| Services | `/services/` | All consultation services |
-| Contact | `/contact/` | Booking and contact info |
-| Reviews | `/reviews/` | Client testimonials |
-| Zodiac Signs | `/zodiac/[sign]/` | 12 individual zodiac pages |
-| Vastu | `/vastu/` | Vastu Shastra information |
-| Gemstones | `/gemstones/` | Gemstone recommendations |
-| Numerology | `/numerology/` | Number analysis |
-| Kundali | `/kundali/` | Birth chart reading |
+| Page         | Route               | Description                          |
+| ------------ | ------------------- | ------------------------------------ |
+| Home         | `/`               | Hero, services preview, testimonials |
+| About        | `/about/`         | Biography and credentials            |
+| Services     | `/services/`      | All consultation services            |
+| Contact      | `/contact/`       | Booking and contact info             |
+| Reviews      | `/reviews/`       | Client testimonials                  |
+| Zodiac Signs | `/zodiac/[sign]/` | 12 individual zodiac pages           |
+| Vastu        | `/vastu/`         | Vastu Shastra information            |
+| Gemstones    | `/gemstones/`     | Gemstone recommendations             |
+| Numerology   | `/numerology/`    | Number analysis                      |
+| Kundali      | `/kundali/`       | Birth chart reading                  |
 
 ## 🛠 Tech Stack
 
@@ -219,11 +221,11 @@ Edit CSS variables in `src/app/globals.css`:
 
 ## ✅ Checklist Before Going Live
 
-- [ ] Replace all placeholder images
-- [ ] Update social media links in `constants.ts`
-- [ ] Verify contact information is correct
-- [ ] Test all pages on mobile devices
-- [ ] Check Google Maps embed is working
+- [X] Replace all placeholder images
+- [X] Update social media links in `constants.ts`
+- [X] Verify contact information is correct
+- [X] Test all pages on mobile devices
+- [X] Check Google Maps embed is working
 - [ ] Add Google Analytics (optional)
 - [ ] Set up custom domain (optional)
 

@@ -128,11 +128,18 @@ export default function ContactPage() {
                     <Clock size={20} className="text-[var(--gold)]" />
                   </div>
                   <div>
-                    <h3 className="font-[var(--font-heading)] text-[var(--foreground)] mb-1">Consultation Hours</h3>
-                    <p className="text-[var(--foreground-muted)]">
-                      Monday - Sunday<br />
-                      9:00 AM - 9:00 PM IST
-                    </p>
+                    <h3 className="font-[var(--font-heading)] text-[var(--foreground)] mb-2">Hours</h3>
+                    <div className="space-y-2 text-[var(--foreground-muted)]">
+                      <div>
+                        <span className="text-[var(--gold)] text-sm font-medium">Consultation Hours:</span><br />
+                        {CONTACT_INFO.consultationHours}
+                      </div>
+                      <div>
+                        <span className="text-[var(--gold)] text-sm font-medium">Calling Hours:</span><br />
+                        {CONTACT_INFO.callingHours}
+                      </div>
+                      <p className="text-sm">Monday - Sunday</p>
+                    </div>
                   </div>
                 </div>
               </div>

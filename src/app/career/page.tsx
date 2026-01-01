@@ -2,51 +2,50 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
-import { Phone, Calendar, Home, Compass, Sun, Wind, Droplets, Building, CheckCircle } from "lucide-react";
-import { SITE_CONFIG, CONTACT_INFO, getImagePath } from "@/lib/constants";
+import { Phone, Calendar, Briefcase, TrendingUp, Building, Users, Target, Award, CheckCircle } from "lucide-react";
+import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
 
-export default function VastuPage() {
-  const vastuTips = [
+export default function CareerPage() {
+  const careerAspects = [
     {
-      icon: Compass,
-      title: "Main Entrance",
-      description: "The main entrance should ideally face North, East, or Northeast for maximum positive energy flow. Avoid South-West entrances.",
-    },
-    {
-      icon: Sun,
-      title: "Living Room",
-      description: "Place the living room in the North or East direction. Ensure good natural light and ventilation for positive vibrations.",
-    },
-    {
-      icon: Home,
-      title: "Master Bedroom",
-      description: "The master bedroom should be in the South-West corner. Place the bed so you sleep with your head towards South.",
-    },
-    {
-      icon: Droplets,
-      title: "Kitchen",
-      description: "The kitchen should be in the South-East corner (Agni corner). The cook should face East while cooking.",
-    },
-    {
-      icon: Wind,
-      title: "Bathroom",
-      description: "Bathrooms should be in the West or North-West direction. Avoid placing them in the North-East corner.",
+      icon: TrendingUp,
+      title: "Career Growth",
+      description: "Identify the best periods for promotions, salary hikes, and career advancement based on your planetary transits.",
     },
     {
       icon: Building,
-      title: "Office/Study",
-      description: "Home office or study room should be in the West or South-West. Face North or East while working for better concentration.",
+      title: "Business Success",
+      description: "Get insights on starting a new business, expanding operations, or making strategic investments.",
+    },
+    {
+      icon: Users,
+      title: "Partnership Analysis",
+      description: "Evaluate business partnership compatibility and identify potential challenges or synergies.",
+    },
+    {
+      icon: Target,
+      title: "Job Changes",
+      description: "Find the most auspicious timing for job interviews, resignations, and new beginnings.",
+    },
+    {
+      icon: Award,
+      title: "Professional Recognition",
+      description: "Understand when you're likely to receive awards, recognition, or important opportunities.",
+    },
+    {
+      icon: Briefcase,
+      title: "Career Path Selection",
+      description: "Discover which career fields align best with your birth chart and natural talents.",
     },
   ];
 
   const benefits = [
-    "Improved health and well-being",
-    "Enhanced prosperity and wealth",
-    "Better relationships and harmony",
-    "Career growth and success",
-    "Mental peace and positivity",
-    "Protection from negative energies",
+    "Identify your ideal career path based on planetary positions",
+    "Know the best time for job changes or starting a business",
+    "Understand financial cycles and wealth accumulation periods",
+    "Remedies for career obstacles and delays",
+    "Partnership compatibility for business ventures",
+    "Guidance on investment and financial decisions",
   ];
 
   return (
@@ -60,30 +59,24 @@ export default function VastuPage() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <div className="w-32 h-32 mx-auto mb-8 relative">
-              <Image
-                src={getImagePath("/images/vastu.png")}
-                alt="Vastu Shastra - Sri Yantra"
-                fill
-                className="object-contain"
-                priority
-              />
+            <div className="w-20 h-20 mx-auto mb-6 rounded-full border-2 border-[var(--gold)] flex items-center justify-center">
+              <Briefcase size={40} className="text-[var(--gold)]" />
             </div>
             <h1 className="text-4xl md:text-5xl font-[var(--font-heading)] mb-6">
-              <span className="text-[var(--foreground)]">Vastu </span>
-              <span className="text-gradient-gold">Shastra</span>
+              <span className="text-[var(--foreground)]">Career & </span>
+              <span className="text-gradient-gold">Business Advice</span>
             </h1>
             <div className="gold-line w-24 mx-auto mb-6" />
             <p className="text-lg text-[var(--foreground-muted)] leading-relaxed">
-              The ancient Indian science of architecture and spatial arrangement. 
-              Create harmony between your living space and the cosmic forces for 
-              prosperity, health, and peace.
+              Make informed career and business decisions with expert astrological guidance. 
+              Understand the cosmic influences on your professional life and time your 
+              important moves for maximum success.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* What is Vastu */}
+      {/* What We Offer */}
       <section className="section">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -94,27 +87,27 @@ export default function VastuPage() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl font-[var(--font-heading)] mb-4">
-                <span className="text-[var(--foreground)]">What is </span>
-                <span className="text-gradient-gold">Vastu Shastra?</span>
+                <span className="text-[var(--foreground)]">Astrological </span>
+                <span className="text-gradient-gold">Career Guidance</span>
               </h2>
               <div className="gold-line-left w-16 mb-6" />
               
               <div className="space-y-4 text-[var(--foreground-muted)] leading-relaxed">
                 <p>
-                  Vastu Shastra is an ancient Indian science that harmonizes architecture 
-                  with nature&apos;s five elements—Earth, Water, Fire, Air, and Space. 
-                  Dating back over 5,000 years, it provides guidelines for designing 
-                  spaces that promote positive energy flow.
+                  Your birth chart holds the key to understanding your professional potential 
+                  and the best paths to success. The 10th house (Karma Bhava) and its lord, 
+                  along with planets like Saturn, Sun, and Mercury, reveal important insights 
+                  about your career trajectory.
                 </p>
                 <p>
-                  The fundamental principle of Vastu is that the directions and placement 
-                  of rooms, furniture, and objects affect the energy of a space, which in 
-                  turn influences the health, prosperity, and happiness of its occupants.
+                  {SITE_CONFIG.name} analyzes your complete horoscope to provide actionable 
+                  advice on career choices, business ventures, timing of important decisions, 
+                  and remedies for any obstacles you may face in your professional life.
                 </p>
                 <p>
-                  {SITE_CONFIG.name} provides expert Vastu consultation for homes, offices, 
-                  and commercial spaces. Our practical remedies work without requiring 
-                  major structural changes, making Vastu accessible to everyone.
+                  Whether you&apos;re a job seeker, entrepreneur, or established professional, 
+                  our career astrology consultation helps you align your actions with 
+                  favorable planetary periods for optimal results.
                 </p>
               </div>
             </motion.div>
@@ -127,7 +120,7 @@ export default function VastuPage() {
               className="card p-8"
             >
               <h3 className="text-2xl font-[var(--font-heading)] text-[var(--gold)] mb-6">
-                Benefits of Vastu
+                What You&apos;ll Gain
               </h3>
               <ul className="space-y-4">
                 {benefits.map((benefit, index) => (
@@ -149,7 +142,7 @@ export default function VastuPage() {
         </div>
       </section>
 
-      {/* Vastu Tips */}
+      {/* Career Aspects */}
       <section className="section bg-[var(--background-secondary)]">
         <div className="container">
           <motion.div
@@ -160,17 +153,17 @@ export default function VastuPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">Essential Vastu </span>
-              <span className="text-gradient-gold">Tips</span>
+              <span className="text-[var(--foreground)]">Areas of </span>
+              <span className="text-gradient-gold">Consultation</span>
             </h2>
             <div className="gold-line w-24 mx-auto mb-6" />
             <p className="text-[var(--foreground-muted)] max-w-2xl mx-auto">
-              Simple guidelines to bring positive energy into your home
+              Comprehensive career and business guidance covering all aspects of your professional life
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {vastuTips.map((tip, index) => (
+            {careerAspects.map((aspect, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -180,13 +173,13 @@ export default function VastuPage() {
                 className="card p-6"
               >
                 <div className="w-12 h-12 rounded-full border border-[var(--gold-muted)] flex items-center justify-center mb-4">
-                  <tip.icon size={24} className="text-[var(--gold)]" />
+                  <aspect.icon size={24} className="text-[var(--gold)]" />
                 </div>
                 <h3 className="font-[var(--font-heading)] text-xl text-[var(--foreground)] mb-3">
-                  {tip.title}
+                  {aspect.title}
                 </h3>
                 <p className="text-[var(--foreground-muted)] text-sm leading-relaxed">
-                  {tip.description}
+                  {aspect.description}
                 </p>
               </motion.div>
             ))}
@@ -194,7 +187,7 @@ export default function VastuPage() {
         </div>
       </section>
 
-      {/* Five Elements */}
+      {/* Planetary Influences */}
       <section className="section">
         <div className="container">
           <motion.div
@@ -205,23 +198,22 @@ export default function VastuPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">The Five </span>
-              <span className="text-gradient-gold">Elements</span>
+              <span className="text-[var(--foreground)]">Key Planetary </span>
+              <span className="text-gradient-gold">Influences</span>
             </h2>
             <div className="gold-line w-24 mx-auto mb-6" />
             <p className="text-[var(--foreground-muted)] max-w-2xl mx-auto">
-              Vastu is based on the balance of Pancha Mahabhuta (Five Great Elements)
+              Understanding which planets influence different aspects of your career
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { name: "Earth", hindi: "Prithvi", direction: "SW", color: "#8B4513" },
-              { name: "Water", hindi: "Jal", direction: "NE", color: "#4169E1" },
-              { name: "Fire", hindi: "Agni", direction: "SE", color: "#FF4500" },
-              { name: "Air", hindi: "Vayu", direction: "NW", color: "#87CEEB" },
-              { name: "Space", hindi: "Akash", direction: "Center", color: "#9370DB" },
-            ].map((element, index) => (
+              { planet: "Sun", influence: "Authority, Leadership, Government Jobs", color: "#ff6b2c" },
+              { planet: "Saturn", influence: "Hard Work, Discipline, Long-term Success", color: "#6b7280" },
+              { planet: "Mercury", influence: "Business, Communication, Trading", color: "#10b981" },
+              { planet: "Jupiter", influence: "Teaching, Finance, Expansion", color: "#ffc107" },
+            ].map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -232,17 +224,16 @@ export default function VastuPage() {
               >
                 <div 
                   className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: `${element.color}20`, border: `2px solid ${element.color}` }}
+                  style={{ backgroundColor: `${item.color}20`, border: `2px solid ${item.color}` }}
                 >
-                  <span className="text-2xl font-[var(--font-heading)]" style={{ color: element.color }}>
-                    {element.name[0]}
+                  <span className="text-2xl font-[var(--font-heading)]" style={{ color: item.color }}>
+                    {item.planet[0]}
                   </span>
                 </div>
-                <h3 className="font-[var(--font-heading)] text-[var(--foreground)] mb-1">
-                  {element.name}
+                <h3 className="font-[var(--font-heading)] text-[var(--foreground)] mb-2">
+                  {item.planet}
                 </h3>
-                <p className="text-sm text-[var(--foreground-muted)]">{element.hindi}</p>
-                <p className="text-xs text-[var(--gold)] mt-2">Direction: {element.direction}</p>
+                <p className="text-sm text-[var(--foreground-muted)]">{item.influence}</p>
               </motion.div>
             ))}
           </div>
@@ -261,11 +252,11 @@ export default function VastuPage() {
           >
             <h2 className="text-3xl font-[var(--font-heading)] mb-4">
               <span className="text-[var(--foreground)]">Get Expert </span>
-              <span className="text-gradient-gold">Vastu Consultation</span>
+              <span className="text-gradient-gold">Career Guidance</span>
             </h2>
             <p className="text-[var(--foreground-muted)] mb-8">
-              {SITE_CONFIG.name} provides personalized Vastu consultation for your home, 
-              office, or business. Get practical remedies without major structural changes.
+              {SITE_CONFIG.name} provides personalized career and business consultation 
+              based on your unique birth chart. Take the right decisions at the right time.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact/" className="btn-gold flex items-center gap-2">

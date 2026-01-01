@@ -1,7 +1,9 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Facebook, Instagram, Youtube, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { SiFacebook, SiInstagram, SiYoutube } from "react-icons/si";
 import { CONTACT_INFO, SOCIAL_LINKS, FOOTER_LINKS, SITE_CONFIG, ZODIAC_NAV_LINKS } from "@/lib/constants";
 import { yearsOfExperience } from "@/data/testimonials";
+import Logo from "./Logo";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,15 +16,15 @@ export default function Footer() {
           {/* Brand Column */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-14 h-14 rounded-full border-2 border-[var(--gold)] flex items-center justify-center text-[var(--gold)] text-2xl font-bold font-[var(--font-heading)]">
-                KT
+              <div className="text-[var(--primary)]">
+                <Logo size={56} />
               </div>
               <div>
-                <h3 className="text-xl font-[var(--font-heading)] text-gradient-gold tracking-wider">
+                <h3 className="text-lg font-[var(--font-heading)] text-gradient-gold tracking-wider leading-tight">
                   {SITE_CONFIG.name}
                 </h3>
                 <p className="text-xs text-[var(--foreground-muted)] tracking-widest uppercase">
-                  Astrologer
+                  Vedic Astrology
                 </p>
               </div>
             </div>
@@ -39,7 +41,7 @@ export default function Footer() {
                 className="w-10 h-10 rounded-full border border-[var(--gold-muted)] flex items-center justify-center text-[var(--foreground-muted)] hover:border-[var(--gold)] hover:text-[var(--gold)] hover:bg-[var(--gold-muted)] transition-all"
                 aria-label="Facebook"
               >
-                <Facebook size={18} />
+                <SiFacebook size={18} />
               </a>
               <a
                 href={SOCIAL_LINKS.instagram}
@@ -48,7 +50,7 @@ export default function Footer() {
                 className="w-10 h-10 rounded-full border border-[var(--gold-muted)] flex items-center justify-center text-[var(--foreground-muted)] hover:border-[var(--gold)] hover:text-[var(--gold)] hover:bg-[var(--gold-muted)] transition-all"
                 aria-label="Instagram"
               >
-                <Instagram size={18} />
+                <SiInstagram size={18} />
               </a>
               <a
                 href={SOCIAL_LINKS.youtube}
@@ -57,7 +59,7 @@ export default function Footer() {
                 className="w-10 h-10 rounded-full border border-[var(--gold-muted)] flex items-center justify-center text-[var(--foreground-muted)] hover:border-[var(--gold)] hover:text-[var(--gold)] hover:bg-[var(--gold-muted)] transition-all"
                 aria-label="YouTube"
               >
-                <Youtube size={18} />
+                <SiYoutube size={18} />
               </a>
               <a
                 href={SOCIAL_LINKS.whatsapp}
@@ -172,4 +174,3 @@ export default function Footer() {
     </footer>
   );
 }
-

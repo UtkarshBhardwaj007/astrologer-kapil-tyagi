@@ -60,5 +60,5 @@ export const testimonials: Testimonial[] = [
 
 // Re-export statistics from centralized constants
 import { STATS } from "@/lib/constants";
-export const { averageRating, totalReviews, yearsOfExperience, totalConsultations } = STATS;
+export const { averageRating, totalReviews, yearsOfExperience, totalConsultations, countriesServed } = STATS;
 

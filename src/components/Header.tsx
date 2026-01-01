@@ -3,23 +3,27 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Menu, X, ChevronDown, ScrollText, Star, Heart, Home, Hash, Gem, Circle, Flame } from "lucide-react";
-import { NAV_LINKS, ZODIAC_NAV_LINKS, CONTACT_INFO, SITE_CONFIG } from "@/lib/constants";
+import { Phone, Menu, X, ChevronDown, ScrollText, Star, Heart, Home, Hash, Gem, Circle, Flame, Briefcase, Calendar } from "lucide-react";
+import { NAV_LINKS, ZODIAC_NAV_LINKS, CONTACT_INFO, SITE_CONFIG, SERVICE_NAV_LINKS } from "@/lib/constants";
+import Logo from "./Logo";
 
 const services = [
   { name: "Kundali", icon: ScrollText, href: "/kundali/" },
-  { name: "Horoscope", icon: Star, href: "/zodiac/aries/" },
+  { name: "Career", icon: Briefcase, href: "/career/" },
+  { name: "Muhurat", icon: Calendar, href: "/mahurat/" },
   { name: "Marriage", icon: Heart, href: "/marriage/" },
   { name: "Vastu", icon: Home, href: "/vastu/" },
   { name: "Numerology", icon: Hash, href: "/numerology/" },
   { name: "Gemstones", icon: Gem, href: "/gemstones/" },
-  { name: "Rudraksha", icon: Circle, href: "/rudraksha/" },
   { name: "Puja", icon: Flame, href: "/puja/" },
 ];
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isZodiacOpen, setIsZodiacOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileZodiacOpen, setMobileZodiacOpen] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--background)]/95 backdrop-blur-md border-b border-[var(--gold-muted)]">
@@ -63,23 +67,56 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-full border border-[var(--gold)] flex items-center justify-center text-[var(--gold)] text-xl font-bold font-[var(--font-heading)] group-hover:bg-[var(--gold)] group-hover:text-[var(--background)] transition-all">
-              KT
+            <div className="text-[var(--primary)] group-hover:text-[var(--gold)] transition-colors">
+              <Logo size={48} />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-xl font-[var(--font-heading)] text-gradient-gold tracking-wider">
+              <h1 className="text-lg font-[var(--font-heading)] text-gradient-gold tracking-wider leading-tight">
                 {SITE_CONFIG.name}
               </h1>
               <p className="text-xs text-[var(--foreground-muted)] tracking-widest uppercase">
-                Astrologer
+                Vedic Astrology
               </p>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6">
             {NAV_LINKS.map((link) =>
-              link.hasDropdown ? (
+              link.hasDropdown && link.dropdownType === "services" ? (
+                <div
+                  key={link.href}
+                  className="relative"
+                  onMouseEnter={() => setIsServicesOpen(true)}
+                  onMouseLeave={() => setIsServicesOpen(false)}
+                >
+                  <button className="flex items-center gap-1 text-[var(--foreground)] hover:text-[var(--gold)] transition-colors font-[var(--font-heading)] text-sm tracking-wider uppercase">
+                    {link.label}
+                    <ChevronDown size={14} className={`transition-transform ${isServicesOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  <AnimatePresence>
+                    {isServicesOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full left-0 mt-2 w-52 bg-[var(--background-secondary)] border border-[var(--gold-muted)] rounded-lg shadow-xl py-2"
+                      >
+                        {SERVICE_NAV_LINKS.map((service) => (
+                          <Link
+                            key={service.href}
+                            href={service.href}
+                            className="block px-4 py-2 text-sm hover:bg-[var(--gold-muted)] hover:text-[var(--gold)] transition-colors"
+                          >
+                            {service.label}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : link.hasDropdown && link.dropdownType === "zodiac" ? (
                 <div
                   key={link.href}
                   className="relative"
@@ -88,7 +125,7 @@ export default function Header() {
                 >
                   <button className="flex items-center gap-1 text-[var(--foreground)] hover:text-[var(--gold)] transition-colors font-[var(--font-heading)] text-sm tracking-wider uppercase">
                     {link.label}
-                    <ChevronDown size={14} />
+                    <ChevronDown size={14} className={`transition-transform ${isZodiacOpen ? "rotate-180" : ""}`} />
                   </button>
                   <AnimatePresence>
                     {isZodiacOpen && (
@@ -157,20 +194,54 @@ export default function Header() {
           >
             <div className="container py-4 space-y-4">
               {NAV_LINKS.map((link) =>
-                link.hasDropdown ? (
+                link.hasDropdown && link.dropdownType === "services" ? (
                   <div key={link.href}>
                     <button
-                      onClick={() => setIsZodiacOpen(!isZodiacOpen)}
+                      onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                       className="flex items-center justify-between w-full py-2 text-[var(--foreground)] font-[var(--font-heading)] tracking-wider uppercase"
                     >
                       {link.label}
                       <ChevronDown
                         size={16}
-                        className={`transition-transform ${isZodiacOpen ? "rotate-180" : ""}`}
+                        className={`transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`}
                       />
                     </button>
                     <AnimatePresence>
-                      {isZodiacOpen && (
+                      {mobileServicesOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="pl-4 space-y-2 mt-2"
+                        >
+                          {SERVICE_NAV_LINKS.map((service) => (
+                            <Link
+                              key={service.href}
+                              href={service.href}
+                              className="block py-1 text-sm text-[var(--foreground-muted)] hover:text-[var(--gold)]"
+                              onClick={() => setIsMenuOpen(false)}
+                            >
+                              {service.label}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : link.hasDropdown && link.dropdownType === "zodiac" ? (
+                  <div key={link.href}>
+                    <button
+                      onClick={() => setMobileZodiacOpen(!mobileZodiacOpen)}
+                      className="flex items-center justify-between w-full py-2 text-[var(--foreground)] font-[var(--font-heading)] tracking-wider uppercase"
+                    >
+                      {link.label}
+                      <ChevronDown
+                        size={16}
+                        className={`transition-transform ${mobileZodiacOpen ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                    <AnimatePresence>
+                      {mobileZodiacOpen && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}

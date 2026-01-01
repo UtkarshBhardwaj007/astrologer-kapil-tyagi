@@ -10,10 +10,11 @@ export const STATS = {
   totalConsultations: 50000,
   averageRating: 4.9,
   totalReviews: 150,
+  countriesServed: 30,
 };
 
 export const SITE_CONFIG = {
-  name: "Kapil Tyagi",
+  name: "Astrologer Kapil Tyagi",
   title: "Astrologer Kapil Tyagi",
   tagline: "Vedic Astrology & Spiritual Guidance",
   description: `Renowned Vedic astrologer with over ${STATS.yearsOfExperience} years of experience in astrology, numerology, vastu shastra, and gemstone consultation. Get personalized predictions and spiritual guidance.`,
@@ -25,15 +26,17 @@ export const CONTACT_INFO = {
   phoneClean: "919811349874",
   email: "tykapil@gmail.com",
   address: {
-    line1: "B8-106, Pocket 8",
-    line2: "Sector 3B, Rohini",
+    line1: "B-8/106",
+    line2: "Sector 3, Rohini",
     city: "Delhi",
     pincode: "110085",
     country: "India",
-    full: "B8-106, Pocket 8, Sector 3B, Rohini, Delhi, 110085 - India",
+    full: "B-8/106, Sector 3, Rohini, Delhi, 110085 - India",
   },
   googleMapsUrl: "https://www.google.com/maps/place/Astrologer+Kapil+Tyagi/@28.7016145,77.1082165,714m",
   googleReviewUrl: "https://g.page/r/CWAETaQW-JixEBE/review",
+  consultationHours: "10:00 AM - 9:00 PM IST",
+  callingHours: "10:00 AM - 6:00 PM IST",
 };
 
 export const SOCIAL_LINKS = {
@@ -47,10 +50,21 @@ export const SOCIAL_LINKS = {
 export const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/about/", label: "About" },
-  { href: "/services/", label: "Services" },
-  { href: "/zodiac/aries/", label: "Zodiac Signs", hasDropdown: true },
+  { href: "/services/", label: "Services", hasDropdown: true, dropdownType: "services" },
+  { href: "/zodiac/aries/", label: "Zodiac Signs", hasDropdown: true, dropdownType: "zodiac" },
   { href: "/reviews/", label: "Reviews" },
   { href: "/contact/", label: "Book Appointment" },
+];
+
+export const SERVICE_NAV_LINKS = [
+  { href: "/services/", label: "All Services" },
+  { href: "/kundali/", label: "Kundali Making" },
+  { href: "/career/", label: "Career & Business" },
+  { href: "/mahurat/", label: "Muhurat Advice" },
+  { href: "/marriage/", label: "Marriage Matching" },
+  { href: "/vastu/", label: "Vastu Shastra" },
+  { href: "/numerology/", label: "Numerology" },
+  { href: "/gemstones/", label: "Gemstones" },
 ];
 
 export const ZODIAC_NAV_LINKS = [
@@ -71,7 +85,9 @@ export const ZODIAC_NAV_LINKS = [
 export const FOOTER_LINKS = {
   services: [
     { href: "/services/", label: "All Services" },
-    { href: "/kundali/", label: "Kundali Reading" },
+    { href: "/kundali/", label: "Kundali Making" },
+    { href: "/career/", label: "Career & Business" },
+    { href: "/mahurat/", label: "Muhurat Advice" },
     { href: "/numerology/", label: "Numerology" },
     { href: "/vastu/", label: "Vastu Shastra" },
     { href: "/gemstones/", label: "Gemstone Consultation" },
@@ -82,4 +98,3 @@ export const FOOTER_LINKS = {
     { href: "/contact/", label: "Contact" },
   ],
 };
-

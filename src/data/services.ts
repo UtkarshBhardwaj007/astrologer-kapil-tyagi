@@ -1,4 +1,4 @@
-import { totalReviews, averageRating, yearsOfExperience, totalConsultations } from "./testimonials";
+import { totalReviews, averageRating, yearsOfExperience, totalConsultations, countriesServed } from "./testimonials";
 
 export interface Service {
   id: string;
@@ -13,19 +13,51 @@ export interface Service {
 export const services: Service[] = [
   {
     id: "kundali",
-    title: "Kundali Analysis",
-    shortDescription: "Comprehensive birth chart reading and life predictions",
-    description: "Get a detailed analysis of your birth chart (Kundali) to understand your life path, strengths, challenges, and opportunities. Our Vedic astrology experts provide personalized insights based on planetary positions at the time of your birth.",
+    title: "Kundali Making",
+    shortDescription: "Comprehensive birth chart creation and life predictions",
+    description: "Get a detailed Kundali (birth chart) prepared by expert Vedic astrologers. Understand your life path, strengths, challenges, and opportunities through precise planetary analysis.",
     icon: "ScrollText",
     features: [
-      "Complete birth chart analysis",
+      "Complete birth chart preparation",
       "Planetary positions and their effects",
-      "Dasha period predictions",
-      "Career and financial prospects",
-      "Health insights",
-      "Relationship compatibility",
+      "Dasha period calculations",
+      "Divisional charts (D-9, D-10, etc.)",
+      "Health and longevity insights",
+      "Relationship compatibility indicators",
     ],
     href: "/kundali/",
+  },
+  {
+    id: "career",
+    title: "Career & Business",
+    shortDescription: "Professional guidance for career growth and business success",
+    description: "Receive expert astrological guidance for your career and business decisions. Understand the best times for job changes, business ventures, investments, and professional growth based on your birth chart.",
+    icon: "Briefcase",
+    features: [
+      "Career path analysis based on birth chart",
+      "Best timing for job changes",
+      "Business venture compatibility",
+      "Partnership compatibility analysis",
+      "Financial growth predictions",
+      "Remedies for career obstacles",
+    ],
+    href: "/career/",
+  },
+  {
+    id: "mahurat",
+    title: "Muhurat Advice",
+    shortDescription: "Auspicious timing for important life events",
+    description: "Find the most auspicious time (Muhurat) for important events like marriages, housewarming, business launches, and other significant occasions. Ensure success by starting at the right cosmic moment.",
+    icon: "Calendar",
+    features: [
+      "Marriage muhurat selection",
+      "Griha Pravesh (housewarming) timing",
+      "Business inauguration muhurat",
+      "Vehicle purchase timing",
+      "Travel muhurat",
+      "Education and exam timing",
+    ],
+    href: "/mahurat/",
   },
   {
     id: "horoscope",
@@ -144,12 +176,11 @@ export const serviceHighlights = [
     label: "Consultations",
   },
   {
+    number: `${countriesServed}+`,
+    label: "Countries Served",
+  },
+  {
     number: String(averageRating),
     label: "Average Rating",
   },
-  {
-    number: `${totalReviews}+`,
-    label: "Reviews",
-  },
 ];
-
