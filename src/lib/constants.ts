@@ -7,7 +7,7 @@ export const getImagePath = (path: string): string => {
 // Statistics Constants (centralized for easy updates)
 export const STATS = {
   yearsOfExperience: 25,
-  totalConsultations: 50000,
+  totalConsultations: 200000,
   averageRating: 4.9,
   totalReviews: 150,
   countriesServed: 30,
