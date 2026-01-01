@@ -1,86 +1,159 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="600" viewBox="0 0 1050 600">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1050" height="600" viewBox="0 0 1050 600">
   <!-- 3.5" x 2" at 300dpi = 1050 x 600 pixels -->
-  <!-- Premium warm cream design - no black, no aura effects, no corner dots -->
+  <!-- Elite Red & Gold Premium Design - Front Side -->
   <defs>
-    <!-- Background gradient - warm cream tones -->
+    <!-- Background gradient - dark maroon to black to burgundy -->
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#FFFBF0"/>
-      <stop offset="50%" style="stop-color:#FDF6E3"/>
-      <stop offset="100%" style="stop-color:#FAF3E0"/>
+      <stop offset="0%" style="stop-color:#1A0A0D"/>
+      <stop offset="40%" style="stop-color:#0D0A0B"/>
+      <stop offset="100%" style="stop-color:#2D0F16"/>
     </linearGradient>
     
-    <!-- Text gradient - rich warm tones -->
-    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#5D3A1A"/>
-      <stop offset="50%" style="stop-color:#722F37"/>
-      <stop offset="100%" style="stop-color:#4A2C17"/>
-    </linearGradient>
-    
-    <!-- Amber gradient for divider -->
-    <linearGradient id="amberGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+    <!-- Shimmer overlay gradient -->
+    <linearGradient id="shimmerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:transparent"/>
-      <stop offset="50%" style="stop-color:#D4A017"/>
+      <stop offset="25%" style="stop-color:#D4AF37;stop-opacity:0.15"/>
+      <stop offset="50%" style="stop-color:transparent"/>
+      <stop offset="75%" style="stop-color:#FFD700;stop-opacity:0.1"/>
       <stop offset="100%" style="stop-color:transparent"/>
     </linearGradient>
+    
+    <!-- Name text gradient - gold variations -->
+    <linearGradient id="goldTextGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F7E7CE"/>
+      <stop offset="50%" style="stop-color:#FFD700"/>
+      <stop offset="100%" style="stop-color:#CFB53B"/>
+    </linearGradient>
+    
+    <!-- Divider gradient - gold fade -->
+    <linearGradient id="dividerLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:transparent"/>
+      <stop offset="100%" style="stop-color:#D4AF37"/>
+    </linearGradient>
+    
+    <linearGradient id="dividerRight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#D4AF37"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </linearGradient>
+    
+    <!-- Corner gradient - top left horizontal -->
+    <linearGradient id="cornerTLH" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFD700"/>
+      <stop offset="50%" style="stop-color:#D4AF37;stop-opacity:0.5"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </linearGradient>
+    
+    <!-- Corner gradient - top left vertical -->
+    <linearGradient id="cornerTLV" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700"/>
+      <stop offset="50%" style="stop-color:#D4AF37;stop-opacity:0.5"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </linearGradient>
+    
+    <!-- Corner gradient - top right horizontal -->
+    <linearGradient id="cornerTRH" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFD700"/>
+      <stop offset="50%" style="stop-color:#D4AF37;stop-opacity:0.5"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </linearGradient>
+    
+    <!-- Corner gradient - bottom vertical -->
+    <linearGradient id="cornerBV" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFD700"/>
+      <stop offset="50%" style="stop-color:#D4AF37;stop-opacity:0.5"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </linearGradient>
+    
+    <!-- Diamond gradient -->
+    <linearGradient id="diamondGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700"/>
+      <stop offset="100%" style="stop-color:#CFB53B"/>
+    </linearGradient>
+    
+    <!-- Glow filter for logo -->
+    <filter id="goldGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#D4AF37" flood-opacity="0.5"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Import Google Fonts -->
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Lato:wght@300;400;500&amp;display=swap');
+    </style>
   </defs>
   
   <!-- Background -->
   <rect width="1050" height="600" fill="url(#bgGradient)" rx="20"/>
   
-  <!-- Premium double border -->
-  <rect x="3" y="3" width="1044" height="594" fill="none" stroke="#722F37" stroke-width="2" rx="18"/>
-  <rect x="8" y="8" width="1034" height="584" fill="none" stroke="#D4A017" stroke-width="1" rx="15" opacity="0.6"/>
+  <!-- Shimmer overlay -->
+  <rect width="1050" height="600" fill="url(#shimmerGradient)" rx="20" opacity="0.3"/>
   
-  <!-- Decorative corner flourishes - lines only, no dots -->
+  <!-- Premium gold double border -->
+  <rect x="3" y="3" width="1044" height="594" fill="none" stroke="#D4AF37" stroke-width="3" rx="18"/>
+  <rect x="10" y="10" width="1030" height="580" fill="none" stroke="#CFB53B" stroke-width="1.5" rx="15" opacity="0.4"/>
+  
+  <!-- Inner glow effect -->
+  <rect x="3" y="3" width="1044" height="594" fill="none" stroke="#D4AF37" stroke-width="1" rx="18" opacity="0.15" style="filter: blur(10px)"/>
+  
+  <!-- Corner flourishes - elegant gold gradient lines -->
   <!-- Top left -->
-  <path d="M25 25 L25 65" stroke="#722F37" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M25 25 L65 25" stroke="#722F37" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <rect x="30" y="30" width="60" height="3" fill="url(#cornerTLH)"/>
+  <rect x="30" y="30" width="3" height="60" fill="url(#cornerTLV)"/>
   <!-- Top right -->
-  <path d="M1025 25 L1025 65" stroke="#722F37" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M1025 25 L985 25" stroke="#722F37" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <rect x="960" y="30" width="60" height="3" fill="url(#cornerTRH)"/>
+  <rect x="1017" y="30" width="3" height="60" fill="url(#cornerTLV)"/>
   <!-- Bottom left -->
-  <path d="M25 575 L25 535" stroke="#722F37" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M25 575 L65 575" stroke="#722F37" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <rect x="30" y="567" width="60" height="3" fill="url(#cornerTLH)"/>
+  <rect x="30" y="510" width="3" height="60" fill="url(#cornerBV)"/>
   <!-- Bottom right -->
-  <path d="M1025 575 L1025 535" stroke="#722F37" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M1025 575 L985 575" stroke="#722F37" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <rect x="960" y="567" width="60" height="3" fill="url(#cornerTRH)"/>
+  <rect x="1017" y="510" width="3" height="60" fill="url(#cornerBV)"/>
   
-  <!-- Shatkon Logo (Hexagon with interlocking triangles) - centered -->
-  <g transform="translate(525, 185)" fill="none" stroke="#8B0000" stroke-width="3">
+  <!-- Shatkon Logo (Hexagon with interlocking triangles) - centered with gold glow -->
+  <g transform="translate(525, 180)" filter="url(#goldGlow)">
     <!-- Outer Hexagon -->
-    <path d="M0 -70 L60.6 -35 L60.6 35 L0 70 L-60.6 35 L-60.6 -35 Z" stroke-width="2.5"/>
+    <path d="M0 -65 L56.3 -32.5 L56.3 32.5 L0 65 L-56.3 32.5 L-56.3 -32.5 Z" 
+          fill="none" stroke="#D4AF37" stroke-width="2.5"/>
     
     <!-- Upward Triangle -->
-    <path d="M0 -50 L43.3 25 L-43.3 25 Z" stroke-width="2" fill="rgba(139,0,0,0.08)"/>
+    <path d="M0 -46 L40 23 L-40 23 Z" 
+          fill="rgba(212,175,55,0.08)" stroke="#D4AF37" stroke-width="2"/>
     
     <!-- Downward Triangle -->
-    <path d="M0 50 L-43.3 -25 L43.3 -25 Z" stroke-width="2" fill="rgba(139,0,0,0.08)"/>
+    <path d="M0 46 L-40 -23 L40 -23 Z" 
+          fill="rgba(212,175,55,0.08)" stroke="#D4AF37" stroke-width="2"/>
     
     <!-- Central Bindu (dot) -->
-    <circle cx="0" cy="0" r="8" fill="#8B0000"/>
-    <circle cx="0" cy="0" r="12" fill="none" stroke="rgba(139,0,0,0.3)" stroke-width="2"/>
+    <circle cx="0" cy="0" r="7" fill="#D4AF37"/>
+    <circle cx="0" cy="0" r="11" fill="none" stroke="rgba(212,175,55,0.4)" stroke-width="2"/>
   </g>
   
-  <!-- Name -->
-  <text x="525" y="340" text-anchor="middle" font-family="Cinzel, Georgia, serif" font-size="44" font-weight="600" letter-spacing="6" fill="#3D2314">
+  <!-- Name - with gold gradient, reduced letter-spacing for better centering -->
+  <text x="525" y="330" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="38" font-weight="600" letter-spacing="3" fill="url(#goldTextGradient)">
     ASTROLOGER KAPIL TYAGI
   </text>
   
-  <!-- Primary Tagline -->
-  <text x="525" y="390" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="20" letter-spacing="8" fill="#722F37" font-style="italic">
+  <!-- Primary Tagline - rose gold -->
+  <text x="525" y="375" text-anchor="middle" font-family="'Lato', 'Helvetica Neue', sans-serif" font-size="16" letter-spacing="2" fill="#B76E79" font-style="italic" font-weight="400">
     Jyotish Aacharya  |  Silver Medalist
   </text>
   
-  <!-- Elegant divider -->
-  <g transform="translate(525, 435)">
-    <line x1="-180" y1="0" x2="-15" y2="0" stroke="url(#amberGradient)" stroke-width="1.5"/>
-    <line x1="15" y1="0" x2="180" y2="0" stroke="url(#amberGradient)" stroke-width="1.5"/>
-    <!-- Center diamond -->
-    <polygon points="0,-8 8,0 0,8 -8,0" fill="#D4A017"/>
+  <!-- Elegant gold divider with diamond -->
+  <g transform="translate(525, 420)">
+    <rect x="-175" y="-1" width="150" height="2" fill="url(#dividerLeft)"/>
+    <rect x="25" y="-1" width="150" height="2" fill="url(#dividerRight)"/>
+    <!-- Center diamond with glow -->
+    <polygon points="0,-10 10,0 0,10 -10,0" fill="url(#diamondGradient)"/>
+    <polygon points="0,-10 10,0 0,10 -10,0" fill="none" stroke="#FFD700" stroke-width="0.5" opacity="0.6" style="filter: blur(2px)"/>
   </g>
   
-  <!-- Secondary Tagline at bottom -->
-  <text x="525" y="490" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="16" letter-spacing="6" fill="#A0522D" font-weight="500">
+  <!-- Secondary Tagline - bronze -->
+  <text x="525" y="480" text-anchor="middle" font-family="'Lato', 'Helvetica Neue', sans-serif" font-size="13" letter-spacing="4" fill="#CD7F32" font-weight="400">
     VEDIC ASTROLOGER  •  NUMEROLOGIST  •  VASTU EXPERT
   </text>
 </svg>

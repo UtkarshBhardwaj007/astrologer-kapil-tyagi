@@ -3,9 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Navigation } from "lucide-react";
-import Image from "next/image";
 import Logo from "./Logo";
-import { CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO, getImagePath } from "@/lib/constants";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 interface VisitingCardProps {
@@ -325,8 +324,9 @@ export default function VisitingCard({ interactive = true }: VisitingCardProps) 
                         border: `1px solid ${colors.richGold}60`,
                       }}
                     >
-                      <Image
-                        src="/images/directions.jpeg"
+                      {/* Using img tag with getImagePath for static export compatibility */}
+                      <img
+                        src={getImagePath("/images/directions.jpeg")}
                         alt="Scan for directions"
                         width={72}
                         height={72}
