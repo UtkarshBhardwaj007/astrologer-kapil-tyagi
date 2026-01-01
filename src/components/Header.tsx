@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Menu, X, ChevronDown, ScrollText, Heart, Home, Hash, Gem, Flame, Briefcase, Calendar } from "lucide-react";
-import { NAV_LINKS, ZODIAC_NAV_LINKS, CONTACT_INFO, SITE_CONFIG, SERVICE_NAV_LINKS } from "@/lib/constants";
+import { NAV_LINKS, ZODIAC_NAV_LINKS, CONTACT_INFO, SERVICE_NAV_LINKS } from "@/lib/constants";
 import Logo from "./Logo";
 import LanguageSelector from "./LanguageSelector";
 import { useLanguage } from "@/contexts/LanguageContext";

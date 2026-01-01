@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import { SiFacebook, SiInstagram, SiYoutube } from "react-icons/si";
 import { CONTACT_INFO, SOCIAL_LINKS, FOOTER_LINKS, ZODIAC_NAV_LINKS } from "@/lib/constants";
-import { yearsOfExperience } from "@/data/testimonials";
 import Logo from "./Logo";
 import { useLanguage } from "@/contexts/LanguageContext";
 

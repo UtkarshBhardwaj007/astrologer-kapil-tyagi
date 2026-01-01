@@ -1,4 +1,4 @@
-import { totalReviews, averageRating, yearsOfExperience, totalConsultations, countriesServed } from "./testimonials";
+import { averageRating, yearsOfExperience, totalConsultations, countriesServed } from "./testimonials";
 
 export interface Service {
   id: string;
