@@ -4,13 +4,15 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import Logo from "./Logo";
-import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface VisitingCardProps {
   interactive?: boolean;
 }
 
 export default function VisitingCard({ interactive = true }: VisitingCardProps) {
+  const { t } = useLanguage();
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
@@ -141,7 +143,7 @@ export default function VisitingCard({ interactive = true }: VisitingCardProps) 
                       className="text-center text-[7px] md:text-[8px] tracking-[0.15em] mb-1"
                       style={{ color: "rgba(212, 175, 55, 0.6)" }}
                     >
-                      KUNDALI • CAREER • MUHURAT • VASTU • NUMEROLOGY • GEMSTONES
+                      {t("visitingCard.servicesBar")}
                     </p>
                     <div 
                       className="w-full h-px"
@@ -180,7 +182,7 @@ export default function VisitingCard({ interactive = true }: VisitingCardProps) 
                         backgroundClip: "text",
                       }}
                     >
-                      {SITE_CONFIG.name.toUpperCase()}
+                      {t("common.siteName").toUpperCase()}
                     </h2>
                     
                     {/* New Tagline */}
@@ -188,7 +190,7 @@ export default function VisitingCard({ interactive = true }: VisitingCardProps) 
                       className="text-[9px] md:text-[10px] mt-1 tracking-[0.15em] italic"
                       style={{ color: "rgba(212, 175, 55, 0.75)" }}
                     >
-                      Jyotish Aacharya | Silver Medalist
+                      {t("visitingCard.tagline")}
                     </p>
                     
                     {/* Divider with diamond */}
@@ -214,14 +216,14 @@ export default function VisitingCard({ interactive = true }: VisitingCardProps) 
                       className="text-[7px] md:text-[8px] tracking-[0.2em]"
                       style={{ color: "rgba(212, 175, 55, 0.5)" }}
                     >
-                      VEDIC ASTROLOGY • SPIRITUAL GUIDANCE
+                      {t("visitingCard.secondaryTagline")}
                     </p>
                     {interactive && (
                       <p 
                         className="text-[6px] tracking-wider uppercase mt-1"
                         style={{ color: "rgba(160, 160, 160, 0.35)" }}
                       >
-                        Hover to view details
+                        {t("common.hoverToViewDetails")}
                       </p>
                     )}
                   </div>
@@ -303,8 +305,8 @@ export default function VisitingCard({ interactive = true }: VisitingCardProps) 
                     <div className="flex items-start gap-2.5">
                       <MapPin size={12} style={{ color: "#d4af37" }} className="mt-0.5 flex-shrink-0" />
                       <span className="text-[10px] leading-relaxed" style={{ color: "#e8e8e8" }}>
-                        {CONTACT_INFO.address.line1}, {CONTACT_INFO.address.line2}<br />
-                        {CONTACT_INFO.address.city} - {CONTACT_INFO.address.pincode}
+                        {t("address.line1")}, {t("address.line2")}<br />
+                        {t("address.city")} - {t("address.pincode")}
                       </span>
                     </div>
                     
@@ -318,8 +320,8 @@ export default function VisitingCard({ interactive = true }: VisitingCardProps) 
                     <div className="flex items-start gap-2.5">
                       <Clock size={12} style={{ color: "#d4af37" }} className="mt-0.5 flex-shrink-0" />
                       <div className="text-[10px] leading-relaxed" style={{ color: "#e8e8e8" }}>
-                        <div><span style={{ color: "#d4af37" }}>Consultation:</span> 10AM - 9PM IST</div>
-                        <div><span style={{ color: "#d4af37" }}>Calling:</span> 10AM - 6PM IST</div>
+                        <div><span style={{ color: "#d4af37" }}>{t("visitingCard.consultation")}:</span> 10AM - 9PM IST</div>
+                        <div><span style={{ color: "#d4af37" }}>{t("visitingCard.calling")}:</span> 10AM - 6PM IST</div>
                       </div>
                     </div>
                   </div>

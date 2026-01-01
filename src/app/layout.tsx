@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
 import { totalReviews, averageRating } from "@/data/testimonials";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 export const metadata: Metadata = {
   title: {
@@ -48,12 +49,14 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="antialiased min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-1 pt-[120px] md:pt-[140px]">
-          {children}
-        </main>
-        <Footer />
-        <WhatsAppButton />
+        <LanguageProvider>
+          <Header />
+          <main className="flex-1 pt-[120px] md:pt-[140px]">
+            {children}
+          </main>
+          <Footer />
+          <WhatsAppButton />
+        </LanguageProvider>
         
         {/* Structured Data for Local Business */}
         <script

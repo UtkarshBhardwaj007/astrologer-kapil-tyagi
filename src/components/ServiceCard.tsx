@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, ScrollText, Star, Heart, Home, Hash, Gem, Circle, Flame } from "lucide-react";
 import type { Service } from "@/data/services";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const iconMap: { [key: string]: React.ElementType } = {
   ScrollText,
@@ -22,7 +23,11 @@ interface ServiceCardProps {
 }
 
 export default function ServiceCard({ service, index }: ServiceCardProps) {
+  const { t } = useLanguage();
   const IconComponent = iconMap[service.icon] || Star;
+
+  // Map service IDs to translation keys
+  const serviceTranslationKey = service.id === "matchmaking" ? "marriage" : service.id === "mahurat" ? "muhurat" : service.id;
 
   return (
     <motion.div
@@ -40,17 +45,17 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
 
           {/* Title */}
           <h3 className="text-xl font-[var(--font-heading)] text-[var(--foreground)] mb-3 group-hover:text-[var(--gold)] transition-colors">
-            {service.title}
+            {t(`services.${serviceTranslationKey}.title`)}
           </h3>
 
           {/* Description */}
           <p className="text-[var(--foreground-muted)] mb-4 line-clamp-2">
-            {service.shortDescription}
+            {t(`services.${serviceTranslationKey}.shortDescription`)}
           </p>
 
           {/* Link */}
           <div className="flex items-center gap-2 text-[var(--gold)] text-sm font-medium group-hover:gap-3 transition-all">
-            <span>Learn More</span>
+            <span>{t("common.learnMore")}</span>
             <ArrowRight size={16} />
           </div>
         </div>

@@ -3,22 +3,64 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Menu, X, ChevronDown, ScrollText, Star, Heart, Home, Hash, Gem, Circle, Flame, Briefcase, Calendar } from "lucide-react";
+import { Phone, Menu, X, ChevronDown, ScrollText, Heart, Home, Hash, Gem, Flame, Briefcase, Calendar } from "lucide-react";
 import { NAV_LINKS, ZODIAC_NAV_LINKS, CONTACT_INFO, SITE_CONFIG, SERVICE_NAV_LINKS } from "@/lib/constants";
 import Logo from "./Logo";
+import LanguageSelector from "./LanguageSelector";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const services = [
-  { name: "Kundali", icon: ScrollText, href: "/kundali/" },
-  { name: "Career", icon: Briefcase, href: "/career/" },
-  { name: "Muhurat", icon: Calendar, href: "/mahurat/" },
-  { name: "Marriage", icon: Heart, href: "/marriage/" },
-  { name: "Vastu", icon: Home, href: "/vastu/" },
-  { name: "Numerology", icon: Hash, href: "/numerology/" },
-  { name: "Gemstones", icon: Gem, href: "/gemstones/" },
-  { name: "Puja", icon: Flame, href: "/puja/" },
+// Service keys for translation lookup
+const serviceKeys = [
+  { key: "kundali", icon: ScrollText, href: "/kundali/" },
+  { key: "career", icon: Briefcase, href: "/career/" },
+  { key: "muhurat", icon: Calendar, href: "/mahurat/" },
+  { key: "marriage", icon: Heart, href: "/marriage/" },
+  { key: "vastu", icon: Home, href: "/vastu/" },
+  { key: "numerology", icon: Hash, href: "/numerology/" },
+  { key: "gemstones", icon: Gem, href: "/gemstones/" },
+  { key: "puja", icon: Flame, href: "/puja/" },
 ];
 
+// Navigation label keys for translation
+const navLabelKeys: Record<string, string> = {
+  "Home": "nav.home",
+  "About": "nav.about",
+  "Services": "nav.services",
+  "Zodiac Signs": "nav.zodiacSigns",
+  "Reviews": "nav.reviews",
+  "Book Appointment": "nav.bookAppointment",
+};
+
+// Service nav label keys
+const serviceNavLabelKeys: Record<string, string> = {
+  "All Services": "nav.allServices",
+  "Kundali Making": "services.kundali.title",
+  "Career & Business": "services.career.title",
+  "Muhurat Advice": "services.muhurat.title",
+  "Marriage Matching": "services.marriage.title",
+  "Vastu Shastra": "services.vastu.title",
+  "Numerology": "services.numerology.title",
+  "Gemstones": "services.gemstones.title",
+};
+
+// Zodiac sign keys for translation
+const zodiacKeys: Record<string, string> = {
+  "Aries": "zodiac.aries",
+  "Taurus": "zodiac.taurus",
+  "Gemini": "zodiac.gemini",
+  "Cancer": "zodiac.cancer",
+  "Leo": "zodiac.leo",
+  "Virgo": "zodiac.virgo",
+  "Libra": "zodiac.libra",
+  "Scorpio": "zodiac.scorpio",
+  "Sagittarius": "zodiac.sagittarius",
+  "Capricorn": "zodiac.capricorn",
+  "Aquarius": "zodiac.aquarius",
+  "Pisces": "zodiac.pisces",
+};
+
 export default function Header() {
+  const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isZodiacOpen, setIsZodiacOpen] = useState(false);
@@ -28,12 +70,12 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--background)]/95 backdrop-blur-md border-b border-[var(--gold-muted)]">
       {/* Top Bar */}
-      <div className="bg-[var(--background-secondary)] py-2.5 hidden md:block overflow-hidden">
+      <div className="bg-[var(--background-secondary)] py-2.5 hidden md:block relative z-20">
         <div className="container flex justify-between items-center text-sm">
           <div className="flex items-center gap-2">
-            {services.map((service, index) => (
+            {serviceKeys.map((service, index) => (
               <motion.div
-                key={service.name}
+                key={service.key}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
@@ -46,24 +88,27 @@ export default function Header() {
                   <div className="absolute inset-0 rounded-full bg-[var(--gold)]/0 group-hover:bg-[var(--gold)]/5 blur-sm transition-all duration-300" />
                   <service.icon size={12} className="text-[var(--gold)] relative z-10" />
                   <span className="text-[var(--foreground-muted)] group-hover:text-[var(--gold-light)] transition-colors duration-300 text-xs font-medium tracking-wide relative z-10">
-                    {service.name}
+                    {t(`services.${service.key}.name`)}
                   </span>
                 </Link>
               </motion.div>
             ))}
           </div>
-          <a
-            href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
-            className="flex items-center gap-2 text-[var(--gold)] hover:text-[var(--gold-light)] transition-colors"
-          >
-            <Phone size={14} />
-            <span>{CONTACT_INFO.phone}</span>
-          </a>
+          <div className="flex items-center gap-4">
+            <LanguageSelector variant="compact" />
+            <a
+              href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
+              className="flex items-center gap-2 text-[var(--gold)] hover:text-[var(--gold-light)] transition-colors"
+            >
+              <Phone size={14} />
+              <span>{CONTACT_INFO.phone}</span>
+            </a>
+          </div>
         </div>
       </div>
 
       {/* Main Navigation */}
-      <nav className="container py-4">
+      <nav className="container py-4 relative z-10">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
@@ -72,10 +117,10 @@ export default function Header() {
             </div>
             <div className="hidden sm:block">
               <h1 className="text-lg font-[var(--font-heading)] text-gradient-gold tracking-wider leading-tight">
-                {SITE_CONFIG.name}
+                {t("common.siteName")}
               </h1>
               <p className="text-xs text-[var(--foreground-muted)] tracking-widest uppercase">
-                Vedic Astrology
+                {t("common.tagline")}
               </p>
             </div>
           </Link>
@@ -91,7 +136,7 @@ export default function Header() {
                   onMouseLeave={() => setIsServicesOpen(false)}
                 >
                   <button className="flex items-center gap-1 text-[var(--foreground)] hover:text-[var(--gold)] transition-colors font-[var(--font-heading)] text-sm tracking-wider uppercase">
-                    {link.label}
+                    {t(navLabelKeys[link.label] || link.label)}
                     <ChevronDown size={14} className={`transition-transform ${isServicesOpen ? "rotate-180" : ""}`} />
                   </button>
                   <AnimatePresence>
@@ -109,7 +154,7 @@ export default function Header() {
                             href={service.href}
                             className="block px-4 py-2 text-sm hover:bg-[var(--gold-muted)] hover:text-[var(--gold)] transition-colors"
                           >
-                            {service.label}
+                            {t(serviceNavLabelKeys[service.label] || service.label)}
                           </Link>
                         ))}
                       </motion.div>
@@ -124,7 +169,7 @@ export default function Header() {
                   onMouseLeave={() => setIsZodiacOpen(false)}
                 >
                   <button className="flex items-center gap-1 text-[var(--foreground)] hover:text-[var(--gold)] transition-colors font-[var(--font-heading)] text-sm tracking-wider uppercase">
-                    {link.label}
+                    {t(navLabelKeys[link.label] || link.label)}
                     <ChevronDown size={14} className={`transition-transform ${isZodiacOpen ? "rotate-180" : ""}`} />
                   </button>
                   <AnimatePresence>
@@ -142,7 +187,7 @@ export default function Header() {
                             href={zodiac.href}
                             className="block px-4 py-2 text-sm hover:bg-[var(--gold-muted)] hover:text-[var(--gold)] transition-colors"
                           >
-                            {zodiac.label}
+                            {t(zodiacKeys[zodiac.label] || zodiac.label)}
                           </Link>
                         ))}
                       </motion.div>
@@ -155,7 +200,7 @@ export default function Header() {
                   href={link.href}
                   className="text-[var(--foreground)] hover:text-[var(--gold)] transition-colors font-[var(--font-heading)] text-sm tracking-wider uppercase"
                 >
-                  {link.label}
+                  {t(navLabelKeys[link.label] || link.label)}
                 </Link>
               )
             )}
@@ -168,7 +213,7 @@ export default function Header() {
               className="btn-gold flex items-center gap-2"
             >
               <Phone size={16} />
-              <span className="hidden xl:inline">Call Now</span>
+              <span className="hidden xl:inline">{t("common.callNow")}</span>
             </a>
           </div>
 
@@ -193,6 +238,11 @@ export default function Header() {
             className="lg:hidden bg-[var(--background-secondary)] border-t border-[var(--gold-muted)]"
           >
             <div className="container py-4 space-y-4">
+              {/* Language Selector for Mobile */}
+              <div className="pb-4 border-b border-[var(--gold-muted)]">
+                <LanguageSelector />
+              </div>
+              
               {NAV_LINKS.map((link) =>
                 link.hasDropdown && link.dropdownType === "services" ? (
                   <div key={link.href}>
@@ -200,7 +250,7 @@ export default function Header() {
                       onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                       className="flex items-center justify-between w-full py-2 text-[var(--foreground)] font-[var(--font-heading)] tracking-wider uppercase"
                     >
-                      {link.label}
+                      {t(navLabelKeys[link.label] || link.label)}
                       <ChevronDown
                         size={16}
                         className={`transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`}
@@ -221,7 +271,7 @@ export default function Header() {
                               className="block py-1 text-sm text-[var(--foreground-muted)] hover:text-[var(--gold)]"
                               onClick={() => setIsMenuOpen(false)}
                             >
-                              {service.label}
+                              {t(serviceNavLabelKeys[service.label] || service.label)}
                             </Link>
                           ))}
                         </motion.div>
@@ -234,7 +284,7 @@ export default function Header() {
                       onClick={() => setMobileZodiacOpen(!mobileZodiacOpen)}
                       className="flex items-center justify-between w-full py-2 text-[var(--foreground)] font-[var(--font-heading)] tracking-wider uppercase"
                     >
-                      {link.label}
+                      {t(navLabelKeys[link.label] || link.label)}
                       <ChevronDown
                         size={16}
                         className={`transition-transform ${mobileZodiacOpen ? "rotate-180" : ""}`}
@@ -255,7 +305,7 @@ export default function Header() {
                               className="block py-1 text-sm text-[var(--foreground-muted)] hover:text-[var(--gold)]"
                               onClick={() => setIsMenuOpen(false)}
                             >
-                              {zodiac.label}
+                              {t(zodiacKeys[zodiac.label] || zodiac.label)}
                             </Link>
                           ))}
                         </motion.div>
@@ -269,7 +319,7 @@ export default function Header() {
                     className="block py-2 text-[var(--foreground)] hover:text-[var(--gold)] font-[var(--font-heading)] tracking-wider uppercase"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    {link.label}
+                    {t(navLabelKeys[link.label] || link.label)}
                   </Link>
                 )
               )}
@@ -279,7 +329,7 @@ export default function Header() {
                   className="btn-gold w-full flex items-center justify-center gap-2"
                 >
                   <Phone size={16} />
-                  <span>Call {CONTACT_INFO.phone}</span>
+                  <span>{t("home.cta.call")} {CONTACT_INFO.phone}</span>
                 </a>
               </div>
             </div>

@@ -9,10 +9,13 @@ import TestimonialCarousel from "@/components/TestimonialCarousel";
 import ZodiacCard from "@/components/ZodiacCard";
 import { services } from "@/data/services";
 import { zodiacSigns } from "@/data/zodiac-signs";
-import { SITE_CONFIG, CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO } from "@/lib/constants";
 import { averageRating, totalReviews, yearsOfExperience, totalConsultations, countriesServed } from "@/data/testimonials";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function HomePage() {
+  const { t } = useLanguage();
+  
   return (
     <>
       {/* Hero Section */}
@@ -29,13 +32,11 @@ export default function HomePage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">Our </span>
-              <span className="text-gradient-gold">Services</span>
+              <span className="text-gradient-gold">{t("services.title")}</span>
             </h2>
             <div className="gold-line w-24 mx-auto mb-4" />
             <p className="text-[var(--foreground-muted)] max-w-2xl mx-auto">
-              Comprehensive astrological services to guide you through life&apos;s journey. 
-              From birth chart analysis to gemstone recommendations.
+              {t("services.subtitle")}
             </p>
           </motion.div>
 
@@ -53,7 +54,7 @@ export default function HomePage() {
             className="text-center mt-10"
           >
             <Link href="/services/" className="btn-outline-gold inline-flex items-center gap-2">
-              View All Services
+              {t("services.viewAllServices")}
               <ArrowRight size={16} />
             </Link>
           </motion.div>
@@ -71,13 +72,11 @@ export default function HomePage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">Explore Your </span>
-              <span className="text-gradient-gold">Zodiac Sign</span>
+              <span className="text-gradient-gold">{t("zodiac.title")}</span>
             </h2>
             <div className="gold-line w-24 mx-auto mb-4" />
             <p className="text-[var(--foreground-muted)] max-w-2xl mx-auto">
-              Discover insights about your personality, compatibility, career prospects, 
-              and more based on your zodiac sign.
+              {t("zodiac.subtitle")}
             </p>
           </motion.div>
 
@@ -100,28 +99,23 @@ export default function HomePage() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl md:text-4xl font-[var(--font-heading)] mb-6">
-                <span className="text-[var(--foreground)]">Meet </span>
-                <span className="text-gradient-gold">{SITE_CONFIG.name}</span>
+                <span className="text-[var(--foreground)]">{t("home.about.title")} </span>
+                <span className="text-gradient-gold">{t("common.siteName")}</span>
               </h2>
               <div className="gold-line-left w-16 mb-6" />
               
               <div className="space-y-4 text-[var(--foreground-muted)] leading-relaxed">
                 <p>
-                  With over {yearsOfExperience} years of dedicated practice in Vedic astrology, {SITE_CONFIG.name}{" "}
-                  has guided thousands of individuals on their life paths. His expertise spans 
-                  across horoscope reading, kundali analysis, numerology, vastu shastra, and 
-                  gemstone consultation.
+                  {t("about.description1", { years: yearsOfExperience })}
                 </p>
                 <p>
-                  Based in Rohini, Delhi, he combines ancient Vedic wisdom with practical 
-                  modern solutions to help clients navigate life&apos;s challenges in career, 
-                  relationships, health, and personal growth.
+                  {t("home.about.description2")}
                 </p>
               </div>
 
               <div className="flex flex-wrap gap-4 mt-8">
                 <Link href="/about/" className="btn-gold">
-                  Learn More About Me
+                  {t("home.about.learnMoreAboutMe")}
                 </Link>
                 <a
                   href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
@@ -141,10 +135,10 @@ export default function HomePage() {
             >
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { number: `${yearsOfExperience}+`, label: "Years of Experience" },
-                  { number: `${(totalConsultations / 1000).toFixed(0)}K+`, label: "Consultations Done" },
-                  { number: String(averageRating), label: "Average Rating" },
-                  { number: `${countriesServed}+`, label: "Countries Served" },
+                  { number: `${yearsOfExperience}+`, label: t("home.stats.yearsExperience") },
+                  { number: `${(totalConsultations / 1000).toFixed(0)}K+`, label: t("home.stats.consultationsDone") },
+                  { number: String(averageRating), label: t("home.stats.averageRating") },
+                  { number: `${countriesServed}+`, label: t("home.stats.countriesServed") },
                 ].map((stat, index) => (
                   <motion.div
                     key={index}
@@ -174,7 +168,7 @@ export default function HomePage() {
                 <div className="flex items-center justify-center gap-3 text-center">
                   <span className="text-2xl">🌍</span>
                   <span className="text-[var(--foreground)] font-[var(--font-heading)] tracking-wide">
-                    Trusted by clients in <span className="text-[var(--gold)]">{countriesServed}+ countries</span> worldwide
+                    {t("home.stats.globalReach")} <span className="text-[var(--gold)]">{countriesServed}+</span> {t("home.stats.countriesWorldwide")}
                   </span>
                 </div>
               </motion.div>
@@ -194,13 +188,12 @@ export default function HomePage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">Client </span>
-              <span className="text-gradient-gold">Testimonials</span>
+              <span className="text-gradient-gold">{t("home.testimonials.title")}</span>
             </h2>
             <div className="gold-line w-24 mx-auto mb-4" />
             <div className="flex items-center justify-center gap-2 text-[var(--foreground-muted)]">
               <Star size={20} className="text-[var(--gold)]" fill="var(--gold)" />
-              <span>{averageRating} rating from {totalReviews}+ reviews</span>
+              <span>{averageRating} {t("home.testimonials.ratingFrom")} {totalReviews}+ {t("home.testimonials.reviews")}</span>
             </div>
           </motion.div>
 
@@ -214,7 +207,7 @@ export default function HomePage() {
             className="text-center mt-10"
           >
             <Link href="/reviews/" className="btn-outline-gold inline-flex items-center gap-2">
-              Read All Reviews
+              {t("home.testimonials.readAllReviews")}
               <ArrowRight size={16} />
             </Link>
           </motion.div>
@@ -233,23 +226,21 @@ export default function HomePage() {
             className="text-center max-w-3xl mx-auto"
           >
             <h2 className="text-3xl md:text-5xl font-[var(--font-heading)] mb-6">
-              <span className="text-[var(--foreground)]">Ready to </span>
-              <span className="text-gradient-gold">Transform Your Life?</span>
+              <span className="text-gradient-gold">{t("home.cta.title")}</span>
             </h2>
             <p className="text-lg text-[var(--foreground-muted)] mb-8">
-              Book a personalized consultation with {SITE_CONFIG.name} and get 
-              clarity on your life path, career, relationships, and more.
+              {t("home.cta.subtitle")}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact/" className="btn-gold">
-                Book Consultation Now
+                {t("home.cta.bookConsultation")}
               </Link>
               <a
                 href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
                 className="btn-outline-gold flex items-center gap-2"
               >
                 <Phone size={18} />
-                Call {CONTACT_INFO.phone}
+                {t("home.cta.call")} {CONTACT_INFO.phone}
               </a>
             </div>
           </motion.div>

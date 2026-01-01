@@ -1,11 +1,49 @@
+"use client";
+
 import Link from "next/link";
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import { SiFacebook, SiInstagram, SiYoutube } from "react-icons/si";
-import { CONTACT_INFO, SOCIAL_LINKS, FOOTER_LINKS, SITE_CONFIG, ZODIAC_NAV_LINKS } from "@/lib/constants";
+import { CONTACT_INFO, SOCIAL_LINKS, FOOTER_LINKS, ZODIAC_NAV_LINKS } from "@/lib/constants";
 import { yearsOfExperience } from "@/data/testimonials";
 import Logo from "./Logo";
+import { useLanguage } from "@/contexts/LanguageContext";
+
+// Footer service label keys for translation
+const footerServiceKeys: Record<string, string> = {
+  "All Services": "nav.allServices",
+  "Kundali Making": "services.kundali.title",
+  "Career & Business": "services.career.title",
+  "Muhurat Advice": "services.muhurat.title",
+  "Numerology": "services.numerology.title",
+  "Vastu Shastra": "services.vastu.title",
+  "Gemstone Consultation": "services.gemstones.title",
+};
+
+// Footer info label keys
+const footerInfoKeys: Record<string, string> = {
+  "About": "nav.about",
+  "Client Reviews": "nav.reviews",
+  "Contact": "nav.contact",
+};
+
+// Zodiac sign keys for translation
+const zodiacKeys: Record<string, string> = {
+  "Aries": "zodiac.aries",
+  "Taurus": "zodiac.taurus",
+  "Gemini": "zodiac.gemini",
+  "Cancer": "zodiac.cancer",
+  "Leo": "zodiac.leo",
+  "Virgo": "zodiac.virgo",
+  "Libra": "zodiac.libra",
+  "Scorpio": "zodiac.scorpio",
+  "Sagittarius": "zodiac.sagittarius",
+  "Capricorn": "zodiac.capricorn",
+  "Aquarius": "zodiac.aquarius",
+  "Pisces": "zodiac.pisces",
+};
 
 export default function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -21,16 +59,15 @@ export default function Footer() {
               </div>
               <div>
                 <h3 className="text-lg font-[var(--font-heading)] text-gradient-gold tracking-wider leading-tight">
-                  {SITE_CONFIG.name}
+                  {t("common.siteName")}
                 </h3>
                 <p className="text-xs text-[var(--foreground-muted)] tracking-widest uppercase">
-                  Vedic Astrology
+                  {t("common.tagline")}
                 </p>
               </div>
             </div>
             <p className="text-[var(--foreground-muted)] mb-6 leading-relaxed">
-              Renowned Vedic astrologer with over {yearsOfExperience} years of experience providing guidance in astrology, 
-              numerology, vastu shastra, and gemstone consultation.
+              {t("common.metaDescription")}
             </p>
             {/* Social Links */}
             <div className="flex gap-4">
@@ -76,7 +113,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="font-[var(--font-heading)] text-lg mb-6 text-[var(--gold)] tracking-wider">
-              Services
+              {t("footer.services")}
             </h4>
             <ul className="space-y-3">
               {FOOTER_LINKS.services.map((link) => (
@@ -85,7 +122,7 @@ export default function Footer() {
                     href={link.href}
                     className="text-[var(--foreground-muted)] hover:text-[var(--gold)] transition-colors"
                   >
-                    {link.label}
+                    {t(footerServiceKeys[link.label] || link.label)}
                   </Link>
                 </li>
               ))}
@@ -95,7 +132,7 @@ export default function Footer() {
           {/* Zodiac Signs */}
           <div>
             <h4 className="font-[var(--font-heading)] text-lg mb-6 text-[var(--gold)] tracking-wider">
-              Zodiac Signs
+              {t("footer.zodiacSigns")}
             </h4>
             <ul className="grid grid-cols-2 gap-2">
               {ZODIAC_NAV_LINKS.map((link) => (
@@ -104,7 +141,7 @@ export default function Footer() {
                     href={link.href}
                     className="text-[var(--foreground-muted)] hover:text-[var(--gold)] transition-colors text-sm"
                   >
-                    {link.label}
+                    {t(zodiacKeys[link.label] || link.label)}
                   </Link>
                 </li>
               ))}
@@ -114,7 +151,7 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h4 className="font-[var(--font-heading)] text-lg mb-6 text-[var(--gold)] tracking-wider">
-              Contact Us
+              {t("footer.contactUs")}
             </h4>
             <ul className="space-y-4">
               <li>
@@ -144,9 +181,9 @@ export default function Footer() {
                 >
                   <MapPin size={18} className="text-[var(--gold)] mt-1 flex-shrink-0" />
                   <span className="leading-relaxed">
-                    {CONTACT_INFO.address.line1}<br />
-                    {CONTACT_INFO.address.line2}<br />
-                    {CONTACT_INFO.address.city}, {CONTACT_INFO.address.pincode}
+                    {t("address.line1")}<br />
+                    {t("address.line2")}<br />
+                    {t("address.city")}, {t("address.pincode")}
                   </span>
                 </a>
               </li>
@@ -159,14 +196,14 @@ export default function Footer() {
       <div className="border-t border-[var(--gold-muted)]">
         <div className="container py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[var(--foreground-muted)]">
           <p>
-            © {currentYear} {SITE_CONFIG.title}. All rights reserved.
+            © {currentYear} {t("common.siteName")}. {t("footer.copyright")}
           </p>
           <div className="flex gap-6">
             <Link href="/contact/" className="hover:text-[var(--gold)] transition-colors">
-              Contact
+              {t("nav.contact")}
             </Link>
             <Link href="/about/" className="hover:text-[var(--gold)] transition-colors">
-              About
+              {t("nav.about")}
             </Link>
           </div>
         </div>

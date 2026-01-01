@@ -4,11 +4,12 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Phone, Star, Calendar } from "lucide-react";
-import { SITE_CONFIG, CONTACT_INFO, getImagePath } from "@/lib/constants";
-import { serviceHighlights } from "@/data/services";
-import { averageRating, yearsOfExperience } from "@/data/testimonials";
+import { CONTACT_INFO, getImagePath } from "@/lib/constants";
+import { averageRating, yearsOfExperience, totalConsultations, countriesServed } from "@/data/testimonials";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function HeroSection() {
+  const { t } = useLanguage();
   return (
     <section className="relative min-h-[90vh] flex items-center particles-bg overflow-hidden">
       {/* Background gradient */}
@@ -31,7 +32,7 @@ export default function HeroSection() {
             >
               <Star size={16} className="text-[var(--gold)]" fill="var(--gold)" />
               <span className="text-sm text-[var(--gold)] font-medium">
-                {averageRating} Rating • {yearsOfExperience}+ Years Experience
+                {averageRating} {t("home.stats.averageRating")} • {yearsOfExperience}+ {t("home.stats.yearsExperience")}
               </span>
             </motion.div>
 
@@ -41,11 +42,9 @@ export default function HeroSection() {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="text-4xl md:text-5xl lg:text-6xl font-[var(--font-heading)] mb-6 leading-tight"
             >
-              <span className="text-[var(--foreground)]">Discover Your </span>
-              <span className="text-gradient-gold">Destiny</span>
+              <span className="text-gradient-gold">{t("home.hero.title")}</span>
               <br />
-              <span className="text-[var(--foreground)]">with </span>
-              <span className="text-gradient-gold">{SITE_CONFIG.name}</span>
+              <span className="text-gradient-gold">{t("common.siteName")}</span>
             </motion.h1>
 
             <motion.p
@@ -54,9 +53,7 @@ export default function HeroSection() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-lg text-[var(--foreground-muted)] mb-8 max-w-lg leading-relaxed"
             >
-              {SITE_CONFIG.tagline}. Get personalized Vedic astrology readings, 
-              numerology insights, vastu consultation, and gemstone recommendations 
-              to guide your life journey.
+              {t("home.hero.subtitle")}
             </motion.p>
 
             <motion.div
@@ -67,14 +64,14 @@ export default function HeroSection() {
             >
               <Link href="/contact/" className="btn-gold flex items-center gap-2">
                 <Calendar size={18} />
-                Book Consultation
+                {t("home.hero.cta")}
               </Link>
               <a
                 href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
                 className="btn-outline-gold flex items-center gap-2"
               >
                 <Phone size={18} />
-                Call Now
+                {t("common.callNow")}
               </a>
             </motion.div>
 
@@ -85,13 +82,18 @@ export default function HeroSection() {
               transition={{ delay: 0.6, duration: 0.6 }}
               className="grid grid-cols-2 md:grid-cols-4 gap-6"
             >
-              {serviceHighlights.map((stat, index) => (
+              {[
+                { number: `${yearsOfExperience}+`, labelKey: "home.stats.yearsExperience" },
+                { number: `${totalConsultations.toLocaleString()}+`, labelKey: "home.stats.consultationsDone" },
+                { number: `${countriesServed}+`, labelKey: "home.stats.countriesServed" },
+                { number: String(averageRating), labelKey: "home.stats.averageRating" },
+              ].map((stat, index) => (
                 <div key={index} className="text-center md:text-left">
                   <div className="text-2xl md:text-3xl font-[var(--font-heading)] text-[var(--gold)] mb-1">
                     {stat.number}
                   </div>
                   <div className="text-xs text-[var(--foreground-muted)] uppercase tracking-wider">
-                    {stat.label}
+                    {t(stat.labelKey)}
                   </div>
                 </div>
               ))}
@@ -113,8 +115,8 @@ export default function HeroSection() {
               {/* Image */}
               <div className="relative w-full h-full bg-[var(--background-secondary)] rounded-lg overflow-hidden border border-[var(--gold-muted)]">
                 <Image
-                  src={getImagePath("/images/homepage2.jpg")}
-                  alt={`${SITE_CONFIG.name} - Vedic Astrologer`}
+                  src={getImagePath("/images/homepage.PNG")}
+                  alt={`${t("common.siteName")} - ${t("common.tagline")}`}
                   fill
                   className="object-cover object-top"
                   priority
@@ -131,8 +133,8 @@ export default function HeroSection() {
                 <div className="flex items-center gap-2">
                   <Star size={20} fill="currentColor" />
                   <div>
-                    <div className="font-[var(--font-heading)] font-bold">{yearsOfExperience}+ Years</div>
-                    <div className="text-xs opacity-80">Experience</div>
+                    <div className="font-[var(--font-heading)] font-bold">{yearsOfExperience}+</div>
+                    <div className="text-xs opacity-80">{t("home.stats.yearsExperience")}</div>
                   </div>
                 </div>
               </motion.div>

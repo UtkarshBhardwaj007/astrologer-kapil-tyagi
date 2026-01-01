@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import type { ZodiacSign } from "@/data/zodiac-signs";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ZodiacCardProps {
   sign: ZodiacSign;
@@ -10,6 +11,8 @@ interface ZodiacCardProps {
 }
 
 export default function ZodiacCard({ sign, index }: ZodiacCardProps) {
+  const { t } = useLanguage();
+  
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
@@ -26,7 +29,7 @@ export default function ZodiacCard({ sign, index }: ZodiacCardProps) {
 
           {/* Name */}
           <h3 className="font-[var(--font-heading)] text-xs sm:text-sm text-[var(--foreground)] group-hover:text-[var(--gold)] transition-colors leading-tight">
-            {sign.name}
+            {t(`zodiac.${sign.id}`)}
           </h3>
         </div>
       </Link>

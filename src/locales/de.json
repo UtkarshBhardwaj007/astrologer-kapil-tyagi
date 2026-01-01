@@ -1,0 +1,234 @@
+{
+  "common": {
+    "siteName": "Astrologe Kapil Tyagi",
+    "tagline": "Vedische Astrologie",
+    "metaDescription": "Renommierter vedischer Astrologe mit über 25 Jahren Erfahrung in Astrologie, Numerologie, Vastu Shastra und Edelsteinberatung.",
+    "learnMore": "Mehr erfahren",
+    "bookNow": "Jetzt buchen",
+    "callNow": "Jetzt anrufen",
+    "getDirections": "Wegbeschreibung",
+    "viewAll": "Alle anzeigen",
+    "readMore": "Weiterlesen",
+    "hoverToViewDetails": "Zum Anzeigen der Details hovern",
+    "mondayToSunday": "Montag - Sonntag"
+  },
+  "nav": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "services": "Dienstleistungen",
+    "zodiacSigns": "Sternzeichen",
+    "reviews": "Bewertungen",
+    "bookAppointment": "Termin buchen",
+    "contact": "Kontakt",
+    "allServices": "Alle Dienstleistungen"
+  },
+  "services": {
+    "title": "Unsere Dienstleistungen",
+    "subtitle": "Umfassende astrologische Dienstleistungen, um Sie durch Ihre Lebensreise zu führen. Von der Geburtshoroskop-Analyse bis zur Edelsteinempfehlung.",
+    "viewAllServices": "Alle Dienstleistungen anzeigen",
+    "kundali": {
+      "name": "Kundali",
+      "title": "Kundali-Erstellung",
+      "shortDescription": "Umfassende Geburtshoroskop-Erstellung und Lebensvorhersagen"
+    },
+    "career": {
+      "name": "Karriere",
+      "title": "Karriere & Geschäft",
+      "shortDescription": "Professionelle Beratung für Karrierewachstum und Geschäftserfolg"
+    },
+    "muhurat": {
+      "name": "Muhurat",
+      "title": "Muhurat-Beratung",
+      "shortDescription": "Günstige Zeitpunkte für wichtige Lebensereignisse"
+    },
+    "marriage": {
+      "name": "Ehe",
+      "title": "Ehekompatibilität",
+      "shortDescription": "Kundali-Abgleich für eheliche Zwecke"
+    },
+    "vastu": {
+      "name": "Vastu",
+      "title": "Vastu Shastra",
+      "shortDescription": "Haus- und Büro-Vastu-Analyse und Abhilfen"
+    },
+    "numerology": {
+      "name": "Numerologie",
+      "title": "Numerologie",
+      "shortDescription": "Namensanalyse und Glückszahlenberatung"
+    },
+    "gemstones": {
+      "name": "Edelsteine",
+      "title": "Edelsteinempfehlung",
+      "shortDescription": "Personalisierte Edelsteinvorschläge basierend auf Ihrem Horoskop"
+    },
+    "puja": {
+      "name": "Puja",
+      "title": "Puja & Abhilfen",
+      "shortDescription": "Maßgeschneiderte Puja-Dienste und astrologische Abhilfen"
+    },
+    "horoscope": {
+      "name": "Horoskop",
+      "title": "Horoskop-Lesung",
+      "shortDescription": "Tägliche, wöchentliche, monatliche und jährliche Vorhersagen"
+    },
+    "rudraksha": {
+      "name": "Rudraksha",
+      "title": "Rudraksha-Beratung",
+      "shortDescription": "Heilige Rudraksha-Perlen für spirituelles Wachstum"
+    }
+  },
+  "zodiac": {
+    "title": "Entdecken Sie Ihr Sternzeichen",
+    "subtitle": "Entdecken Sie Einblicke in Ihre Persönlichkeit, Kompatibilität, Karrierechancen und mehr basierend auf Ihrem Sternzeichen.",
+    "aries": "Widder",
+    "taurus": "Stier",
+    "gemini": "Zwillinge",
+    "cancer": "Krebs",
+    "leo": "Löwe",
+    "virgo": "Jungfrau",
+    "libra": "Waage",
+    "scorpio": "Skorpion",
+    "sagittarius": "Schütze",
+    "capricorn": "Steinbock",
+    "aquarius": "Wassermann",
+    "pisces": "Fische"
+  },
+  "home": {
+    "hero": {
+      "title": "Entdecken Sie Ihr Schicksal",
+      "subtitle": "Entschlüsseln Sie die Geheimnisse der Sterne mit personalisierten vedischen Astrologie-Lesungen",
+      "cta": "Beratung buchen"
+    },
+    "about": {
+      "title": "Lernen Sie kennen",
+      "description1": "hat Tausende von Menschen auf ihrem Lebensweg begleitet. Seine Expertise umfasst Horoskop-Lesungen, Kundali-Analyse, Numerologie, Vastu Shastra und Edelsteinberatung.",
+      "description2": "Mit Sitz in Rohini, Delhi, verbindet er uralte vedische Weisheit mit praktischen modernen Lösungen, um Kunden bei Karriere, Beziehungen, Gesundheit und persönlichem Wachstum zu helfen.",
+      "learnMoreAboutMe": "Mehr über mich erfahren"
+    },
+    "stats": {
+      "yearsExperience": "Jahre Erfahrung",
+      "consultationsDone": "Beratungen durchgeführt",
+      "averageRating": "Durchschnittliche Bewertung",
+      "countriesServed": "Länder bedient",
+      "globalReach": "Vertraut von Kunden in",
+      "countriesWorldwide": "Ländern weltweit"
+    },
+    "testimonials": {
+      "title": "Kundenstimmen",
+      "ratingFrom": "Bewertung von",
+      "reviews": "Bewertungen",
+      "readAllReviews": "Alle Bewertungen lesen"
+    },
+    "cta": {
+      "title": "Bereit, Ihr Leben zu verändern?",
+      "subtitle": "Buchen Sie eine personalisierte Beratung und gewinnen Sie Klarheit über Ihren Lebensweg, Karriere, Beziehungen und mehr.",
+      "bookConsultation": "Jetzt Beratung buchen",
+      "call": "Anrufen"
+    }
+  },
+  "about": {
+    "title": "Über",
+    "description1": "ist ein renommierter vedischer Astrologe mit über {years} Jahren engagierter Praxis in Astrologie, Numerologie, Vastu Shastra und Edelsteinberatung. Mit Sitz in Rohini, Delhi, hat er Tausenden von Menschen geholfen, Lebensherausforderungen zu meistern und fundierte Entscheidungen zu treffen.",
+    "description2": "Seine Reise in die mystische Welt der vedischen Astrologie begann in jungen Jahren, inspiriert von der über Generationen weitergegebenen alten Weisheit. Durch Jahre des intensiven Studiums und der Praxis hat er die Kunst des Lesens himmlischer Muster und ihrer Auswirkungen auf das menschliche Leben gemeistert.",
+    "description3": "Was ihn auszeichnet, ist sein praktischer Ansatz zur Astrologie. Er glaubt daran, umsetzbare Anleitungen zu geben, die Kunden in ihrem täglichen Leben anwenden können, anstatt abstrakte Vorhersagen. Seine Abhilfen sind einfach, effektiv und in vedischen Traditionen verwurzelt.",
+    "whyChoose": "Warum wählen",
+    "credentials": {
+      "experience": "{years}+ Jahre Erfahrung",
+      "experienceDesc": "Engagierte Praxis in vedischer Astrologie und verwandten Wissenschaften",
+      "scholar": "Vedischer Gelehrter",
+      "scholarDesc": "Tiefes Wissen über alte vedische Texte und astrologische Abhandlungen",
+      "consultations": "{count}+ Beratungen",
+      "consultationsDesc": "Von Tausenden Kunden aus Indien und dem Ausland vertraut",
+      "rating": "{rating} Bewertung",
+      "ratingDesc": "Konstant hohe Bewertungen von zufriedenen Kunden"
+    },
+    "expertise": {
+      "title": "Fachgebiete",
+      "subtitle": "Mit umfassendem Wissen in verschiedenen Zweigen der vedischen Astrologie und verwandten Wissenschaften bietet er Beratung in mehreren Bereichen an, um alle Aspekte Ihres Lebens zu adressieren.",
+      "items": {
+        "kundali": "Kundali (Geburtshoroskop) Analyse",
+        "horoscope": "Horoskop-Lesung & Vorhersagen",
+        "marriage": "Ehekompatibilität (Gun Milan)",
+        "career": "Karriere & Geschäftsberatung",
+        "numerology": "Numerologie & Namensanalyse",
+        "vastu": "Vastu Shastra Beratung",
+        "gemstone": "Edelsteinempfehlung",
+        "rudraksha": "Rudraksha-Beratung",
+        "muhurat": "Muhurat-Auswahl",
+        "remedies": "Abhilfen & Pujas"
+      }
+    },
+    "philosophy": {
+      "title": "Philosophie",
+      "quote": "Astrologie geht nicht darum, eine festgelegte Zukunft vorherzusagen, sondern die kosmischen Muster zu verstehen, die unser Leben beeinflussen, und dieses Wissen zu nutzen, um bessere Entscheidungen zu treffen. Die Sterne neigen, sie zwingen nicht.",
+      "description": "glaubt daran, Kunden mit Wissen zu befähigen, anstatt Abhängigkeit zu schaffen. Seine Beratungen konzentrieren sich auf praktische Lösungen und positive Lebensveränderungen."
+    },
+    "getInTouch": "Kontaktieren Sie uns",
+    "bookConsultation": "Buchen Sie Ihre Beratung"
+  },
+  "contact": {
+    "title": "Termin buchen",
+    "subtitle": "Bereit, Ihr Schicksal zu erkunden? Kontaktieren Sie uns für eine personalisierte Beratung. Wir sind hier, um Sie auf Ihrer Lebensreise zu begleiten.",
+    "info": {
+      "title": "Kontaktinformationen",
+      "phone": "Telefon",
+      "phoneDesc": "Für Anrufe und WhatsApp verfügbar",
+      "whatsapp": "WhatsApp",
+      "whatsappDesc": "Schnelle Antworten für Anfragen und Buchungen",
+      "chatWithUs": "Mit uns chatten",
+      "email": "E-Mail",
+      "emailDesc": "Für detaillierte Anfragen und Dokumente",
+      "address": "Adresse",
+      "hours": "Öffnungszeiten",
+      "consultationHours": "Beratungszeiten",
+      "callingHours": "Telefonzeiten"
+    },
+    "businessCard": "Visitenkarte",
+    "quickBooking": {
+      "title": "Schnellbuchung",
+      "subtitle": "Für die schnellste Antwort rufen Sie an oder nutzen Sie WhatsApp",
+      "callNow": "Jetzt anrufen",
+      "whatsappMessage": "WhatsApp-Nachricht"
+    },
+    "prepare": {
+      "title": "Was Sie vorbereiten sollten",
+      "subtitle": "Für eine genaue Lesung halten Sie bitte die folgenden Informationen vor Ihrer Beratung bereit",
+      "dateOfBirth": "Geburtsdatum",
+      "dateOfBirthDesc": "Genaues Datum (TT/MM/JJJJ)",
+      "timeOfBirth": "Geburtszeit",
+      "timeOfBirthDesc": "So genau wie möglich",
+      "placeOfBirth": "Geburtsort",
+      "placeOfBirthDesc": "Stadt und Land",
+      "currentIssues": "Aktuelle Themen",
+      "currentIssuesDesc": "Themen, die Sie besprechen möchten"
+    }
+  },
+  "footer": {
+    "services": "Dienstleistungen",
+    "zodiacSigns": "Sternzeichen",
+    "contactUs": "Kontaktieren Sie uns",
+    "copyright": "Alle Rechte vorbehalten."
+  },
+  "visitingCard": {
+    "servicesBar": "KUNDALI • KARRIERE • MUHURAT • VASTU • NUMEROLOGIE • EDELSTEINE",
+    "tagline": "Jyotish Acharya | Silbermedaillengewinner",
+    "secondaryTagline": "VEDISCHE ASTROLOGIE • SPIRITUELLE FÜHRUNG",
+    "consultation": "Beratung",
+    "calling": "Telefonisch"
+  },
+  "address": {
+    "line1": "B-8/106",
+    "line2": "Sektor 3, Rohini",
+    "city": "Delhi",
+    "pincode": "110085",
+    "country": "Indien",
+    "full": "B-8/106, Sektor 3, Rohini, Delhi 110085, Indien"
+  },
+  "language": {
+    "select": "Sprache",
+    "en": "English",
+    "hi": "हिन्दी",
+    "de": "Deutsch"
+  }
+}
+

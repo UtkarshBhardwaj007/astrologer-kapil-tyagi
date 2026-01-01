@@ -1,0 +1,234 @@
+{
+  "common": {
+    "siteName": "Astrologer Kapil Tyagi",
+    "tagline": "Vedic Astrology",
+    "metaDescription": "Renowned Vedic astrologer with over 25 years of experience in astrology, numerology, vastu shastra, and gemstone consultation.",
+    "learnMore": "Learn More",
+    "bookNow": "Book Now",
+    "callNow": "Call Now",
+    "getDirections": "Get Directions",
+    "viewAll": "View All",
+    "readMore": "Read More",
+    "hoverToViewDetails": "Hover to view details",
+    "mondayToSunday": "Monday - Sunday"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "zodiacSigns": "Zodiac Signs",
+    "reviews": "Reviews",
+    "bookAppointment": "Book Appointment",
+    "contact": "Contact",
+    "allServices": "All Services"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive astrological services to guide you through life's journey. From birth chart analysis to gemstone recommendations.",
+    "viewAllServices": "View All Services",
+    "kundali": {
+      "name": "Kundali",
+      "title": "Kundali Making",
+      "shortDescription": "Comprehensive birth chart creation and life predictions"
+    },
+    "career": {
+      "name": "Career",
+      "title": "Career & Business",
+      "shortDescription": "Professional guidance for career growth and business success"
+    },
+    "muhurat": {
+      "name": "Muhurat",
+      "title": "Muhurat Advice",
+      "shortDescription": "Auspicious timing for important life events"
+    },
+    "marriage": {
+      "name": "Marriage",
+      "title": "Marriage Compatibility",
+      "shortDescription": "Kundali matching for matrimonial purposes"
+    },
+    "vastu": {
+      "name": "Vastu",
+      "title": "Vastu Shastra",
+      "shortDescription": "Home and office Vastu analysis and remedies"
+    },
+    "numerology": {
+      "name": "Numerology",
+      "title": "Numerology",
+      "shortDescription": "Name analysis and lucky number consultation"
+    },
+    "gemstones": {
+      "name": "Gemstones",
+      "title": "Gemstone Recommendation",
+      "shortDescription": "Personalized gemstone suggestions based on your chart"
+    },
+    "puja": {
+      "name": "Puja",
+      "title": "Puja & Remedies",
+      "shortDescription": "Customized puja services and astrological remedies"
+    },
+    "horoscope": {
+      "name": "Horoscope",
+      "title": "Horoscope Reading",
+      "shortDescription": "Daily, weekly, monthly, and yearly predictions"
+    },
+    "rudraksha": {
+      "name": "Rudraksha",
+      "title": "Rudraksha Consultation",
+      "shortDescription": "Sacred Rudraksha beads for spiritual growth"
+    }
+  },
+  "zodiac": {
+    "title": "Explore Your Zodiac Sign",
+    "subtitle": "Discover insights about your personality, compatibility, career prospects, and more based on your zodiac sign.",
+    "aries": "Aries",
+    "taurus": "Taurus",
+    "gemini": "Gemini",
+    "cancer": "Cancer",
+    "leo": "Leo",
+    "virgo": "Virgo",
+    "libra": "Libra",
+    "scorpio": "Scorpio",
+    "sagittarius": "Sagittarius",
+    "capricorn": "Capricorn",
+    "aquarius": "Aquarius",
+    "pisces": "Pisces"
+  },
+  "home": {
+    "hero": {
+      "title": "Discover Your Destiny",
+      "subtitle": "Unlock the secrets of the stars with personalized Vedic astrology readings",
+      "cta": "Book Consultation"
+    },
+    "about": {
+      "title": "Meet",
+      "description1": "has guided thousands of individuals on their life paths. His expertise spans across horoscope reading, kundali analysis, numerology, vastu shastra, and gemstone consultation.",
+      "description2": "Based in Rohini, Delhi, he combines ancient Vedic wisdom with practical modern solutions to help clients navigate life's challenges in career, relationships, health, and personal growth.",
+      "learnMoreAboutMe": "Learn More About Me"
+    },
+    "stats": {
+      "yearsExperience": "Years of Experience",
+      "consultationsDone": "Consultations Done",
+      "averageRating": "Average Rating",
+      "countriesServed": "Countries Served",
+      "globalReach": "Trusted by clients in",
+      "countriesWorldwide": "countries worldwide"
+    },
+    "testimonials": {
+      "title": "Client Testimonials",
+      "ratingFrom": "rating from",
+      "reviews": "reviews",
+      "readAllReviews": "Read All Reviews"
+    },
+    "cta": {
+      "title": "Ready to Transform Your Life?",
+      "subtitle": "Book a personalized consultation and get clarity on your life path, career, relationships, and more.",
+      "bookConsultation": "Book Consultation Now",
+      "call": "Call"
+    }
+  },
+  "about": {
+    "title": "About",
+    "description1": "is a renowned Vedic astrologer with over {years} years of dedicated practice in astrology, numerology, vastu shastra, and gemstone consultation. Based in Rohini, Delhi, he has helped thousands of individuals navigate life's challenges and make informed decisions.",
+    "description2": "His journey into the mystical world of Vedic astrology began in his early years, inspired by the ancient wisdom passed down through generations. Through years of rigorous study and practice, he has mastered the art of reading celestial patterns and their influence on human life.",
+    "description3": "What sets him apart is his practical approach to astrology. He believes in providing actionable guidance that clients can implement in their daily lives, rather than abstract predictions. His remedies are simple, effective, and rooted in Vedic traditions.",
+    "whyChoose": "Why Choose",
+    "credentials": {
+      "experience": "{years}+ Years Experience",
+      "experienceDesc": "Dedicated practice in Vedic astrology and related sciences",
+      "scholar": "Vedic Scholar",
+      "scholarDesc": "Deep knowledge of ancient Vedic texts and astrological treatises",
+      "consultations": "{count}+ Consultations",
+      "consultationsDesc": "Trusted by thousands of clients from India and abroad",
+      "rating": "{rating} Rating",
+      "ratingDesc": "Consistently high ratings from satisfied clients"
+    },
+    "expertise": {
+      "title": "Areas of Expertise",
+      "subtitle": "With comprehensive knowledge across various branches of Vedic astrology and related sciences, offers guidance in multiple areas to address all aspects of your life.",
+      "items": {
+        "kundali": "Kundali (Birth Chart) Analysis",
+        "horoscope": "Horoscope Reading & Predictions",
+        "marriage": "Marriage Compatibility (Gun Milan)",
+        "career": "Career & Business Consultation",
+        "numerology": "Numerology & Name Analysis",
+        "vastu": "Vastu Shastra Consultation",
+        "gemstone": "Gemstone Recommendation",
+        "rudraksha": "Rudraksha Guidance",
+        "muhurat": "Muhurat Selection",
+        "remedies": "Remedial Measures & Pujas"
+      }
+    },
+    "philosophy": {
+      "title": "Philosophy",
+      "quote": "Astrology is not about predicting a fixed future, but about understanding the cosmic patterns that influence our lives and using that knowledge to make better choices. The stars incline, they do not compel.",
+      "description": "believes in empowering clients with knowledge rather than creating dependency. His consultations focus on practical solutions and positive life changes."
+    },
+    "getInTouch": "Get in Touch",
+    "bookConsultation": "Book Your Consultation"
+  },
+  "contact": {
+    "title": "Book an Appointment",
+    "subtitle": "Ready to explore your destiny? Get in touch for a personalized consultation. We're here to guide you on your life journey.",
+    "info": {
+      "title": "Contact Information",
+      "phone": "Phone",
+      "phoneDesc": "Available for calls and WhatsApp",
+      "whatsapp": "WhatsApp",
+      "whatsappDesc": "Quick responses for queries and bookings",
+      "chatWithUs": "Chat with us",
+      "email": "Email",
+      "emailDesc": "For detailed queries and documents",
+      "address": "Address",
+      "hours": "Hours",
+      "consultationHours": "Consultation Hours",
+      "callingHours": "Calling Hours"
+    },
+    "businessCard": "Business Card",
+    "quickBooking": {
+      "title": "Quick Booking",
+      "subtitle": "For fastest response, call or WhatsApp directly",
+      "callNow": "Call Now",
+      "whatsappMessage": "WhatsApp Message"
+    },
+    "prepare": {
+      "title": "What to Prepare",
+      "subtitle": "For an accurate reading, please have the following information ready before your consultation",
+      "dateOfBirth": "Date of Birth",
+      "dateOfBirthDesc": "Exact date (DD/MM/YYYY)",
+      "timeOfBirth": "Time of Birth",
+      "timeOfBirthDesc": "As accurate as possible",
+      "placeOfBirth": "Place of Birth",
+      "placeOfBirthDesc": "City and country",
+      "currentIssues": "Current Issues",
+      "currentIssuesDesc": "Topics you want to discuss"
+    }
+  },
+  "footer": {
+    "services": "Services",
+    "zodiacSigns": "Zodiac Signs",
+    "contactUs": "Contact Us",
+    "copyright": "All rights reserved."
+  },
+  "visitingCard": {
+    "servicesBar": "KUNDALI • CAREER • MUHURAT • VASTU • NUMEROLOGY • GEMSTONES",
+    "tagline": "Jyotish Aacharya | Silver Medalist",
+    "secondaryTagline": "VEDIC ASTROLOGY • SPIRITUAL GUIDANCE",
+    "consultation": "Consultation",
+    "calling": "Calling"
+  },
+  "address": {
+    "line1": "B-8/106",
+    "line2": "Sector 3, Rohini",
+    "city": "Delhi",
+    "pincode": "110085",
+    "country": "India",
+    "full": "B-8/106, Sector 3, Rohini, Delhi - 110085, India"
+  },
+  "language": {
+    "select": "Language",
+    "en": "English",
+    "hi": "हिन्दी",
+    "de": "Deutsch"
+  }
+}
+

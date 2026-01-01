@@ -4,44 +4,38 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Award, BookOpen, Users, Star, Calendar } from "lucide-react";
-import { SITE_CONFIG, CONTACT_INFO, getImagePath } from "@/lib/constants";
+import { CONTACT_INFO, getImagePath } from "@/lib/constants";
 import { averageRating, yearsOfExperience, totalConsultations } from "@/data/testimonials";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function AboutPage() {
+  const { t } = useLanguage();
   const credentials = [
     {
       icon: Award,
-      title: `${yearsOfExperience}+ Years Experience`,
-      description: "Dedicated practice in Vedic astrology and related sciences",
+      title: t("about.credentials.experience", { years: yearsOfExperience }),
+      description: t("about.credentials.experienceDesc"),
     },
     {
       icon: BookOpen,
-      title: "Vedic Scholar",
-      description: "Deep knowledge of ancient Vedic texts and astrological treatises",
+      title: t("about.credentials.scholar"),
+      description: t("about.credentials.scholarDesc"),
     },
     {
       icon: Users,
-      title: `${totalConsultations.toLocaleString()}+ Consultations`,
-      description: "Trusted by thousands of clients from India and abroad",
+      title: t("about.credentials.consultations", { count: totalConsultations.toLocaleString() }),
+      description: t("about.credentials.consultationsDesc"),
     },
     {
       icon: Star,
-      title: `${averageRating} Rating`,
-      description: "Consistently high ratings from satisfied clients",
+      title: t("about.credentials.rating", { rating: averageRating }),
+      description: t("about.credentials.ratingDesc"),
     },
   ];
 
-  const expertise = [
-    "Kundali (Birth Chart) Analysis",
-    "Horoscope Reading & Predictions",
-    "Marriage Compatibility (Gun Milan)",
-    "Career & Business Consultation",
-    "Numerology & Name Analysis",
-    "Vastu Shastra Consultation",
-    "Gemstone Recommendation",
-    "Rudraksha Guidance",
-    "Muhurat Selection",
-    "Remedial Measures & Pujas",
+  const expertiseKeys = [
+    "kundali", "horoscope", "marriage", "career", "numerology",
+    "vastu", "gemstone", "rudraksha", "muhurat", "remedies"
   ];
 
   return (
@@ -65,7 +59,7 @@ export default function AboutPage() {
                 <div className="relative w-full h-full bg-[var(--background)] rounded-lg overflow-hidden border border-[var(--gold-muted)]">
                   <Image
                     src={getImagePath("/images/about-me.jpeg")}
-                    alt={`${SITE_CONFIG.name} - Vedic Astrologer`}
+                    alt={`${t("common.siteName")} - ${t("common.tagline")}`}
                     fill
                     className="object-cover object-top"
                     priority
@@ -81,43 +75,34 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-5xl font-[var(--font-heading)] mb-4">
-                <span className="text-[var(--foreground)]">About </span>
-                <span className="text-gradient-gold">{SITE_CONFIG.name}</span>
+                <span className="text-[var(--foreground)]">{t("about.title")} </span>
+                <span className="text-gradient-gold">{t("common.siteName")}</span>
               </h1>
               <div className="gold-line-left w-16 mb-6" />
               
               <div className="space-y-4 text-[var(--foreground-muted)] leading-relaxed mb-8">
                 <p>
-                  {SITE_CONFIG.name} is a renowned Vedic astrologer with over {yearsOfExperience} years of 
-                  dedicated practice in astrology, numerology, vastu shastra, and gemstone 
-                  consultation. Based in Rohini, Delhi, he has helped thousands of individuals 
-                  navigate life&apos;s challenges and make informed decisions.
+                  {t("about.description1", { years: yearsOfExperience })}
                 </p>
                 <p>
-                  His journey into the mystical world of Vedic astrology began in his early 
-                  years, inspired by the ancient wisdom passed down through generations. 
-                  Through years of rigorous study and practice, he has mastered the art of 
-                  reading celestial patterns and their influence on human life.
+                  {t("about.description2")}
                 </p>
                 <p>
-                  What sets {SITE_CONFIG.name} apart is his practical approach to astrology. 
-                  He believes in providing actionable guidance that clients can implement in 
-                  their daily lives, rather than abstract predictions. His remedies are simple, 
-                  effective, and rooted in Vedic traditions.
+                  {t("about.description3")}
                 </p>
               </div>
 
               <div className="flex flex-wrap gap-4">
                 <Link href="/contact/" className="btn-gold flex items-center gap-2">
                   <Calendar size={18} />
-                  Book Consultation
+                  {t("home.hero.cta")}
                 </Link>
                 <a
                   href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
                   className="btn-outline-gold flex items-center gap-2"
                 >
                   <Phone size={18} />
-                  Call Now
+                  {t("common.callNow")}
                 </a>
               </div>
             </motion.div>
@@ -136,8 +121,8 @@ export default function AboutPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">Why Choose </span>
-              <span className="text-gradient-gold">{SITE_CONFIG.name}</span>
+              <span className="text-[var(--foreground)]">{t("about.whyChoose")} </span>
+              <span className="text-gradient-gold">{t("common.siteName")}</span>
             </h2>
             <div className="gold-line w-24 mx-auto" />
           </motion.div>
@@ -178,19 +163,16 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl md:text-4xl font-[var(--font-heading)] mb-4">
-                <span className="text-[var(--foreground)]">Areas of </span>
-                <span className="text-gradient-gold">Expertise</span>
+                <span className="text-gradient-gold">{t("about.expertise.title")}</span>
               </h2>
               <div className="gold-line-left w-16 mb-6" />
               
               <p className="text-[var(--foreground-muted)] mb-8 leading-relaxed">
-                With comprehensive knowledge across various branches of Vedic astrology 
-                and related sciences, {SITE_CONFIG.name} offers guidance in multiple areas 
-                to address all aspects of your life.
+                {t("about.expertise.subtitle")}
               </p>
 
               <div className="grid sm:grid-cols-2 gap-3">
-                {expertise.map((item, index) => (
+                {expertiseKeys.map((key, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
@@ -200,7 +182,7 @@ export default function AboutPage() {
                     className="flex items-center gap-3"
                   >
                     <div className="w-2 h-2 bg-[var(--gold)] rounded-full flex-shrink-0" />
-                    <span className="text-[var(--foreground-muted)]">{item}</span>
+                    <span className="text-[var(--foreground-muted)]">{t(`about.expertise.items.${key}`)}</span>
                   </motion.div>
                 ))}
               </div>
@@ -214,18 +196,14 @@ export default function AboutPage() {
               className="card p-8"
             >
               <h3 className="text-2xl font-[var(--font-heading)] text-[var(--gold)] mb-6">
-                Philosophy
+                {t("about.philosophy.title")}
               </h3>
               <blockquote className="text-lg text-[var(--foreground)] italic leading-relaxed mb-6">
-                &ldquo;Astrology is not about predicting a fixed future, but about understanding 
-                the cosmic patterns that influence our lives and using that knowledge to 
-                make better choices. The stars incline, they do not compel.&rdquo;
+                &ldquo;{t("about.philosophy.quote")}&rdquo;
               </blockquote>
               <div className="gold-line w-full mb-6" />
               <p className="text-[var(--foreground-muted)]">
-                {SITE_CONFIG.name} believes in empowering clients with knowledge rather 
-                than creating dependency. His consultations focus on practical solutions 
-                and positive life changes.
+                {t("about.philosophy.description")}
               </p>
             </motion.div>
           </div>
@@ -243,8 +221,7 @@ export default function AboutPage() {
             className="max-w-3xl mx-auto text-center"
           >
             <h2 className="text-3xl md:text-4xl font-[var(--font-heading)] mb-4">
-              <span className="text-[var(--foreground)]">Get in </span>
-              <span className="text-gradient-gold">Touch</span>
+              <span className="text-gradient-gold">{t("about.getInTouch")}</span>
             </h2>
             <div className="gold-line w-24 mx-auto mb-8" />
 
@@ -277,13 +254,13 @@ export default function AboutPage() {
               >
                 <MapPin size={28} className="text-[var(--gold)] mx-auto mb-3" />
                 <div className="text-[var(--foreground)] group-hover:text-[var(--gold)] transition-colors text-sm">
-                  Rohini, Delhi
+                  {t("address.line2")}, {t("address.city")}
                 </div>
               </a>
             </div>
 
             <Link href="/contact/" className="btn-gold">
-              Book Your Consultation
+              {t("about.bookConsultation")}
             </Link>
           </motion.div>
         </div>
