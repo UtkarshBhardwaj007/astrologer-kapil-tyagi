@@ -78,13 +78,67 @@ export default function VastuPage() {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <div className="aspect-square relative max-w-md mx-auto">
-                <Image
-                  src={getImagePath("/images/vastu.png")}
-                  alt={t("vastuPage.heroTitle1")}
-                  fill
-                  className="object-contain"
+              {/* Premium golden frame container */}
+              <div className="relative max-w-md mx-auto p-4">
+                {/* Outer glow effect */}
+                <div 
+                  className="absolute inset-0 rounded-2xl blur-xl opacity-30"
+                  style={{
+                    background: "radial-gradient(ellipse at center, #D4AF37 0%, #B8860B 40%, transparent 70%)"
+                  }}
                 />
+                
+                {/* Main frame with double border */}
+                <div 
+                  className="relative rounded-xl p-1"
+                  style={{
+                    background: "linear-gradient(135deg, #FFD700 0%, #D4AF37 25%, #B8860B 50%, #D4AF37 75%, #FFD700 100%)"
+                  }}
+                >
+                  {/* Inner border */}
+                  <div 
+                    className="rounded-lg p-1"
+                    style={{
+                      background: "linear-gradient(135deg, #1A0A0D 0%, #2D0F16 50%, #1A0A0D 100%)"
+                    }}
+                  >
+                    {/* Secondary gold border */}
+                    <div 
+                      className="rounded-md p-0.5"
+                      style={{
+                        background: "linear-gradient(135deg, #CFB53B 0%, #D4AF37 50%, #CFB53B 100%)"
+                      }}
+                    >
+                      {/* Image container */}
+                      <div className="aspect-[2/3] relative rounded overflow-hidden">
+                        <Image
+                          src={getImagePath("/images/vastu.png")}
+                          alt={t("vastuPage.heroTitle1")}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Corner flourishes */}
+                <div className="absolute top-0 left-0 w-8 h-8">
+                  <div className="absolute top-2 left-2 w-full h-[2px]" style={{ background: "linear-gradient(90deg, #FFD700, transparent)" }} />
+                  <div className="absolute top-2 left-2 h-full w-[2px]" style={{ background: "linear-gradient(180deg, #FFD700, transparent)" }} />
+                </div>
+                <div className="absolute top-0 right-0 w-8 h-8">
+                  <div className="absolute top-2 right-2 w-full h-[2px]" style={{ background: "linear-gradient(270deg, #FFD700, transparent)" }} />
+                  <div className="absolute top-2 right-2 h-full w-[2px]" style={{ background: "linear-gradient(180deg, #FFD700, transparent)" }} />
+                </div>
+                <div className="absolute bottom-0 left-0 w-8 h-8">
+                  <div className="absolute bottom-2 left-2 w-full h-[2px]" style={{ background: "linear-gradient(90deg, #FFD700, transparent)" }} />
+                  <div className="absolute bottom-2 left-2 h-full w-[2px]" style={{ background: "linear-gradient(0deg, #FFD700, transparent)" }} />
+                </div>
+                <div className="absolute bottom-0 right-0 w-8 h-8">
+                  <div className="absolute bottom-2 right-2 w-full h-[2px]" style={{ background: "linear-gradient(270deg, #FFD700, transparent)" }} />
+                  <div className="absolute bottom-2 right-2 h-full w-[2px]" style={{ background: "linear-gradient(0deg, #FFD700, transparent)" }} />
+                </div>
               </div>
             </motion.div>
           </div>
