@@ -2,10 +2,10 @@
 @import "tailwindcss";
 
 :root {
-  /* Backgrounds - Premium Reddish Browns */
-  --background: #0D0808;
-  --background-secondary: #1A0A0D;
-  --background-tertiary: #2D0F16;
+  /* Backgrounds - Warm Brown Theme */
+  --background: #1a1512;
+  --background-secondary: #221c18;
+  --background-tertiary: #2d2520;
   --foreground: #f5f0e8;
   --foreground-muted: #b8a898;
   
