@@ -68,7 +68,7 @@ export default function Header() {
   const [mobileZodiacOpen, setMobileZodiacOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--background)]/95 backdrop-blur-md border-b border-[var(--gold-muted)]">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--background-secondary)]/95 backdrop-blur-md border-b border-[var(--gold-muted)]">
       {/* Top Bar */}
       <div className="bg-[var(--background-secondary)] py-2.5 hidden md:block relative z-20">
         <div className="container flex justify-between items-center text-sm">

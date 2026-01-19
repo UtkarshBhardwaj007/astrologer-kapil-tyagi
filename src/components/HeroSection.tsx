@@ -11,9 +11,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 export default function HeroSection() {
   const { t } = useLanguage();
   return (
-    <section className="relative min-h-[90vh] flex items-center particles-bg overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[var(--background)] via-[var(--background-secondary)] to-[var(--background)]" />
+    <section className="relative min-h-[85vh] lg:min-h-[90vh] flex items-start particles-bg overflow-hidden -mt-[120px] md:-mt-[140px] pt-[72px] md:pt-[144px]">
+      {/* Background - extends to cover the header padding area */}
+      <div className="absolute inset-0 bg-[var(--background-secondary)]" />
       
 
       <div className="container relative z-10">
@@ -22,12 +22,12 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="lg:hidden flex justify-center mb-8 pt-6"
+          className="lg:hidden flex justify-center mb-3"
         >
           <div className="relative">
             {/* Decorative rings */}
-            <div className="absolute -inset-3 border-2 border-[var(--gold-muted)] rounded-full" />
-            <div className="absolute -inset-6 border border-[var(--gold-muted)] rounded-full opacity-50" />
+            <div className="absolute -inset-2 border-2 border-[var(--gold-muted)] rounded-full" />
+            <div className="absolute -inset-4 border border-[var(--gold-muted)] rounded-full opacity-50" />
             
             {/* Image container - circular on mobile */}
             <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden border-3 border-[var(--gold)] shadow-xl">
@@ -67,7 +67,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-flex items-center gap-2 bg-[var(--gold-muted)] px-4 py-2 rounded-full mb-6"
+              className="inline-flex items-center gap-2 bg-[var(--gold-muted)] px-4 py-2 rounded-full mb-4 lg:mb-6"
             >
               <Star size={16} className="text-[var(--gold)]" fill="var(--gold)" />
               <span className="text-sm text-[var(--gold)] font-medium">
@@ -79,7 +79,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-[var(--font-heading)] mb-6 leading-tight"
+              className="text-3xl md:text-5xl lg:text-6xl font-[var(--font-heading)] mb-4 lg:mb-6 leading-tight"
             >
               <span className="text-[var(--foreground)]">{t("home.hero.discoverYour")} </span>
               <span className="text-gradient-gold">{t("home.hero.destiny")}</span>
@@ -92,7 +92,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-lg text-[var(--foreground-muted)] mb-8 max-w-lg leading-relaxed mx-auto lg:mx-0"
+              className="text-base lg:text-lg text-[var(--foreground-muted)] mb-5 lg:mb-8 max-w-lg leading-relaxed mx-auto lg:mx-0"
             >
               {t("home.hero.subtitle")}
             </motion.p>
@@ -101,7 +101,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="flex flex-wrap gap-4 mb-10 justify-center lg:justify-start"
+              className="flex flex-wrap gap-3 lg:gap-4 mb-6 lg:mb-10 justify-center lg:justify-start"
             >
               <Link href="/contact/" className="btn-gold flex items-center gap-2">
                 <Calendar size={18} />
