@@ -1,0 +1,48 @@
+{
+  "name": "Astrologer Kapil Tyagi - Best Vedic Astrologer in Delhi",
+  "short_name": "Astrologer Kapil Tyagi",
+  "description": "Consult Delhi's renowned Jyotish Acharya for accurate horoscope reading, Vastu consultation, kundli matching & marriage predictions. 25+ years experience.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a0a0d",
+  "theme_color": "#D4AF37",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-IN",
+  "categories": ["lifestyle", "education"],
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/og-image.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Astrologer Kapil Tyagi Homepage"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

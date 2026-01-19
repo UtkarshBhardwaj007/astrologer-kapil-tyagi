@@ -150,7 +150,7 @@ export default function ReviewsPage() {
                 <div className="w-64 h-64 mx-auto bg-white rounded-lg flex items-center justify-center p-4">
                   <Image
                     src={getImagePath("/images/qrcode.png")}
-                    alt="QR Code to leave a review on Google Maps"
+                    alt="Scan QR Code to Leave a Google Review for Astrologer Kapil Tyagi - Best Astrologer in Delhi"
                     width={240}
                     height={240}
                     className="object-contain"

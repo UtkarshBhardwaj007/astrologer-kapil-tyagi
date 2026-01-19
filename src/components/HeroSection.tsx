@@ -33,7 +33,7 @@ export default function HeroSection() {
             <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden border-3 border-[var(--gold)] shadow-xl">
               <Image
                 src={getImagePath("/images/homepage.PNG")}
-                alt={`${t("common.siteName")} - ${t("common.tagline")}`}
+                alt="Astrologer Kapil Tyagi - Best Vedic Astrologer in Delhi NCR - Jyotish Acharya with 25+ years experience"
                 fill
                 className="object-cover object-top scale-110"
                 priority
@@ -157,7 +157,7 @@ export default function HeroSection() {
               <div className="relative w-full h-full bg-[var(--background-secondary)] rounded-lg overflow-hidden border border-[var(--gold-muted)]">
                 <Image
                   src={getImagePath("/images/homepage.PNG")}
-                  alt={`${t("common.siteName")} - ${t("common.tagline")}`}
+                  alt="Astrologer Kapil Tyagi - Best Vedic Astrologer in Delhi NCR - Jyotish Acharya with 25+ years experience"
                   fill
                   className="object-cover object-top"
                   priority

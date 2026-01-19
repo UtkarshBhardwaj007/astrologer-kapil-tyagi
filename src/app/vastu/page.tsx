@@ -113,7 +113,7 @@ export default function VastuPage() {
                       <div className="aspect-[2/3] relative rounded overflow-hidden">
                         <Image
                           src={getImagePath("/images/vastu.png")}
-                          alt={t("vastuPage.heroTitle1")}
+                          alt="Vastu Consultation Services in Delhi - Vastu Shastra Expert Astrologer Kapil Tyagi for Home, Office and Commercial Properties"
                           fill
                           className="object-cover"
                         />

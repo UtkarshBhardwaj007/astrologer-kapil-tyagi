@@ -59,7 +59,7 @@ export default function AboutPage() {
                 <div className="relative w-full h-full bg-[var(--background)] rounded-lg overflow-hidden border border-[var(--gold-muted)]">
                   <Image
                     src={getImagePath("/images/about-me.jpeg")}
-                    alt={`${t("common.siteName")} - ${t("common.tagline")}`}
+                    alt="Pandit Kapil Tyagi - Famous Jyotish Acharya Delhi with 25+ years experience in Vedic Astrology, Vastu Shastra and Numerology"
                     fill
                     className="object-cover object-top"
                     priority

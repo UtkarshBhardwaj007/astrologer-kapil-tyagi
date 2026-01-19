@@ -1,0 +1,20 @@
+# Robots.txt for astrologerkapiltyagi.com
+# Allow all crawlers to index all pages
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://astrologerkapiltyagi.com/sitemap.xml
+
+# Allow Google and Bing specifically
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block any development or test paths (if any)
+Disallow: /api/
+Disallow: /_next/
+Disallow: /404/
