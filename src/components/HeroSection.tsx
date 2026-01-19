@@ -17,12 +17,51 @@ export default function HeroSection() {
       
 
       <div className="container relative z-10">
+        {/* Mobile Image - Shown only on smaller screens */}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="lg:hidden flex justify-center mb-8 pt-6"
+        >
+          <div className="relative">
+            {/* Decorative rings */}
+            <div className="absolute -inset-3 border-2 border-[var(--gold-muted)] rounded-full" />
+            <div className="absolute -inset-6 border border-[var(--gold-muted)] rounded-full opacity-50" />
+            
+            {/* Image container - circular on mobile */}
+            <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden border-3 border-[var(--gold)] shadow-xl">
+              <Image
+                src={getImagePath("/images/homepage.PNG")}
+                alt={`${t("common.siteName")} - ${t("common.tagline")}`}
+                fill
+                className="object-cover object-top scale-110"
+                priority
+              />
+            </div>
+            
+            {/* Floating badge for mobile */}
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
+              className="absolute -bottom-2 -right-2 bg-[var(--gold)] text-[var(--background)] px-3 py-1.5 rounded-full shadow-lg"
+            >
+              <div className="flex items-center gap-1.5">
+                <Star size={14} fill="currentColor" />
+                <span className="font-[var(--font-heading)] font-bold text-sm">{yearsOfExperience}+ Yrs</span>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
+            className="text-center lg:text-left"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -53,7 +92,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-lg text-[var(--foreground-muted)] mb-8 max-w-lg leading-relaxed"
+              className="text-lg text-[var(--foreground-muted)] mb-8 max-w-lg leading-relaxed mx-auto lg:mx-0"
             >
               {t("home.hero.subtitle")}
             </motion.p>
@@ -62,7 +101,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="flex flex-wrap gap-4 mb-10"
+              className="flex flex-wrap gap-4 mb-10 justify-center lg:justify-start"
             >
               <Link href="/contact/" className="btn-gold flex items-center gap-2">
                 <Calendar size={18} />
@@ -90,7 +129,7 @@ export default function HeroSection() {
                 { number: `${countriesServed}+`, labelKey: "home.stats.countriesServed" },
                 { number: String(averageRating), labelKey: "home.stats.averageRating" },
               ].map((stat, index) => (
-                <div key={index} className="text-center md:text-left">
+                <div key={index} className="text-center lg:text-left">
                   <div className="text-2xl md:text-3xl font-[var(--font-heading)] text-[var(--gold)] mb-1">
                     {stat.number}
                   </div>
@@ -102,7 +141,7 @@ export default function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Image */}
+          {/* Desktop Image - Hidden on smaller screens */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
