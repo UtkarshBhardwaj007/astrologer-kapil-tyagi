@@ -1,7 +1,7 @@
 // Helper function to get correct image path with basePath
+// Note: With a custom domain, no basePath prefix is needed as the site is at root
 export const getImagePath = (path: string): string => {
-  const basePath = process.env.NODE_ENV === "production" ? "/astrologer-kapil-tyagi" : "";
-  return `${basePath}${path}`;
+  return path;
 };
 
 // Statistics Constants (centralized for easy updates)
